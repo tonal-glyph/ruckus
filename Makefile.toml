@@ -1,0 +1,46 @@
+[tasks.fmt]
+script = [
+    "rustfmt && clang-format -i chuck/src/core"
+]
+
+[tasks.clcm]
+script = [
+    "rm -rf **/build **/CMakeFiles CMakeFiles CMakeCache.txt **/CMakeCache.txt **/cmake_install.cmake cmake_install.cmake **/compile_commands.json compile_commands.json"
+]
+
+[tasks.clnj]
+script = [
+    "rm -rf **/.ninja* **/*.ninja .ninja* *.ninja"
+]
+
+[tasks.gen]
+script = [
+    "cd chuck && cmake -G Ninja ."
+]
+dependencies = ["clcm", "clnj"]
+
+[tasks.tags]
+script = [
+    "ptags chuck"
+]
+
+[tasks.flex]
+script = [
+    "LEX=flex flex -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex"
+]
+
+[tasks.flex_win32]
+script = [
+    "LEX=flex flex --nounistd -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex && cat chuck.tab.c chuck.yy.c > $@"
+]
+
+[tasks.yacc]
+script = [
+    "YACC=bison bison -dv -b chuck/src/core/chuck chuck/src/core/chuck.y"
+]
+
+[tasks.run]
+script = [
+    "ninja"
+]
+dependencies = ["fmt", "yacc", "flex", "gen"]

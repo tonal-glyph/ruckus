@@ -1,0 +1,19 @@
+[package]
+name = "ruckus"
+version = "0.1.0"
+build = "build.rs"
+authors = ["Drew Prentice <scalarwaves@null.net>"]
+edition = "2018"
+
+[lib]
+name = "ruckus"
+path = "src/lib.rs"
+
+
+[build-dependencies]
+bindgen = "0.43.0"
+cc = "1.0.25"
+
+[dependencies]
+#libc = "0.2.43"
+#question = "0.2.2"
