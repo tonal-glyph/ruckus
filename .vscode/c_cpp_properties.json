@@ -3,19 +3,18 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/chuck/src/core/**",
-                "${workspaceFolder}/chuck/src/core/lo/**",
-                "${workspaceFolder}/chuck/src/core/regex/**",
-                "${workspaceFolder}/chuck/src/host/**",
                 "/usr/include/c++/8.2.1",
-                "/usr/include/c++/8.2.1/x86_64-pc-linux-gnu"
+                "/usr/include/c++/8.2.1/x86_64-pc-linux-gnu",
+                "${workspaceFolder}/chuck-lib/*.cpp",
+                "${workspaceFolder}/chuck-lib/*.h"
             ],
             "defines": [],
             "compilerPath": "/bin/clang",
             "cStandard": "c11",
-            "cppStandard": "c++14",
+            "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "compile_commands.json"
+            "compileCommands": "compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
         }
     ],
     "version": 4

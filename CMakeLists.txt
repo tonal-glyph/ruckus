@@ -7,19 +7,19 @@ set(EXECUTABLE_OUTPUT_PATH "./bin")   # artifact output dir
 set(LIBRARY_OUTPUT_PATH "./lib")      # shared lib output dir
 
 # set local includes/sources
-include_directories("chuck/src/core" "chuck/src/core/lo" "chuck/src/core/regex" "chuck/src/host" "chuck/src/host/RtAudio")    # includes
-file(GLOB SOURCES "chuck/src/core/*.cpp" "chuck/src/core/lo/*.c" "chuck/src/regex/*.c" "chuck/src/host/*.cpp" "chuck/src/host/RtAudio/*.cpp")  # sources
+include_directories("chuck-lib" "chuck-lib/lo" "chuck-lib/regex")    # includes
+file(GLOB SOURCES "chuck-lib/*.c" "chuck-lib/*.cpp" "chuck-lib/*.h" "chuck-lib/lo/*.c" "chuck-lib/lo/*.h" "chuck-lib/regex/*.c" "chuck-lib/regex/*.h")  # sources
 add_executable(${PROJECT_NAME} ${SOURCES})  # output artifact
 
 ## Using pkg-config -- libnotify install via `sudo apt install libnotify-dev`
-#find_package(PkgConfig REQUIRED)
-#pkg_search_module(LIB_NOTIFY REQUIRED libnotify)
-#target_link_libraries(${PROJECT_NAME} ${LIB_NOTIFY_LIBRARIES})
-#target_include_directories(${PROJECT_NAME} PUBLIC ${LIB_NOTIFY_INCLUDE_DIRS})
-#target_compile_options(${PROJECT_NAME} PUBLIC ${LIB_NOTIFY_CFLAGS_OTHER})
+find_package(PkgConfig REQUIRED)
+pkg_search_module(LIB_NOTIFY REQUIRED libnotify)
+target_link_libraries(${PROJECT_NAME} ${LIB_NOTIFY_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${LIB_NOTIFY_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PUBLIC ${LIB_NOTIFY_CFLAGS_OTHER})
 
 # List all compile flags here
-set(_FLAGS "-std=c++17 -O3 -march=native -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -O3 -fno-strict-aliasing -D__CK_SNDFILE_NATIVE__")
+set(_FLAGS "-O3 -march=native -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -O3 -fno-strict-aliasing -D__CK_SNDFILE_NATIVE__")
 set(CMAKE_C_FLAGS "${_FLAGS}")
 set(CMAKE_CXX_FLAGS "${_FLAGS}")
 

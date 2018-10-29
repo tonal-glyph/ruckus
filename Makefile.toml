@@ -1,7 +1,12 @@
+[tasks.fetch]
+script = [
+    "git submodule update --init --recursive && cp -R chuck/src/core lib"
+]
+
 [tasks.fmt]
 script = [
-    "rustfmt && clang-format -i chuck/src/core"
-]
+    "cargo fmt --all && clang-format -i lib/*.c lib/*.h lib/*.cpp lib/lo/*.c lib/lo/*.h lib/regex/*.c lib/regex/*.h"
+] 
 
 [tasks.clcm]
 script = [
@@ -15,7 +20,7 @@ script = [
 
 [tasks.gen]
 script = [
-    "cd chuck && cmake -G Ninja ."
+    "cmake -G Ninja ."
 ]
 dependencies = ["clcm", "clnj"]
 
@@ -26,21 +31,21 @@ script = [
 
 [tasks.flex]
 script = [
-    "LEX=flex flex -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex"
+    "LEX=flex flex -olib/chuck.yy.c lib/chuck.lex"
 ]
 
 [tasks.flex_win32]
 script = [
-    "LEX=flex flex --nounistd -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex && cat chuck.tab.c chuck.yy.c > $@"
+    "LEX=flex flex --nounistd -olib/chuck.yy.c lib/chuck.lex && cat chuck.tab.c chuck.yy.c > $@"
 ]
 
 [tasks.yacc]
 script = [
-    "YACC=bison bison -dv -b chuck/src/core/chuck chuck/src/core/chuck.y"
+    "YACC=bison bison -dv -b lib/chuck lib/chuck.y"
 ]
 
 [tasks.run]
 script = [
     "ninja"
 ]
-dependencies = ["fmt", "yacc", "flex", "gen"]
+dependencies = ["fetch", "fmt", "tags", "yacc", "flex", "gen"]
