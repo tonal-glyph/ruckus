@@ -41,7 +41,7 @@ script = [
 
 [tasks.yacc]
 script = [
-    "YACC=bison bison -dv -b lib/chuck lib/chuck.y"
+    "YACC=bison -dv -b lib/chuck lib/chuck.y"
 ]
 
 [tasks.run]
