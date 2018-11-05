@@ -20,19 +20,20 @@ fn main() {
         "LDFLAGS_x86_64-unknown-linux-gnu",
         "-lasound -ljack -lc++ -ldl -lm -lsndfile -lpthread -lpulse-simple -lpulse",
     );
-    println!("cargo:include=chuck-lib");
-    cc::Build::new()
-        .file("chuck-lib/chuck.cpp")
-        .file("chuck-lib/chuck_vm.cpp")
-        .compile("chucklib");
-    let bindings = bindgen::Builder::default()
-        .header("chuck-lib/chuck.h")
-        .header("chuck-lib/chuck_vm.h")
-        .generate()
-        .expect("Unable to generate bindings");
-    // Write the bindings to the $OUT_DIR/bindings.rs file.
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    bindings
-        .write_to_file(out_path.join("bindings.rs"))
-        .expect("Couldn't write bindings!");
+    println!("cargo:include=chuck/src/core");
+    println!("cargo:include=chuck/src/host");
+    // cc::Build::new()
+    //     .file("core/chuck.cpp")
+    //     .file("core/chuck_vm.cpp")
+    //     .compile("chuck");
+    // let bindings = bindgen::Builder::default()
+    //     .header("core/chuck.h")
+    //     .header("core/chuck_vm.h")
+    //     .generate()
+    //     .expect("Unable to generate bindings");
+    // // Write the bindings to the $OUT_DIR/bindings.rs file.
+    // let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    // bindings
+    //     .write_to_file(out_path.join("bindings.rs"))
+    //     .expect("Couldn't write bindings!");
 }

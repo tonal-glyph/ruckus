@@ -1,11 +1,11 @@
 [tasks.fetch]
 script = [
-    "git submodule update --init --recursive && cp -R chuck/src/core lib"
+    "git clone https://github.com/scalarwaves/chuck && cd chuck/src && make linux-pulse && mv chuck chuck-bin && cp chuck-bin ../.."
 ]
 
 [tasks.fmt]
 script = [
-    "cargo fmt --all && clang-format -i lib/*.c lib/*.h lib/*.cpp lib/lo/*.c lib/lo/*.h lib/regex/*.c lib/regex/*.h"
+    "cargo fmt --all && clang-format -i chuck/src/core/*.c chuck/src/core/*.h chuck/src/core/*.cpp chuck/src/core/lo/*.c chuck/src/core/lo/*.h chuck/src/core/regex/*.c chuck/src/core/regex/*.h"
 ] 
 
 [tasks.clcm]
@@ -26,26 +26,46 @@ dependencies = ["clcm", "clnj"]
 
 [tasks.tags]
 script = [
-    "ptags chuck"
+    "ptags core && ptags host"
 ]
 
 [tasks.flex]
 script = [
-    "LEX=flex flex -olib/chuck.yy.c lib/chuck.lex"
+    "LEX=flex flex -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex"
 ]
 
 [tasks.flex_win32]
 script = [
-    "LEX=flex flex --nounistd -olib/chuck.yy.c lib/chuck.lex && cat chuck.tab.c chuck.yy.c > $@"
+    "LEX=flex flex --nounistd -ochuck/src/core/chuck.yy.c chuck/src/core/chuck.lex && cat chuck.tab.c chuck.yy.c > $@"
 ]
 
 [tasks.yacc]
 script = [
-    "YACC=bison bison -dv -b lib/chuck lib/chuck.y"
+    "YACC=bison bison -dv -b chuck/src/core/chuck chuck/src/core/chuck.y"
+]
+
+[tasks.alsa]
+script = [
+    "make linux-alsa"
+]
+
+[tasks.pulse]
+script = [
+    "make linux-pulse"
+]
+
+[tasks.jack]
+script = [
+    "make linux-jack"
+]
+
+[tasks.make_clean]
+script = [
+    "make clean"
 ]
 
 [tasks.run]
 script = [
-    "ninja"
+    "ninja && chuck --help"
 ]
-dependencies = ["fetch", "fmt", "tags", "yacc", "flex", "gen"]
+dependencies = ["fetch", "make_clean", "flex", "yacc", "gen", "jack"]
