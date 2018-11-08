@@ -1,6 +1,6 @@
 [tasks.fetch]
 script = [
-    "git clone https://github.com/scalarwaves/chuck && cd chuck/src && make linux-pulse && mv chuck chuck-bin && cp chuck-bin ../.."
+    "git clone https://github.com/ccrma/chuck && cd chuck/src && make linux-pulse && mv chuck chuck-bin && cp chuck-bin ../.."
 ]
 
 [tasks.fmt]
