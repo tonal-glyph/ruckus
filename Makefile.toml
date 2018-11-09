@@ -18,6 +18,12 @@ script = [
     "rm -rf **/.ninja* **/*.ninja .ninja* *.ninja"
 ]
 
+[tasks.cln]
+script = [
+    "rm -rf chuck/ chuck-bin tags"
+]
+dependencies = ["clcm", "clnj"]
+
 [tasks.gen]
 script = [
     "cmake -G Ninja ."
@@ -68,4 +74,4 @@ script = [
 script = [
     "ninja && chuck --help"
 ]
-dependencies = ["fetch", "make_clean", "flex", "yacc", "gen", "jack"]
+dependencies = ["fetch", "flex", "yacc", "gen", "jack"]
