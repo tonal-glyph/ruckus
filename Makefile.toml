@@ -1,6 +1,6 @@
 [tasks.fetch]
 script = [
-    "git clone https://github.com/scalarwaves/chuck && cd chuck/src && make linux-pulse && mv chuck chuck-bin && cp chuck-bin ../.."
+    "git clone https://github.com/ccrma/chuck && cd chuck/src && make linux-pulse && mv chuck chuck-bin && cp chuck-bin ../.."
 ]
 
 [tasks.fmt]
@@ -17,6 +17,12 @@ script = [
 script = [
     "rm -rf **/.ninja* **/*.ninja .ninja* *.ninja"
 ]
+
+[tasks.cln]
+script = [
+    "rm -rf chuck/ chuck-bin tags"
+]
+dependencies = ["clcm", "clnj"]
 
 [tasks.gen]
 script = [
@@ -68,4 +74,4 @@ script = [
 script = [
     "ninja && chuck --help"
 ]
-dependencies = ["fetch", "make_clean", "flex", "yacc", "gen", "jack"]
+dependencies = ["fetch", "flex", "yacc", "gen", "jack"]

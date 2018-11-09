@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\Users\\weird\\chuck-sys"
+		},
+		{
+			"path": "C:\\Users\\weird\\tgtracker"
 		}
 	],
 	"settings": {
