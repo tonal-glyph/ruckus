@@ -4,10 +4,7 @@
 #![allow(dead_code)]
 #![allow(missing_docs)]
 #![allow(unused_imports)]
-
-mod core;
-// mod host;
-
+extern crate chuck_sys as sys;
 fn main() {
-    println!("Building ChucK...")
+    
 }

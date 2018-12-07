@@ -6,10 +6,5 @@
 		{
 			"path": "/home/dark/proj"
 		}
-	],
-	"settings": {
-		"files.associations": {
-			"cstdlib": "cpp"
-		}
-	}
+	]
 }
