@@ -1,0 +1,19 @@
+thread = 8
+output = "tags"
+dir = "."
+stat = false
+bin_ctags = "ctags"
+bin_git = "git"
+opt_ctags = []
+opt_git = []
+opt_git_lfs = []
+verbose = true
+exclude_lfs = false
+include_untracked = false
+include_ignored = false
+include_submodule = false
+validate_utf8 = false
+unsorted = false
+exclude = []
+config = true
+

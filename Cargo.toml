@@ -2,11 +2,11 @@
 name = "ruckus"
 version = "0.1.0"
 authors = ["Andrew Prentice <scalarwaves@null.net>"]
-edition = "2018"
+# edition = "2018"
 
-[lib]
+[[bin]]
 name = "ruckus"
-path = "src/lib.rs"
+path = "src/main.rs"
 
 [dependencies]
-chuck_sys = { path = "../chuck_sys" }
+chuck_sys = { git = "https://github.com/tonal-glyph/chuck-sys" }

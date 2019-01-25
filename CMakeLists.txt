@@ -1,0 +1,38 @@
+cmake_minimum_required(VERSION 3.7)
+
+set(PROJECT_NAME chuck)
+project(${PROJECT_NAME})
+# List all compile flags here
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+set(_CFLAGS "-O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/core -B chuck/src/core/lo -B chuck/src/core/regex  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -std=c11 -I./core -I./core/lo -I./core/regex -I./scripts -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include")
+set(_CXXFLAGS "-O3 -march=native -std=c++17 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DENABLE_PRECOMPILED_HEADERS=OFF -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -std=c++11 -I./core -I./core/lo -I./core/regex -I./scripts -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include")
+set(CMAKE_C_FLAGS "${_CFLAGS}")
+set(CMAKE_CXX_FLAGS "${_CXXFLAGS}")
+set(ENV{CC} "clang")
+set(ENV{CXX} "clang")
+# TODO: uncomment if have unit tests
+# enable_testing()
+# find_program( CLANG_TIDY NAMES clang-tidy)
+# NOTE: you can add search paths for example `PATHS /usr/local/opt/llvm/bin/`
+message("\n--------------------------------\n")
+message("PROJECT NAME:\t\t${PROJECT_NAME}")
+message("CMAKE_SYSTEM_NAME:\t${CMAKE_SYSTEM_NAME}")
+message("CMAKE_C_COMPILER:\t${CMAKE_C_COMPILER}")
+message("CMAKE_CXX_COMPILER:\t${CMAKE_CXX_COMPILER}")
+message("CMAKE_GENERATOR:\t${CMAKE_GENERATOR}")
+message("CMAKE_BUILD_TYPE:\t${CMAKE_BUILD_TYPE}")
+message("CMAKE_BINARY_DIR:\t${CMAKE_BINARY_DIR}")
+message("CMAKE_MODULE_PATH:\t${CMAKE_MODULE_PATH}")
+message("CMAKE_PREFIX_PATH:\t${CMAKE_PREFIX_PATH}")
+message("clang-tidy:\t\t${CLANG_TIDY}")
+message("\n--------------------------------\n")
+set(${PROJECT_NAME}_sources "core/chuck.cpp" "core/chuck_absyn.cpp" "host/chuck_audio.cpp" "core/chuck_carrier.cpp" "core/chuck_compile.cpp" "host/chuck_console.cpp" "core/chuck_dl.cpp" "core/chuck_emit.cpp" "core/chuck_errmsg.cpp" "core/chuck_frame.cpp" "core/chuck_instr.cpp" "core/chuck_io.cpp" "core/chuck_lang.cpp" "core/chuck.lex" "core/chuck_oo.cpp" "core/chuck_otf.cpp" "core/chuck_parse.cpp" "core/chuck_scan.cpp" "core/chuck_shell.cpp" "core/chuck_stats.cpp" "core/chuck_symbol.cpp" "core/chuck_table.cpp" "core/chuck_type.cpp" "core/chuck_ugen.cpp" "core/chuck_utils.cpp" "core/chuck_vm.cpp" "core/chuck.y" "core/hidio_sdl.cpp" "core/midiio_rtmidi.cpp" "core/rtmidi.cpp" "core/uana_extract.cpp" "core/uana_xform.cpp" "core/ugen_filter.cpp" "core/ugen_osc.cpp" "core/ugen_stk.cpp" "core/ugen_xxx.cpp" "core/ulib_machine.cpp" "core/ulib_math.cpp" "core/ulib_opsc.cpp" "core/ulib_regex.cpp" "core/ulib_std.cpp" "core/util_buffers.cpp" "core/util_console.cpp" "core/util_hid.cpp" "core/util_math.c" "core/util_network.c" "core/util_opsc.cpp" "core/util_raw.c" "core/util_serial.cpp" "core/util_sndfile.c" "core/util_string.cpp" "core/util_thread.cpp" "core/util_xforms.c" "core/lo/address.c" "core/lo/blob.c" "core/lo/bundle.c" "core/lo/message.c" "core/lo/method.c" "core/lo/pattern_match.c" "core/lo/send.c" "core/lo/server.c" "core/lo/server_thread.c" "core/lo/timetag.c" "host/chuck_main.cpp" "core/chuck.tab.c" "core/chuck.yy.c")
+add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_sources})
+# NOTE: this will slow down compilation, but you'll have static code analysis :)
+# if(CLANG_TIDY)
+#     set_property(
+#         TARGET ${PROJECT_NAME}
+#         PROPERTY CXX_CLANG_TIDY "${CLANG_TIDY}")
+# endif()
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)

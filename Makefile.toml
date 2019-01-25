@@ -1,0 +1,398 @@
+[tasks.l]
+script = [
+'''
+    echo 'Linking headers...'
+    rm -rf src/*.h src/*.hpp src/*.lex src/*.y src/lo/*.h src/regex/*.h
+    cp -v ../chuck/src/core/*.c* src/
+    cp -v ../chuck/src/host/*.cpp src/
+    cp -v ../chuck/src/host/RtAudio/RtAudio.cpp src/io/audio/rtac.cpp
+    cp -v ../chuck/src/host/RtAudio/RtAudio.h src/io/audio/rta.h
+    cp -v ../chuck/src/host/RtAudio/RtError.h src/io/audio/rte.h
+    cp -v ../chuck/src/core/chuck_absyn.cpp src/ck/ast/astc.cpp
+    cp -v ../chuck/src/core/chuck_absyn.h src/ck/ast/ast.h
+    cp -v ../chuck/src/core/chuck_carrier.cpp src/ck/carry/carryc.cpp
+    cp -v ../chuck/src/core/chuck_carrier.h src/ck/carry/carry.h
+    cp -v ../chuck/src/core/chuck_compile.cpp src/ck/compile/compilec.cpp
+    cp -v ../chuck/src/core/chuck_compile.h src/ck/compile/compile.h
+    cp -v ../chuck/src/core/chuck_def.h src/ck/define/define.h
+    cp -v ../chuck/src/core/chuck_dl.cpp src/ck/dynl/dynlc.cpp
+    cp -v ../chuck/src/core/chuck_dl.h src/ck/dynl/dynl.h
+    cp -v ../chuck/src/core/chuck_emit.cpp src/ck/emit/emitc.cpp
+    cp -v ../chuck/src/core/chuck_emit.h src/ck/emit/emit.h
+    cp -v ../chuck/src/core/chuck_errmsg.cpp src/ck/err/errc.cpp
+    cp -v ../chuck/src/core/chuck_errmsg.h src/ck/err/err.h
+    cp -v ../chuck/src/core/chuck_frame.cpp src/ck/frame/framec.cpp
+    cp -v ../chuck/src/core/chuck_frame.h src/ck/frame/frame.h
+    cp -v ../chuck/src/core/chuck_instr.cpp src/ck/instruc/instrucc.cpp
+    cp -v ../chuck/src/core/chuck_instr.h src/ck/instruc/instruc.h
+    cp -v ../chuck/src/core/chuck_io.cpp src/io/ioc.cpp
+    cp -v ../chuck/src/core/chuck_io.h src/io/io.h
+    cp -v ../chuck/src/core/chuck_lang.cpp src/ck/lang/langc.cpp
+    cp -v ../chuck/src/core/chuck_lang.h src/ck/lang/lang.h
+    cp -v ../chuck/src/core/chuck_oo.cpp src/ck/oo/ooc.cpp
+    cp -v ../chuck/src/core/chuck_oo.h src/ck/oo/oo.h
+    cp -v ../chuck/src/core/chuck_otf.cpp src/ck/otf/otfc.cpp
+    cp -v ../chuck/src/core/chuck_otf.h src/ck/otf/otf.h
+    cp -v ../chuck/src/core/chuck_parse.cpp src/ck/parse/parsec.cpp
+    cp -v ../chuck/src/core/chuck_parse.h src/ck/parse/parse.h
+    cp -v ../chuck/src/core/chuck_scan.cpp src/ck/scan/scanc.cpp
+    cp -v ../chuck/src/core/chuck_scan.h src/ck/scan/scan.h
+    cp -v ../chuck/src/core/chuck_shell.cpp src/ck/shell/shellc.cpp
+    cp -v ../chuck/src/core/chuck_shell.h src/ck/shell/shell.h
+    cp -v ../chuck/src/core/chuck_stats.cpp src/ck/stats/statsc.cpp
+    cp -v ../chuck/src/core/chuck_stats.h src/ck/stats/stats.h
+    cp -v ../chuck/src/core/chuck_symbol.cpp src/ck/symb/symbc.cpp
+    cp -v ../chuck/src/core/chuck_symbol.h src/ck/symb/symb.h
+    cp -v ../chuck/src/core/chuck_table.cpp src/ck/tbl/tblc.cpp
+    cp -v ../chuck/src/core/chuck_table.h src/ck/tbl/tbl.h
+    cp -v ../chuck/src/core/chuck_type.cpp src/ck/type/typec.cpp
+    cp -v ../chuck/src/core/chuck_type.h src/ck/type/type.h
+    cp -v ../chuck/src/core/chuck_ugen.cpp src/ck/ugen/ugenc.cpp
+    cp -v ../chuck/src/core/chuck_ugen.h src/ck/ugen/ugen.h
+    cp -v ../chuck/src/core/chuck_utils.cpp src/ck/util/utilc.cpp
+    cp -v ../chuck/src/core/chuck_utils.h src/ck/util/util.h
+    cp -v ../chuck/src/core/chuck_vm.cpp src/ck/vm/vmc.cpp
+    cp -v ../chuck/src/core/chuck_vm.h src/ck/vm/vm.h
+    cp -v ../chuck/src/core/chuck.lex src/
+    cp -v ../chuck/src/core/chuck.y src/
+    cp -v ../chuck/src/core/chuck.h src/
+    cp -v ../chuck/src/core/hidio_sdl.cpp src/io/hid/hidc.cpp
+    cp -v ../chuck/src/core/hidio_sdl.h src/io/hid/hid.h
+    cp -v ../chuck/src/core/midiio_rtmidi.cpp src/io/midi/midic.cpp
+    cp -v ../chuck/src/core/midiio_rtmidi.h src/io/midi/midi.h
+    cp -v ../chuck/src/core/rtmidi.cpp src/io/midi/rtmc.cpp
+    cp -v ../chuck/src/core/rtmidi.h src/io/midi/rtm.h
+    cp -v ../chuck/src/core/sndfile* src/ck/util/sndfile/
+    cp -v ../chuck/src/core/uana_extract.cpp src/ck/uana/xtrac/xtracc.cpp
+    cp -v ../chuck/src/core/uana_extract.h src/ck/uana/xtrac/xtrac.h
+    cp -v ../chuck/src/core/uana_xform.cpp src/ck/uana/xform/xformc.cpp
+    cp -v ../chuck/src/core/uana_xform.h src/ck/uana/xform/xform.h
+    cp -v ../chuck/src/core/ugen_filter.cpp src/ck/ugen/filt/filtc.cpp
+    cp -v ../chuck/src/core/ugen_filter.h src/ck/ugen/filt/filt.h
+    cp -v ../chuck/src/core/ugen_osc.cpp src/ck/ugen/osc/oscc.cpp
+    cp -v ../chuck/src/core/ugen_osc.h src/ck/ugen/osc/osc.h
+    cp -v ../chuck/src/core/ugen_stk.cpp src/ck/ugen/stk/stkc.cpp
+    cp -v ../chuck/src/core/ugen_stk.h src/ck/ugen/stk/stk.h
+    cp -v ../chuck/src/core/ugen_xxx.cpp src/ck/ugen/xxx/xxxc.cpp
+    cp -v ../chuck/src/core/ugen_xxx.h src/ck/ugen/xxx/xxx.h
+    cp -v ../chuck/src/core/ulib_machine.cpp src/ck/ulib/mach/machc.cpp
+    cp -v ../chuck/src/core/ulib_machine.h src/ck/ulib/mach/mach.h
+    cp -v ../chuck/src/core/ulib_math.cpp src/ck/ulib/math/mathc.cpp
+    cp -v ../chuck/src/core/ulib_math.h src/ck/ulib/math/math.h
+    cp -v ../chuck/src/core/ulib_opsc.cpp src/ck/ulib/opsc/opscc.cpp
+    cp -v ../chuck/src/core/ulib_opsc.h src/ck/ulib/opsc/opsc.h
+    cp -v ../chuck/src/core/ulib_regex.cpp src/ck/ulib/regex/regexc.cpp
+    cp -v ../chuck/src/core/ulib_regex.h src/ck/ulib/regex/regex.h
+    cp -v ../chuck/src/core/ulib_std.cpp src/ck/ulib/std/stdc.cpp
+    cp -v ../chuck/src/core/ulib_std.h src/ck/ulib/std/std.h
+    cp -v ../chuck/src/core/util_buffers.cpp src/ck/util/buff/buffc.cpp
+    cp -v ../chuck/src/core/util_buffers.h src/ck/util/buff/buff.h
+    cp -v ../chuck/src/core/util_console.cpp src/ck/util/console/consolec.cpp
+    cp -v ../chuck/src/core/util_console.h src/ck/util/console/console.h
+    cp -v ../chuck/src/core/util_hid.cpp src/ck/util/hid/hidc.cpp
+    cp -v ../chuck/src/core/util_hid.h src/ck/util/hid/hid.h
+    cp -v ../chuck/src/core/util_math.c src/ck/util/math/mathc.c
+    cp -v ../chuck/src/core/util_math.h src/ck/util/math/math.h
+    cp -v ../chuck/src/core/util_network.c src/ck/util/net/netc.c
+    cp -v ../chuck/src/core/util_network.h src/ck/util/net/net.h
+    cp -v ../chuck/src/core/util_opsc.cpp src/ck/util/opsc/opsc.cpp
+    cp -v ../chuck/src/core/util_opsc.h src/ck/util/opsc/opsc.h
+    cp -v ../chuck/src/core/util_raw.c src/ck/util/raw/rawc.c
+    cp -v ../chuck/src/core/util_raw.h src/ck/util/raw/raw.h
+    cp -v ../chuck/src/core/util_serial.cpp src/ck/util/serial/serialc.cpp
+    cp -v ../chuck/src/core/util_serial.h src/ck/util/serial/serial.h
+    cp -v ../chuck/src/core/util_sndfile.c src/ck/util/sndfile/cksndfilec.c
+    cp -v ../chuck/src/core/util_sndfile.h src/ck/util/sndfile/cksndfile.h
+    cp -v ../chuck/src/core/util_string.cpp src/ck/util/string/stringc.cpp
+    cp -v ../chuck/src/core/util_string.h src/ck/util/string/string.h
+    cp -v ../chuck/src/core/util_thread.cpp src/ck/util/thread/threadc.cpp
+    cp -v ../chuck/src/core/util_thread.h src/ck/util/thread/thread.h
+    cp -v ../chuck/src/core/util_xforms.c src/ck/util/xform/xformc.c
+    cp -v ../chuck/src/core/util_xforms.h src/ck/util/xform/xform.h
+    cp -v ../chuck/src/core/lo/address.c src/io/osc/addr/addrc.c
+    cp -v ../chuck/src/core/lo/address.h src/io/osc/addr/addr.h
+    cp -v ../chuck/src/core/lo/blob.c src/io/osc/blob/blobc.c
+    cp -v ../chuck/src/core/lo/blob.h src/io/osc/blob/blob.h
+    cp -v ../chuck/src/core/lo/bundle.c src/io/osc/bndl/bndlc.c
+    cp -v ../chuck/src/core/lo/bundle.h src/io/osc/bndl/bndl.h
+    cp -v ../chuck/src/core/lo/config.h src/io/osc/cfg/cfg.h
+    cp -v ../chuck/src/core/lo/lo_endian.h src/io/osc/endian/endian.h
+    cp -v ../chuck/src/core/lo/lo_errors.h src/io/osc/err/err.h
+    cp -v ../chuck/src/core/lo/lo_internal.h src/io/osc/intrn/intrn.h
+    cp -v ../chuck/src/core/lo/lo_lowlevel.h src/io/osc/lowlvl/lowlvl.h
+    cp -v ../chuck/src/core/lo/lo_macros.h src/io/osc/macros/macros.h
+    cp -v ../chuck/src/core/lo/lo_osc_types.h src/io/osc/osctype/osctype.h
+    cp -v ../chuck/src/core/lo/lo_throw.h src/io/osc/err/throw.h
+    cp -v ../chuck/src/core/lo/lo_types_internal.h src/io/osc/type/intrn.h
+    cp -v ../chuck/src/core/lo/lo_types.h src/io/osc/type/type.h
+    cp -v ../chuck/src/core/lo/lo.h src/io/osc/lo.h
+    cp -v ../chuck/src/core/lo/message.c src/io/osc/msg/messagec.c
+    cp -v ../chuck/src/core/lo/message.h src/io/osc/msg/message.h
+    cp -v ../chuck/src/core/lo/method.c src/io/osc/mthd/methodc.c
+    cp -v ../chuck/src/core/lo/method.h src/io/osc/mthd/method.h
+    cp -v ../chuck/src/core/lo/pattern_match.c src/io/osc/match/matchc.c
+    cp -v ../chuck/src/core/lo/pattern_match.h src/io/osc/match/match.h
+    cp -v ../chuck/src/core/lo/send.c src/io/osc/send/sendc.c
+    cp -v ../chuck/src/core/lo/send.h src/io/osc/send/send.h
+    cp -v ../chuck/src/core/lo/server_thread.c src/io/osc/serv/sthreadc.c
+    cp -v ../chuck/src/core/lo/server_thread.h src/io/osc/serv/sthread.h
+    cp -v ../chuck/src/core/lo/server.c src/io/osc/serv/serverc.c
+    cp -v ../chuck/src/core/lo/server.h src/io/osc/serv/server.h
+    cp -v ../chuck/src/core/lo/timetag.c src/io/osc/time/timec.c
+    cp -v ../chuck/src/core/lo/timetag.h src/io/osc/tim/time.h
+    cp -Rv ../chuck/src/core/lo src/
+    cp -Rv ../chuck/src/core/regex src/
+    cp -v ../chuck/src/host/chuck_audio.cpp src/io/audio/audioc.cpp
+    cp -v ../chuck/src/host/chuck_audio.h src/io/audio/audio.h
+    cp -v ../chuck/src/host/chuck_console.cpp src/ck/console/consolec.cpp
+    cp -v ../chuck/src/host/chuck_console.h src/ck/console/console.h
+    cp -v ../chuck/src/host/chuck_main.cpp src/main.cpp
+    ln -sv chuck_absyn.h chuck_absyn.hpp
+    ln -sv chuck_audio.h chuck_audio.hpp
+    ln -sv chuck_carrier.h chuck_carrier.hpp
+    ln -sv chuck_compile.h chuck_compile.hpp
+    ln -sv chuck_console.h chuck_console.hpp
+    ln -sv chuck_def.h chuck_def.hpp
+    ln -sv chuck_dl.h chuck_dl.hpp
+    ln -sv chuck_emit.h chuck_emit.hpp
+    ln -sv chuck_errmsg.h chuck_errmsg.hpp
+    ln -sv chuck_frame.h chuck_frame.hpp
+    ln -sv chuck_instr.h chuck_instr.hpp
+    ln -sv chuck_io.h chuck_io.hpp
+    ln -sv chuck_lang.h chuck_lang.hpp
+    ln -sv chuck_oo.h chuck_oo.hpp
+    ln -sv chuck_otf.h chuck_otf.hpp
+    ln -sv chuck_parse.h chuck_parse.hpp
+    ln -sv chuck_scan.h chuck_scan.hpp
+    ln -sv chuck_shell.h chuck_shell.hpp
+    ln -sv chuck_stats.h chuck_stats.hpp
+    ln -sv chuck_symbol.h chuck_symbol.hpp
+    ln -sv chuck_table.h chuck_table.hpp
+    ln -sv chuck_type.h chuck_type.hpp
+    ln -sv chuck_ugen.h chuck_ugen.hpp
+    ln -sv chuck_utils.h chuck_utils.hpp
+    ln -sv chuck_vm.h chuck_vm.hpp
+    ln -sv chuck_min.h chuck_min.hpp
+    ln -sv chuck.h chuck.hpp
+    ln -sv hidio_sdl.h hidio_sdl.hpp
+    ln -sv midiio_rtmidi.h midiio_rtmidi.hpp
+    ln -sv RtAudio.h RtAudio.hpp
+    ln -sv RtError.h RtError.hpp
+    ln -sv rtmidi.h rtmidi.hpp
+    ln -sv uana_extract.h uana_extract.hpp
+    ln -sv uana_xform.h uana_xform.hpp
+    ln -sv ugen_filter.h ugen_filter.hpp
+    ln -sv ugen_osc.h ugen_osc.hpp
+    ln -sv ugen_stk.h ugen_stk.hpp
+    ln -sv ugen_xxx.h ugen_xxx.hpp
+    ln -sv ulib_machine.h ulib_machine.hpp
+    ln -sv ulib_math.h ulib_math.hpp
+    ln -sv ulib_opsc.h ulib_opsc.hpp
+    ln -sv ulib_regex.h ulib_regex.hpp
+    ln -sv ulib_std.h ulib_std.hpp
+    ln -sv util_buffers.h util_buffers.hpp
+    ln -sv util_console.h util_console.hpp
+    ln -sv util_hid.h util_hid.hpp
+    ln -sv util_opsc.h util_opsc.hpp
+    ln -sv util_serial.h util_serial.hpp
+    ln -sv util_string.h util_string.hpp
+    ln -sv util_thread.h util_thread.hpp
+    cd ..
+    rm -fv core host scripts
+    ln -sv ../chuck/src/core
+    ln -sv ../chuck/src/host
+    ln -sv ../chuck/src/scripts
+    sed -i 's/t_ckINT/t_CKINT/' ../chuck/src/core/chuck.h
+    sed -i 's/t_ckFLOAT/t_CKFLOAT/' ../chuck/src/core/chuck.h
+    echo 'Headers linked.'
+'''
+]
+[tasks.fmt]
+script = [
+    "echo 'Tidying and Formatting C/C++ code...'",
+    "clang-tidy -enable-check-profile -explain-config -export-fixes=clang-tidy-fixes.yml -format-style=file -header-filter=.* -system-headers=0 -fix -fix-errors src/*.h* src/lo/*.h src/regex/*.h src/*.c* src/lo/*.c src/regex/*.c"
+]
+[tasks.rustfmt]
+script = [
+    "echo 'Formatting rust code...'",
+    "rustfmt -v src/*.rs",
+    "rustfmt -v src/**/*.rs"
+]
+[tasks.fix]
+script = [
+    "cargo fix --edition --allow-no-vcs"
+]
+[tasks.ctags]
+script = [
+    "echo 'Generating debugging ctags/etags...'",
+    "ptags -f tags"
+]
+[tasks.rtags]
+script = [
+    "ptags -c --links=no -c --languages=Rust rtags"
+]
+[tasks.flex]
+script = [
+    "echo 'Building lexer'",
+    "LEX=flex flex -osrc/chuck.yy.c src/chuck.lex"
+]
+[tasks.flex_win32]
+script = [
+    "echo 'Building win32 lexer'",
+    "LEX=flex flex --nounistd -osrc/chuck.yy.c src/chuck.lex",
+    "/bin/cat src/chuck.tab.c src/chuck.yy.c > $@"
+]
+[tasks.bison]
+script = [
+    "echo 'Building parser'",
+    "YACC=bison bison -dv -b src/chuck src/chuck.y"
+]
+[tasks.alsa]
+script = [
+    "echo 'Building ChucK with ALSA support'",
+    "cd ../chuck/src",
+    "make -j$(nproc) linux-alsa",
+    "cp -v chuck ~/bin/achuck",
+    "cd ../../chuck_sys/src && rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c"
+]
+[tasks.pulse]
+script = [
+    "echo 'Building ChucK with PulseAudio support'",
+    "cd ../chuck/src",
+    "make -j$(nproc) linux-pulse",
+    "cp -v chuck ~/bin/pchuck",
+    "cd ../../chuck_sys/src && rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c"
+]
+[tasks.jack]
+script = [
+    "echo 'Building ChucK with JACK support'",
+    "cd ../chuck/src",
+    "make -j$(nproc) linux-jack",
+    "cp -v chuck ~/bin/jchuck",
+    "cd ../../chuck_sys/src && rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c"
+]
+[tasks.cl]
+script = [
+    "echo 'Cleaning artifacts'",
+    "make -j$(nproc) -v clean",
+    "cargo -v clean",
+    "rm -rfv core/**/*.o host/**/*.o ../chuck/src/achuck ../chuck/src/pchuck ../chuck/src/jchuck tags",
+    "rm -rfv src/*.h* src/*.lex src/*.y src/chuck.output src/lo/*.h src/lo/*.c src/regex/*.c src/regex/*.h"
+]
+[tasks.bind]
+script = [
+    "make -j$(nproc) bind"
+]
+[tasks.doc]
+script = [
+    "cargo doc --color always --all-features -j $(nproc) --no-deps"
+]
+[tasks.doxy]
+script = [
+    "cd ../chuck/ && doxygen Doxygen && cd ../chuck_sys"
+]
+[tasks.edit]
+script = [
+    "echo 'Copying autogenerated bindings to edited versions...'",
+    "cd src",
+    "cp -v chuck_absyn_h.rs chuck_absyn_h_edited.rs",
+    "cp -v chuck_audio_h.rs chuck_audio_h_edited.rs",
+    "cp -v chuck_carrier_h.rs chuck_carrier_h_edited.rs",
+    "cp -v chuck_compile_h.rs chuck_compile_h_edited.rs",
+    "cp -v chuck_console_h.rs chuck_console_h_edited.rs",
+    "cp -v chuck_def_h.rs chuck_def_h_edited.rs",
+    "cp -v chuck_dl_h.rs chuck_dl_h_edited.rs",
+    "cp -v chuck_emit_h.rs chuck_emit_h_edited.rs",
+    "cp -v chuck_errmsg_h.rs chuck_errmsg_h_edited.rs",
+    "cp -v chuck_frame_h.rs chuck_frame_h_edited.rs",
+    "cp -v chuck_h.rs chuck_h_edited.rs",
+    "cp -v chuck_instr_h.rs chuck_instr_h_edited.rs",
+    "cp -v chuck_io_h.rs chuck_io_h_edited.rs",
+    "cp -v chuck_lang_h.rs chuck_lang_h_edited.rs",
+    "cp -v chuck_oo_h.rs chuck_oo_h_edited.rs",
+    "cp -v chuck_otf_h.rs chuck_otf_h_edited.rs",
+    "cp -v chuck_parse_h.rs chuck_parse_h_edited.rs",
+    "cp -v chuck_scan_h.rs chuck_scan_h_edited.rs",
+    "cp -v chuck_shell_h.rs chuck_shell_h_edited.rs",
+    "cp -v chuck_stats_h.rs chuck_stats_h_edited.rs",
+    "cp -v chuck_symbol_h.rs chuck_symbol_h_edited.rs",
+    "cp -v chuck_table_h.rs chuck_table_h_edited.rs",
+    "cp -v chuck_type_h.rs chuck_type_h_edited.rs",
+    "cp -v chuck_ugen_h.rs chuck_ugen_h_edited.rs",
+    "cp -v chuck_utils_h.rs chuck_utils_h_edited.rs",
+    "cp -v chuck_vm_h.rs chuck_vm_h_edited.rs",
+    # "cp -v chuck_tab_h.rs chuck_tab_h_edited.rs",
+    "cp -v hidio_sdl_h.rs hidio_sdl_h_edited.rs",
+    "cp -v midiio_rtmidi_h.rs midiio_rtmidi_h_edited.rs",
+    "cp -v RtAudio_h.rs RtAudio_h_edited.rs",
+    "cp -v RtError_h.rs RtError_h_edited.rs",
+    "cp -v rtmidi_h.rs rtmidi_h_edited.rs",
+    "cp -v sndfile_h.rs sndfile_h_edited.rs",
+    "cp -v sndfile_config_h.rs sndfile_config_h_edited.rs",
+    "cp -v uana_extract_h.rs uana_extract_h_edited.rs",
+    "cp -v uana_xform_h.rs uana_xform_h_edited.rs",
+    "cp -v ugen_filter_h.rs ugen_filter_h_edited.rs",
+    "cp -v ugen_osc_h.rs ugen_osc_h_edited.rs",
+    "cp -v ugen_stk_h.rs ugen_stk_h_edited.rs",
+    "cp -v ugen_xxx_h.rs ugen_xxx_h_edited.rs",
+    "cp -v ulib_machine_h.rs ulib_machine_h_edited.rs",
+    "cp -v ulib_math_h.rs ulib_math_h_edited.rs",
+    "cp -v ulib_opsc_h.rs ulib_opsc_h_edited.rs",
+    "cp -v ulib_regex_h.rs ulib_regex_h_edited.rs",
+    "cp -v ulib_std_h.rs ulib_std_h_edited.rs",
+    "cp -v util_buffers_h.rs util_buffers_h_edited.rs",
+    "cp -v util_console_h.rs util_console_h_edited.rs",
+    "cp -v util_hid_h.rs util_hid_h_edited.rs",
+    "cp -v util_math_h.rs util_math_h_edited.rs",
+    "cp -v util_network_h.rs util_network_h_edited.rs",
+    "cp -v util_opsc_h.rs util_opsc_h_edited.rs",
+    "cp -v util_raw_h.rs util_raw_h_edited.rs",
+    "cp -v util_serial_h.rs util_serial_h_edited.rs",
+    "cp -v util_sndfile_h.rs util_sndfile_h_edited.rs",
+    "cp -v util_string_h.rs util_string_h_edited.rs",
+    "cp -v util_thread_h.rs util_thread_h_edited.rs",
+    "cp -v util_xforms_h.rs util_xforms_h_edited.rs",
+    "cp -v lo/config_h.rs lo/config_h_edited.rs",
+    "cp -v lo/lo_endian_h.rs lo/lo_endian_h_edited.rs",
+    "cp -v lo/lo_errors_h.rs lo/lo_errors_h_edited.rs",
+    "cp -v lo/lo_h.rs lo/lo_h_edited.rs",
+    "cp -v lo/lo_internal_h.rs lo/lo_internal_h_edited.rs",
+    "cp -v lo/lo_lowlevel_h.rs lo/lo_lowlevel_h_edited.rs",
+    "cp -v lo/lo_macros_h.rs lo/lo_macros_h_edited.rs",
+    "cp -v lo/lo_osc_types_h.rs lo/lo_osc_types_h_edited.rs",
+    "cp -v lo/lo_throw_h.rs lo/lo_throw_h_edited.rs",
+    "cp -v lo/lo_types_h.rs lo/lo_types_h_edited.rs",
+    "cp -v lo/lo_types_internal_h.rs lo/lo_types_internal_h_edited.rs",
+    "cp -v regex/config_h.rs regex/config_h_edited.rs",
+    "cp -v regex/regex_h.rs regex/regex_h_edited.rs",
+    "cp -v regex/tre_ast_h.rs regex/tre_ast_h_edited.rs",
+    "cp -v regex/tre_compile_h.rs regex/tre_compile_h_edited.rs",
+    "cp -v regex/tre_config_h.rs regex/tre_config_h_edited.rs",
+    "cp -v regex/tre_h.rs regex/tre_h_edited.rs",
+    "cp -v regex/tre_internal_h.rs regex/tre_internal_h_edited.rs",
+    "cp -v regex/tre_match_utils_h.rs regex/tre_match_utils_h_edited.rs",
+    "cp -v regex/tre_mem_h.rs regex/tre_mem_h_edited.rs",
+    "cp -v regex/tre_stack_h.rs regex/tre_stack_h_edited.rs",
+    "cp -v regex/xmalloc_h.rs regex/xmalloc_h_edited.rs",
+    "cd .."
+]
+[tasks.mkhead]
+script = [
+'''
+    cd src
+    makeheaders *.[c]
+    makeheaders *.[hpp]
+    makeheaders *.[cpp]
+    cd lo
+    makeheaders *.[ch]
+    cd ../regex
+    makeheaders *.[ch]
+'''
+]
+[tasks.run]
+script = [
+    "make -j$(nproc) clean",
+    "echo 'chuck-sys is built!'",
+    "achuck --help"
+]
+dependencies = ["cl", "l", "ctags", "fmt", "flex", "bison", "bind", "rustfmt", "fix", "rtags", "doc", "doxy"]
