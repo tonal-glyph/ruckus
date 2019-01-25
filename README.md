@@ -29,3 +29,4 @@ For a lower level interface, see the [chuck-sys](https://github.com/tonal-glyph/
 ## license
 
 This library builds on a project licensed under GPL2. The code in this abstraction library is dual-licensed under Apache2/MIT to best serve the Rust community.
+ruckus is intended to be a high-level, memory-safe abstraction over ChucK. It depends on [chuck_sys](https://github.com/tonal-glyph/chuck-sys). I would like for ChucK to be a first class citizen in [tgtracker](https://github.com/tonal-glyph/tgtracker).
