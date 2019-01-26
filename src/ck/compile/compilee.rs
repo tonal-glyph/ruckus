@@ -116,7 +116,7 @@ pub struct Chuck_Array {
 struct Chuck_Array4 {
     _base: Chuck_Array,
     m_vector: crate::dts::vector,
-    m_map: crate::dts::map,
+    m_map: std::collections::HashMap::new(),
     m_is_obj: c_ulong,
 }
 extern "C" {
@@ -255,7 +255,7 @@ extern "C" {
 struct Chuck_Array8 {
     _base: Chuck_Array,
     m_vector: crate::dts::vector,
-    m_map: crate::dts::map,
+    m_map: std::collections::HashMap::new(),
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -393,7 +393,7 @@ extern "C" {
 struct Chuck_Array16 {
     _base: Chuck_Array,
     m_vector: crate::dts::vector,
-    m_map: crate::dts::map,
+    m_map: std::collections::HashMap::new(),
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -539,7 +539,7 @@ extern "C" {
 struct Chuck_Array24 {
     _base: Chuck_Array,
     m_vector: crate::dts::vector,
-    m_map: crate::dts::map,
+    m_map: std::collections::HashMap::new(),
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -685,7 +685,7 @@ extern "C" {
 struct Chuck_Array32 {
     _base: Chuck_Array,
     m_vector: crate::dts::vector,
-    m_map: crate::dts::map,
+    m_map: std::collections::HashMap::new(),
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -2150,7 +2150,7 @@ extern "C" {
 #[repr(C)]
 pub struct Chuck_Scope {
     pub scope: crate::dts::vector,
-    pub commit_map: crate::dts::map,
+    pub commit_map: std::collections::HashMap::new(),
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -2314,7 +2314,7 @@ pub struct Chuck_Context {
     pub new_values: crate::dts::vector,
     pub new_funcs: crate::dts::vector,
     pub new_nspc: crate::dts::vector,
-    pub commit_map: crate::dts::map,
+    pub commit_map: std::collections::HashMap::new(),
 }
 const Chuck_Context_P_NONE: Chuck_Context__bindgen_ty_1 = 0;
 const Chuck_Context_P_CLASSES_ONLY: Chuck_Context__bindgen_ty_1 = 1;
@@ -2427,10 +2427,10 @@ pub struct Chuck_Env {
     pub contexts: crate::dts::vector,
     pub context: *mut Chuck_Context,
     pub breaks: crate::dts::vector,
-    pub key_words: crate::dts::map,
-    pub key_types: crate::dts::map,
-    pub key_values: crate::dts::map,
-    pub deprecated: crate::dts::map,
+    pub key_words: std::collections::HashMap::new(),
+    pub key_types: std::collections::HashMap::new(),
+    pub key_values: std::collections::HashMap::new(),
+    pub deprecated: std::collections::HashMap::new(),
     pub deprecate_level: c_long,
     pub t_void: *mut Chuck_Type,
     pub t_int: *mut Chuck_Type,
@@ -3950,7 +3950,7 @@ pub struct Chuck_VM_Shred {
     pub code_orig: *mut Chuck_VM_Code,
     pub instr: *mut Chuck_Instr,
     pub parent: *mut Chuck_VM_Shred,
-    pub children: crate::dts::map,
+    pub children: std::collections::HashMap::new(),
     pub pc: c_ulong,
     pub vm_ref: *mut Chuck_VM,
     pub now: f64,
@@ -3962,7 +3962,7 @@ pub struct Chuck_VM_Shred {
     pub is_abort: c_ulong,
     pub is_dumped: c_ulong,
     pub event: *mut Chuck_Event,
-    pub m_ugen_map: crate::dts::map,
+    pub m_ugen_map: std::collections::HashMap::new(),
     pub m_parent_objects: crate::dts::vector,
     pub xid: c_ulong,
     pub name: crate::rtmidi_h_edited::string,
@@ -4153,7 +4153,7 @@ pub struct Chuck_VM_Shreduler {
     pub rt_audio: c_ulong,
     pub vm_ref: *mut Chuck_VM,
     pub shred_list: *mut Chuck_VM_Shred,
-    pub blocked: crate::dts::map,
+    pub blocked: std::collections::HashMap::new(),
     pub m_current_shred: *mut Chuck_VM_Shred,
     pub m_dac: *mut Chuck_UGen,
     pub m_adc: *mut Chuck_UGen,
@@ -4427,9 +4427,9 @@ pub struct Chuck_VM {
     pub m_reply_buffer: *mut CBufferSimple,
     pub m_event_buffer: *mut CBufferSimple,
     pub m_event_buffers: crate::dts::list,
-    pub m_global_ints: crate::dts::map,
-    pub m_global_floats: crate::dts::map,
-    pub m_global_events: crate::dts::map,
+    pub m_global_ints: std::collections::HashMap::new(),
+    pub m_global_floats: std::collections::HashMap::new(),
+    pub m_global_events: std::collections::HashMap::new(),
     pub m_global_request_queue: XCircleBuffer<Chuck_Global_Request>,
 }
 extern "C" {
@@ -5009,7 +5009,7 @@ pub struct Chuck_Compiler {
     pub emitter: *mut Chuck_Emitter,
     pub code: *mut Chuck_VM_Code,
     pub m_auto_depend: c_ulong,
-    pub m_recent: crate::dts::map,
+    pub m_recent: std::collections::HashMap::new(),
     pub m_dlls: crate::dts::list,
     pub m_cklibs_to_preload: crate::dts::list,
 }

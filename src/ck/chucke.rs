@@ -91,8 +91,8 @@ pub struct ChucK__bindgen_vtable(libc::c_void);
 pub struct ChucK {
     pub vtable_: *const ChucK__bindgen_vtable,
     pub m_carrier: *mut Chuck_Carrier,
-    pub m_params: crate::dts::map,
-    pub m_listParams: crate::dts::map,
+    pub m_params: std::collections::HashMap::new(),
+    pub m_listParams: std::collections::HashMap::new(),
     pub m_init: libc::c_ulong,
 }
 extern "C" {
