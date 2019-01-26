@@ -9,4 +9,11 @@ name = "ruckus"
 path = "src/main.rs"
 
 [dependencies]
-chuck_sys = { git = "https://github.com/tonal-glyph/chuck-sys" }
+chuck_sys = { path = "../chuck_sys" }
+hound = "3.4.0"
+lalrpop = "0.16.3"
+midir = "0.5.0"
+nom = "4.1.1"
+regex = "1.1.0"
+rodio = "0.8.1"
+rosc = "0.1.5"
