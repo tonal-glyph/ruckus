@@ -220,7 +220,7 @@ script = [
 ]
 [tasks.fix]
 script = [
-    "cargo fix --edition --allow-no-vcs"
+    "cargo fix --edition --edition-idioms --allow-no-vcs --broken-code"
 ]
 [tasks.ctags]
 script = [

@@ -14,8 +14,6 @@ use crate::chuck_carrier_h_edited::*;
 use crate::dts::*;
 use libc::*;
 fn main() {}
-#[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
-#[allow(unused_imports)]
 pub type a_Pos = c_int;
 pub const ae_Operator_ae_op_plus: ae_Operator = 0;
 pub const ae_Operator_ae_op_minus: ae_Operator = 1;
