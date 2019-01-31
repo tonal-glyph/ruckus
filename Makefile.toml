@@ -380,7 +380,7 @@ script = [
 script = [
 '''
     cd src
-    makeheaders *.[c]
+    makeheaders *.[ch]
     makeheaders *.[hpp]
     makeheaders *.[cpp]
     cd lo

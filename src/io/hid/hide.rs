@@ -8,13 +8,22 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::util_buffers_h_edited::*;
-use crate::util_hid_h_edited::*;
-use crate::util_thread_h_edited::*;
 ///* HID io over SDL header
+#![feature(libc)]
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::ck::util::buff::buffe::*;
+use crate::ck::util::hid::utilhide::*;
+use crate::ck::util::thread::threade::*;
+use crate::ck::util::string::stringe::*;
+use std::mem::MaybeUninit;
+use std::collections::HashMap;
+// use sdl2::controller::*;
+// use sdl2::gesture::*;
+// use sdl2::joystick::*;
+// use sdl2::keyboard::*;
+// use sdl2::mouse::*;
+// use sdl2::touch::*;
 pub const CK_MAX_HID_DEVICES: u32 = 1024;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -29,7 +38,7 @@ pub struct PhyHidDevOut {
 #[repr(C)]
 pub struct HidOut {
     pub phout: *mut PhyHidDevOut,
-    pub m_msg: vector,
+    pub m_msg: Vec<f64>,
     pub m_device_num: c_ulong,
     pub m_valid: c_ulong,
     pub m_suppress_output: c_ulong,
@@ -101,7 +110,7 @@ impl HidOut {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         HidOut_HidOut(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -244,7 +253,7 @@ impl HidIn {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         HidIn_HidIn(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -260,11 +269,11 @@ pub struct HidInManager {
 }
 extern "C" {
     #[link_name = "\u{1}m_event_buffers"]
-    pub static mut HidInManager_m_event_buffers: map;
+    pub static mut HidInManager_m_event_buffers: HashMap::new;
 }
 extern "C" {
     #[link_name = "\u{1}the_matrix"]
-    pub static mut HidInManager_the_matrix: vector;
+    pub static mut HidInManager_the_matrix: Vec<f64>;
 }
 extern "C" {
     #[link_name = "\u{1}the_thread"]
@@ -399,7 +408,7 @@ pub struct HidOutManager {
 }
 extern "C" {
     #[link_name = "\u{1}the_phouts"]
-    pub static mut HidOutManager_the_phouts: vector;
+    pub static mut HidOutManager_the_phouts: Vec<f64>;
 }
 extern "C" {
     #[link_name = "\u{1}open"]
@@ -428,7 +437,7 @@ impl HidOutManager {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         HidOutManager_HidOutManager(&mut __bindgen_tmp);
         __bindgen_tmp
     }

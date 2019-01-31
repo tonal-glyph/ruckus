@@ -9,5 +9,5 @@ pub mod serial;
 pub mod sndfile;
 pub mod string;
 pub mod thread;
-pub mod util;
+pub mod utile;
 pub mod xform;

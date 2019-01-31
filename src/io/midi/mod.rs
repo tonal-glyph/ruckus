@@ -1,2 +1,2 @@
-pub mod midi;
-mod rtm
+pub mod midie;
+pub mod rtme;

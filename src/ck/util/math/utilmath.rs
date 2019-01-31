@@ -2,8 +2,8 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
+    
+    
     pub const _MATH_H: u32 = 1;
     pub const _FEATURES_H: u32 = 1;
     pub const __USE_ISOC11: u32 = 1;

@@ -8,65 +8,65 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_carrier_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
 ///* non-specific unit generators
+#![feature(libc)]
 use libc::*;
+use crate::ck::carry::carrye::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
 pub fn DLLQUERY() {
     xxx_query(QUERY: *mut Chuck_DL_Query);
 }
 pub fn main() {
     DLLQUERY();
-    // stereo
+    //* stereo
     CK_DLL_CTOR(stereo_ctor);
     CK_DLL_CTRL(stereo_ctrl_pan);
     CK_DLL_CGET(stereo_cget_pan);
-    // multi
+    //* multi
     CK_DLL_CTOR(multi_ctor);
     CK_DLL_CTRL(multi_ctrl_pan);
     CK_DLL_CGET(multi_cget_pan);
     CK_DLL_CGET(multi_cget_chan);
-    // bunghole
+    //* bunghole
     CK_DLL_TICK(bunghole_tick);
-    // pan2
+    //* pan2
     CK_DLL_CTOR(pan2_ctor);
     CK_DLL_DTOR(pan2_dtor);
     CK_DLL_CTRL(pan2_ctrl_value);
     CK_DLL_CGET(pan2_cget_value);
-    // MIX2
+    //* MIX2
     CK_DLL_CTOR(mix2_ctor);
     CK_DLL_CTOR(mix2_dtor);
     CK_DLL_CTRL(mix2_ctrl_value);
     CK_DLL_CGET(mix2_cget_value);
-    // noise
+    //* noise
     CK_DLL_TICK(noise_tick);
-    // cnoise
+    //* cnoise
     CK_DLL_CTOR(cnoise_ctor);
     CK_DLL_DTOR(cnoise_dtor);
     CK_DLL_TICK(cnoise_tick);
     CK_DLL_CTRL(cnoise_ctrl_mode);
     CK_DLL_CTRL(cnoise_ctrl_fprob);
-    // impulse
+    //* impulse
     CK_DLL_CTOR(impulse_ctor);
     CK_DLL_DTOR(impulse_dtor);
     CK_DLL_TICK(impulse_tick);
     CK_DLL_CTRL(impulse_ctrl_next);
     CK_DLL_CGET(impulse_cget_next);
-    // step
+    //* step
     CK_DLL_CTOR(step_ctor);
     CK_DLL_DTOR(step_dtor);
     CK_DLL_TICK(step_tick);
     CK_DLL_CTRL(step_ctrl_next);
     CK_DLL_CGET(step_cget_next);
-    // gain
+    //* gain
     CK_DLL_CTOR(gain_ctor);
     CK_DLL_DTOR(gain_dtor);
     CK_DLL_TICK(gain_tick);
     CK_DLL_CTRL(gain_ctrl_value);
     CK_DLL_CGET(gain_cget_value);
-    // dyno (Matt Hoffman + Graham Coleman)
+    //* dyno (Matt Hoffman + Graham Coleman)
     // TODO: add soft knee option
     CK_DLL_CTOR(dyno_ctor);
     CK_DLL_DTOR(dyno_dtor);
@@ -92,15 +92,15 @@ pub fn main() {
     CK_DLL_CGET(dyno_cget_externalSideInput);
     CK_DLL_CTRL(dyno_ctrl_sideInput);
     CK_DLL_CGET(dyno_cget_sideInput);
-    // halfrect
+    //* halfrect
     CK_DLL_TICK(halfrect_tick);
-    // fullrect
+    //* fullrect
     CK_DLL_TICK(fullrect_tick);
-    // zerox
-    // CK_DLL_CTOR(zerox_ctor);
-    // CK_DLL_DTOR(zerox_dtor);
-    // CK_DLL_TICK(zerox_tick);
-    // delayp
+    //* zerox
+    CK_DLL_CTOR(zerox_ctor);
+    CK_DLL_DTOR(zerox_dtor);
+    CK_DLL_TICK(zerox_tick);
+    //* delayp
     CK_DLL_CTOR(delayp_ctor);
     CK_DLL_DTOR(delayp_dtor);
     CK_DLL_PMSG(delayp_pmsg);
@@ -111,7 +111,7 @@ pub fn main() {
     CK_DLL_CGET(delayp_cget_window);
     CK_DLL_CTRL(delayp_ctrl_max);
     CK_DLL_CGET(delayp_cget_max);
-    // sndbuf
+    //* sndbuf
     CK_DLL_CTOR(sndbuf_ctor);
     CK_DLL_DTOR(sndbuf_dtor);
     CK_DLL_TICK(sndbuf_tick);
@@ -143,7 +143,7 @@ pub fn main() {
     CK_DLL_CGET(sndbuf_cget_length);
     CK_DLL_CGET(sndbuf_cget_channels);
     CK_DLL_CGET(sndbuf_cget_valueAt);
-    // LiSa (Dan Trueman)
+    //* LiSa (Dan Trueman)
     CK_DLL_CTOR(LiSaMulti_ctor);
     CK_DLL_DTOR(LiSaMulti_dtor);
     CK_DLL_TICK(LiSaMulti_tick);
@@ -203,7 +203,7 @@ pub fn main() {
     CK_DLL_CTRL(LiSaMulti_ctrl_track);
     CK_DLL_CGET(LiSaMulti_cget_track);
     CK_DLL_CGET(LiSaMulti_cget_playing);
-    // ramp stuff
+    //* ramp stuff
     CK_DLL_CTRL(LiSaMulti_ctrl_rampup);
     CK_DLL_CTRL(LiSaMulti_ctrl_rampdown);
     CK_DLL_CTRL(LiSaMulti_ctrl_rampup0);

@@ -420,84 +420,84 @@ extern "C" {
 extern "C" {
     pub fn strtod(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> f64;
 }
 extern "C" {
     pub fn strtof(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> f32;
 }
 extern "C" {
     pub fn strtold(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> f64;
 }
 extern "C" {
     pub fn strtof32(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> _Float32;
 }
 extern "C" {
     pub fn strtof64(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> _Float64;
 }
 extern "C" {
     pub fn strtof32x(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> _Float32x;
 }
 extern "C" {
     pub fn strtof64x(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
     ) -> _Float64x;
 }
 extern "C" {
     pub fn strtol(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_long;
 }
 extern "C" {
     pub fn strtoul(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_ulong;
 }
 extern "C" {
     pub fn strtoq(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_longlong;
 }
 extern "C" {
     pub fn strtouq(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_ulonglong;
 }
 extern "C" {
     pub fn strtoll(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_longlong;
 }
 extern "C" {
     pub fn strtoull(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_ulonglong;
 }
@@ -571,7 +571,7 @@ pub type locale_t = __locale_t;
 extern "C" {
     pub fn strtol_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_long;
@@ -579,7 +579,7 @@ extern "C" {
 extern "C" {
     pub fn strtoul_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulong;
@@ -587,7 +587,7 @@ extern "C" {
 extern "C" {
     pub fn strtoll_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_longlong;
@@ -595,7 +595,7 @@ extern "C" {
 extern "C" {
     pub fn strtoull_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulonglong;
@@ -603,49 +603,49 @@ extern "C" {
 extern "C" {
     pub fn strtod_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> f64;
 }
 extern "C" {
     pub fn strtof_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> f32;
 }
 extern "C" {
     pub fn strtold_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> f64;
 }
 extern "C" {
     pub fn strtof32_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float32;
 }
 extern "C" {
     pub fn strtof64_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float64;
 }
 extern "C" {
     pub fn strtof32x_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float32x;
 }
 extern "C" {
     pub fn strtof64x_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float64x;
 }
@@ -1133,7 +1133,7 @@ extern "C" {
 }
 extern "C" {
     pub fn posix_memalign(
-        __memptr: *mut *mut c_void,
+        __memptr: *mut c_void,
         __alignment: usize,
         __size: usize,
     ) -> c_int;
@@ -1434,9 +1434,9 @@ extern "C" {
 }
 extern "C" {
     pub fn getsubopt(
-        __optionp: *mut *mut c_char,
+        __optionp: *mut c_char,
         __tokens: *const *mut c_char,
-        __valuep: *mut *mut c_char,
+        __valuep: *mut c_char,
     ) -> c_int;
 }
 extern "C" {
@@ -1651,14 +1651,14 @@ extern "C" {
     pub fn __strtok_r(
         __s: *mut c_char,
         __delim: *const c_char,
-        __save_ptr: *mut *mut c_char,
+        __save_ptr: *mut c_char,
     ) -> *mut c_char;
 }
 extern "C" {
     pub fn strtok_r(
         __s: *mut c_char,
         __delim: *const c_char,
-        __save_ptr: *mut *mut c_char,
+        __save_ptr: *mut c_char,
     ) -> *mut c_char;
 }
 extern "C" {
@@ -1782,7 +1782,7 @@ extern "C" {
 }
 extern "C" {
     pub fn strsep(
-        __stringp: *mut *mut c_char,
+        __stringp: *mut c_char,
         __delim: *const c_char,
     ) -> *mut c_char;
 }

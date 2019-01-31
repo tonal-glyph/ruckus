@@ -8,15 +8,15 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_dl_h_edited::*;
 ///* class library for `Math`
+#![feature(libc)]
 use libc::*;
+use crate::ck::dynl::dynle::*;
 pub fn DLLQUERY() {
     libmath_query(QUERY: *mut Chuck_DL_Query);
 }
 pub fn main() {
-    // impl
+    //* impl
     CK_DLL_SFUN(sin_impl);
     CK_DLL_SFUN(cos_impl);
     CK_DLL_SFUN(tan_impl);
@@ -61,6 +61,6 @@ pub fn main() {
     CK_DLL_SFUN(random2_impl);
     CK_DLL_SFUN(srandom_impl);
     CK_DLL_SFUN(gauss_impl);
-    // max for random functions
+    //* max for random functions
     pub const CK_RANDOM_MAX: u64 = 0x7fffffff;
 }

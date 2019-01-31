@@ -8,11 +8,11 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_dl_h_edited::Chuck_DL_Api::*;
 ///* filter related unit generators
+#![feature(libc)]
 use libc::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::dynl::dynle::Chuck_DL_Api::*;
 pub fn DLLQUERY() {
     filter_query(query: *mut Chuck_DL_Query);
 }

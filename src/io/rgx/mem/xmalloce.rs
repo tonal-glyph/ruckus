@@ -229,27 +229,27 @@ extern "C" {
     pub fn atoll(__nptr: *const c_char) -> c_longlong;
 }
 extern "C" {
-    pub fn strtod(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f64;
+    pub fn strtod(__nptr: *const c_char, __endptr: *mut c_char) -> f64;
 }
 extern "C" {
-    pub fn strtof(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f32;
+    pub fn strtof(__nptr: *const c_char, __endptr: *mut c_char) -> f32;
 }
 extern "C" {
-    pub fn strtold(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f64;
+    pub fn strtold(__nptr: *const c_char, __endptr: *mut c_char) -> f64;
 }
 extern "C" {
-    pub fn strtol(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_long;
+    pub fn strtol(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_long;
 }
 extern "C" {
-    pub fn strtoul(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_ulong;
+    pub fn strtoul(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_ulong;
 }
 extern "C" {
-    pub fn strtoll(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_longlong;
+    pub fn strtoll(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_longlong;
 }
 extern "C" {
     pub fn strtoull(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_ulonglong;
 }

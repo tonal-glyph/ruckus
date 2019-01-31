@@ -9,7 +9,7 @@
     unused_mut
 )]
 #![feature(libc)]
-use crate::chuck_dl_h_edited::*;
+use crate::ck::dynl::dynle::*;
 ///* unit analyzer extract
 use libc::*;
 pub fn DLLQUERY() {

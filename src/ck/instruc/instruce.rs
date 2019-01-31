@@ -9,19 +9,17 @@
     unused_mut
 )]
 #![feature(libc)]
+use libc::*;
 //* ChucK VM instruction set. this contains the virtual instructions for the VM.
 //* arithmetic, logical, memory, timing, and audio-specific instructions are all
 //* part of the instruction set.
-extern crate libc;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_type_h_edited::*;
 use crate::dts::*;
-use crate::chuck_vm_h_edited::Chuck_VM;
-use crate::chuck_compile_h_edited::Chuck_VM_Shred;
-use crate::rtmidi_h_edited::*;
-use libc::*;
-use std::mem::*;
-use std::option::Option;
+use crate::ck::def::defe::*;
+use crate::ck::ctype::ctypee::*;
+use crate::ck::vm::vme::Chuck_VM;
+use crate::ck::compile::compilee::Chuck_VM_Shred;
+use crate::io::midi::rtme::*;
+use crate::sys::*;
 #[repr(C)]
 pub struct Chuck_Instr__bindgen_vtable(c_void);
 #[repr(C)]

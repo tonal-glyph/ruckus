@@ -1,1 +1,1 @@
-pub mod osc;
+pub mod osce;

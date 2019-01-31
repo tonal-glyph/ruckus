@@ -8,11 +8,11 @@
     unused_imports,
     unused_mut
 )]
+///* oscillator unit generators
 #![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-///* oscilliator unit generators
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
 pub fn DLLQUERY() {
     osc_query(query: *mut Chuck_DL_Query);
     genX_query(query: *mut Chuck_DL_Query);

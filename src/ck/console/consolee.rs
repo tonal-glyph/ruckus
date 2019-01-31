@@ -8,11 +8,13 @@
     unused_mut
 )]
 #![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::chuck_shell_h_edited::*;
-///* chuck command line console
 use libc;
+use crate::ck::def::defe::*;
+use crate::ck::shell::shelle::*;
+///* chuck command line console
 extern "C" {
     pub static Chuck_Console: Chuck_Shell_UI;
 }
-// crate::chuck_shell_h_edited::Chuck_Shell_UI_init(this: *mut c_void);
+fn main () {
+    Chuck_Shell_UI_init(this: *mut c_void);
+}

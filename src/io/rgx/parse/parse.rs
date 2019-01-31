@@ -2,10 +2,92 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
-    pub const TRE_INTERNAL_H: u32 = 1;
-    pub const _CTYPE_H: u32 = 1;
+    #[repr(C)]
+    #[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
+    pub struct __BindgenBitfieldUnit<Storage, Align>
+    where
+        Storage: AsRef<[u8]> + AsMut<[u8]>,
+    {
+        storage: Storage,
+        align: [Align; 0],
+    }
+    impl<Storage, Align> __BindgenBitfieldUnit<Storage, Align>
+    where
+        Storage: AsRef<[u8]> + AsMut<[u8]>,
+    {
+        #[inline]
+        pub fn new(storage: Storage) -> Self {
+            Self { storage, align: [] }
+        }
+        #[inline]
+        pub fn get_bit(&self, index: usize) -> bool {
+            debug_assert!(index / 8 < self.storage.as_ref().len());
+            let byte_index = index / 8;
+            let byte = self.storage.as_ref()[byte_index];
+            let bit_index = if cfg!(target_endian = "big") {
+                7 - (index % 8)
+            } else {
+                index % 8
+            };
+            let mask = 1 << bit_index;
+            byte & mask == mask
+        }
+        #[inline]
+        pub fn set_bit(&mut self, index: usize, val: bool) {
+            debug_assert!(index / 8 < self.storage.as_ref().len());
+            let byte_index = index / 8;
+            let byte = &mut self.storage.as_mut()[byte_index];
+            let bit_index = if cfg!(target_endian = "big") {
+                7 - (index % 8)
+            } else {
+                index % 8
+            };
+            let mask = 1 << bit_index;
+            if val {
+                *byte |= mask;
+            } else {
+                *byte &= !mask;
+            }
+        }
+        #[inline]
+        pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
+            debug_assert!(bit_width <= 64);
+            debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+            debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+            let mut val = 0;
+            for i in 0..(bit_width as usize) {
+                if self.get_bit(i + bit_offset) {
+                    let index = if cfg!(target_endian = "big") {
+                        bit_width as usize - 1 - i
+                    } else {
+                        i
+                    };
+                    val |= 1 << index;
+                }
+            }
+            val
+        }
+        #[inline]
+        pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
+            debug_assert!(bit_width <= 64);
+            debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+            debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+            for i in 0..(bit_width as usize) {
+                let mask = 1 << i;
+                let val_bit_is_set = val & mask == mask;
+                let index = if cfg!(target_endian = "big") {
+                    bit_width as usize - 1 - i
+                } else {
+                    i
+                };
+                self.set_bit(index + bit_offset, val_bit_is_set);
+            }
+        }
+    }
+    
+    
+    pub const TRE_PARSE_H: u32 = 1;
+    pub const TRE_MEM_H: u32 = 1;
     pub const _FEATURES_H: u32 = 1;
     pub const __USE_ISOC11: u32 = 1;
     pub const __USE_ISOC99: u32 = 1;
@@ -26,6 +108,36 @@ pub mod root {
     pub const __SYSCALL_WORDSIZE: u32 = 64;
     pub const __HAVE_GENERIC_SELECTION: u32 = 1;
     pub const __USE_EXTERN_INLINES: u32 = 1;
+    pub const __GLIBC_USE_LIB_EXT2: u32 = 0;
+    pub const __GLIBC_USE_IEC_60559_BFP_EXT: u32 = 0;
+    pub const __GLIBC_USE_IEC_60559_FUNCS_EXT: u32 = 0;
+    pub const __GLIBC_USE_IEC_60559_TYPES_EXT: u32 = 0;
+    pub const _STDLIB_H: u32 = 1;
+    pub const __HAVE_FLOAT128: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT128: u32 = 0;
+    pub const __HAVE_FLOAT64X: u32 = 1;
+    pub const __HAVE_FLOAT64X_LONG_DOUBLE: u32 = 1;
+    pub const __HAVE_FLOAT16: u32 = 0;
+    pub const __HAVE_FLOAT32: u32 = 1;
+    pub const __HAVE_FLOAT64: u32 = 1;
+    pub const __HAVE_FLOAT32X: u32 = 1;
+    pub const __HAVE_FLOAT128X: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT16: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT32: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT64: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT32X: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT64X: u32 = 0;
+    pub const __HAVE_DISTINCT_FLOAT128X: u32 = 0;
+    pub const __HAVE_FLOATN_NOT_TYPEDEF: u32 = 0;
+    pub const __ldiv_t_defined: u32 = 1;
+    pub const __lldiv_t_defined: u32 = 1;
+    pub const RAND_MAX: u32 = 2147483647;
+    pub const EXIT_FAILURE: u32 = 1;
+    pub const EXIT_SUCCESS: u32 = 0;
+    pub const TRE_MEM_BLOCK_SIZE: u32 = 1024;
+    pub const TRE_AST_H: u32 = 1;
+    pub const TRE_INTERNAL_H: u32 = 1;
+    pub const _CTYPE_H: u32 = 1;
     pub const _BITS_TYPES_H: u32 = 1;
     pub const _BITS_TYPESIZES_H: u32 = 1;
     pub const __OFF_T_MATCHES_OFF64_T: u32 = 1;
@@ -81,6 +193,262 @@ pub mod root {
     pub const ASSERT_LAST: u32 = 256;
     pub const TRE_PARAM_UNSET: i32 = -1;
     pub const TRE_PARAM_DEFAULT: i32 = -2;
+    pub const TRE_COMPILE_H: u32 = 1;
+    pub const EMPTY: i32 = -1;
+    pub const ASSERTION: i32 = -2;
+    pub const TAG: i32 = -3;
+    pub const BACKREF: i32 = -4;
+    pub const PARAMETER: i32 = -5;
+    pub const TRE_STACK_H: u32 = 1;
+    pub type wchar_t = ::std::os::raw::c_int;
+    pub type _Float32 = f32;
+    pub type _Float64 = f64;
+    pub type _Float32x = f64;
+    pub type _Float64x = f64;
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct div_t {
+        pub quot: ::std::os::raw::c_int,
+        pub rem: ::std::os::raw::c_int,
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct ldiv_t {
+        pub quot: ::std::os::raw::c_long,
+        pub rem: ::std::os::raw::c_long,
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct lldiv_t {
+        pub quot: ::std::os::raw::c_longlong,
+        pub rem: ::std::os::raw::c_longlong,
+    }
+    extern "C" {
+        pub fn __ctype_get_mb_cur_max() -> usize;
+    }
+    extern "C" {
+        pub fn atof(__nptr: *const ::std::os::raw::c_char) -> f64;
+    }
+    extern "C" {
+        pub fn atoi(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn atol(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_long;
+    }
+    extern "C" {
+        pub fn atoll(__nptr: *const ::std::os::raw::c_char) -> ::std::os::raw::c_longlong;
+    }
+    extern "C" {
+        pub fn strtod(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+        ) -> f64;
+    }
+    extern "C" {
+        pub fn strtof(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+        ) -> f32;
+    }
+    extern "C" {
+        pub fn strtold(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+        ) -> f64;
+    }
+    extern "C" {
+        pub fn strtol(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+            __base: ::std::os::raw::c_int,
+        ) -> ::std::os::raw::c_long;
+    }
+    extern "C" {
+        pub fn strtoul(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+            __base: ::std::os::raw::c_int,
+        ) -> ::std::os::raw::c_ulong;
+    }
+    extern "C" {
+        pub fn strtoll(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+            __base: ::std::os::raw::c_int,
+        ) -> ::std::os::raw::c_longlong;
+    }
+    extern "C" {
+        pub fn strtoull(
+            __nptr: *const ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
+            __base: ::std::os::raw::c_int,
+        ) -> ::std::os::raw::c_ulonglong;
+    }
+    extern "C" {
+        pub fn rand() -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn srand(__seed: ::std::os::raw::c_uint);
+    }
+    extern "C" {
+        pub fn malloc(__size: usize) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn calloc(__nmemb: usize, __size: usize) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn realloc(
+            __ptr: *mut ::std::os::raw::c_void,
+            __size: usize,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn free(__ptr: *mut ::std::os::raw::c_void);
+    }
+    extern "C" {
+        pub fn aligned_alloc(__alignment: usize, __size: usize) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn abort();
+    }
+    extern "C" {
+        pub fn atexit(
+            __func: ::std::option::Option<unsafe extern "C" fn()>,
+        ) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn at_quick_exit(
+            __func: ::std::option::Option<unsafe extern "C" fn()>,
+        ) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn exit(__status: ::std::os::raw::c_int);
+    }
+    extern "C" {
+        pub fn quick_exit(__status: ::std::os::raw::c_int);
+    }
+    extern "C" {
+        pub fn _Exit(__status: ::std::os::raw::c_int);
+    }
+    extern "C" {
+        pub fn getenv(__name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    }
+    extern "C" {
+        pub fn system(__command: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    }
+    pub type __compar_fn_t = ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *const ::std::os::raw::c_void,
+            arg2: *const ::std::os::raw::c_void,
+        ) -> ::std::os::raw::c_int,
+    >;
+    extern "C" {
+        pub fn bsearch(
+            __key: *const ::std::os::raw::c_void,
+            __base: *const ::std::os::raw::c_void,
+            __nmemb: usize,
+            __size: usize,
+            __compar: root::__compar_fn_t,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn qsort(
+            __base: *mut ::std::os::raw::c_void,
+            __nmemb: usize,
+            __size: usize,
+            __compar: root::__compar_fn_t,
+        );
+    }
+    extern "C" {
+        pub fn abs(__x: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn labs(__x: ::std::os::raw::c_long) -> ::std::os::raw::c_long;
+    }
+    extern "C" {
+        pub fn llabs(__x: ::std::os::raw::c_longlong) -> ::std::os::raw::c_longlong;
+    }
+    extern "C" {
+        pub fn div(__numer: ::std::os::raw::c_int, __denom: ::std::os::raw::c_int) -> root::div_t;
+    }
+    extern "C" {
+        pub fn ldiv(
+            __numer: ::std::os::raw::c_long,
+            __denom: ::std::os::raw::c_long,
+        ) -> root::ldiv_t;
+    }
+    extern "C" {
+        pub fn lldiv(
+            __numer: ::std::os::raw::c_longlong,
+            __denom: ::std::os::raw::c_longlong,
+        ) -> root::lldiv_t;
+    }
+    extern "C" {
+        pub fn mblen(__s: *const ::std::os::raw::c_char, __n: usize) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn mbtowc(
+            __pwc: *mut root::wchar_t,
+            __s: *const ::std::os::raw::c_char,
+            __n: usize,
+        ) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn wctomb(
+            __s: *mut ::std::os::raw::c_char,
+            __wchar: root::wchar_t,
+        ) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn mbstowcs(
+            __pwcs: *mut root::wchar_t,
+            __s: *const ::std::os::raw::c_char,
+            __n: usize,
+        ) -> usize;
+    }
+    extern "C" {
+        pub fn wcstombs(
+            __s: *mut ::std::os::raw::c_char,
+            __pwcs: *const root::wchar_t,
+            __n: usize,
+        ) -> usize;
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_list {
+        pub data: *mut ::std::os::raw::c_void,
+        pub next: *mut root::tre_list,
+    }
+    pub type tre_list_t = root::tre_list;
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_mem_struct {
+        pub blocks: *mut root::tre_list_t,
+        pub current: *mut root::tre_list_t,
+        pub ptr: *mut ::std::os::raw::c_char,
+        pub n: usize,
+        pub failed: ::std::os::raw::c_int,
+        pub provided: *mut ::std::os::raw::c_void,
+    }
+    pub type tre_mem_t = *mut root::tre_mem_struct;
+    extern "C" {
+        pub fn tre_mem_new_impl(
+            provided: ::std::os::raw::c_int,
+            provided_block: *mut ::std::os::raw::c_void,
+        ) -> root::tre_mem_t;
+    }
+    extern "C" {
+        pub fn tre_mem_alloc_impl(
+            mem: root::tre_mem_t,
+            provided: ::std::os::raw::c_int,
+            provided_block: *mut ::std::os::raw::c_void,
+            zero: ::std::os::raw::c_int,
+            size: usize,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn tre_mem_destroy(mem: root::tre_mem_t);
+    }
     pub type __u_char = ::std::os::raw::c_uchar;
     pub type __u_short = ::std::os::raw::c_ushort;
     pub type __u_int = ::std::os::raw::c_uint;
@@ -534,5 +902,193 @@ pub mod root {
             eflags: ::std::os::raw::c_int,
             match_end_ofs: *mut ::std::os::raw::c_int,
         ) -> root::reg_errcode_t;
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_pos_and_tags_t {
+        pub position: ::std::os::raw::c_int,
+        pub code_min: ::std::os::raw::c_int,
+        pub code_max: ::std::os::raw::c_int,
+        pub tags: *mut ::std::os::raw::c_int,
+        pub assertions: ::std::os::raw::c_int,
+        pub class: root::tre_ctype_t,
+        pub neg_classes: *mut root::tre_ctype_t,
+        pub backref: ::std::os::raw::c_int,
+        pub params: *mut ::std::os::raw::c_int,
+    }
+    pub const tre_ast_type_t_LITERAL: root::tre_ast_type_t = 0;
+    pub const tre_ast_type_t_CATENATION: root::tre_ast_type_t = 1;
+    pub const tre_ast_type_t_ITERATION: root::tre_ast_type_t = 2;
+    pub const tre_ast_type_t_UNION: root::tre_ast_type_t = 3;
+    pub type tre_ast_type_t = u32;
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_ast_node_t {
+        pub type_: root::tre_ast_type_t,
+        pub obj: *mut ::std::os::raw::c_void,
+        pub nullable: ::std::os::raw::c_int,
+        pub submatch_id: ::std::os::raw::c_int,
+        pub num_submatches: ::std::os::raw::c_int,
+        pub num_tags: ::std::os::raw::c_int,
+        pub firstpos: *mut root::tre_pos_and_tags_t,
+        pub lastpos: *mut root::tre_pos_and_tags_t,
+    }
+    #[repr(C)]
+    #[derive(Copy, Clone)]
+    pub struct tre_literal_t {
+        pub code_min: ::std::os::raw::c_long,
+        pub code_max: ::std::os::raw::c_long,
+        pub position: ::std::os::raw::c_int,
+        pub u: root::tre_literal_t__bindgen_ty_1,
+        pub neg_classes: *mut root::tre_ctype_t,
+    }
+    #[repr(C)]
+    #[derive(Copy, Clone)]
+    pub union tre_literal_t__bindgen_ty_1 {
+        pub class: root::tre_ctype_t,
+        pub params: *mut ::std::os::raw::c_int,
+        _bindgen_union_align: u64,
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_catenation_t {
+        pub left: *mut root::tre_ast_node_t,
+        pub right: *mut root::tre_ast_node_t,
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_iteration_t {
+        pub arg: *mut root::tre_ast_node_t,
+        pub min: ::std::os::raw::c_int,
+        pub max: ::std::os::raw::c_int,
+        pub _bitfield_1: root::__BindgenBitfieldUnit<[u8; 1usize], u8>,
+        pub params: *mut ::std::os::raw::c_int,
+    }
+    impl tre_iteration_t {
+        #[inline]
+        pub fn minimal(&self) -> ::std::os::raw::c_uint {
+            unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+        }
+        #[inline]
+        pub fn set_minimal(&mut self, val: ::std::os::raw::c_uint) {
+            unsafe {
+                let val: u32 = ::std::mem::transmute(val);
+                self._bitfield_1.set(0usize, 1u8, val as u64)
+            }
+        }
+        #[inline]
+        pub fn new_bitfield_1(
+            minimal: ::std::os::raw::c_uint,
+        ) -> root::__BindgenBitfieldUnit<[u8; 1usize], u8> {
+            let mut __bindgen_bitfield_unit: root::__BindgenBitfieldUnit<[u8; 1usize], u8> =
+                Default::default();
+            __bindgen_bitfield_unit.set(0usize, 1u8, {
+                let minimal: u32 = unsafe { ::std::mem::transmute(minimal) };
+                minimal as u64
+            });
+            __bindgen_bitfield_unit
+        }
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_union_t {
+        pub left: *mut root::tre_ast_node_t,
+        pub right: *mut root::tre_ast_node_t,
+    }
+    extern "C" {
+        pub fn tre_ast_new_node(
+            mem: root::tre_mem_t,
+            type_: root::tre_ast_type_t,
+            size: usize,
+        ) -> *mut root::tre_ast_node_t;
+    }
+    extern "C" {
+        pub fn tre_ast_new_literal(
+            mem: root::tre_mem_t,
+            code_min: ::std::os::raw::c_int,
+            code_max: ::std::os::raw::c_int,
+            position: ::std::os::raw::c_int,
+        ) -> *mut root::tre_ast_node_t;
+    }
+    extern "C" {
+        pub fn tre_ast_new_iter(
+            mem: root::tre_mem_t,
+            arg: *mut root::tre_ast_node_t,
+            min: ::std::os::raw::c_int,
+            max: ::std::os::raw::c_int,
+            minimal: ::std::os::raw::c_int,
+        ) -> *mut root::tre_ast_node_t;
+    }
+    extern "C" {
+        pub fn tre_ast_new_union(
+            mem: root::tre_mem_t,
+            left: *mut root::tre_ast_node_t,
+            right: *mut root::tre_ast_node_t,
+        ) -> *mut root::tre_ast_node_t;
+    }
+    extern "C" {
+        pub fn tre_ast_new_catenation(
+            mem: root::tre_mem_t,
+            left: *mut root::tre_ast_node_t,
+            right: *mut root::tre_ast_node_t,
+        ) -> *mut root::tre_ast_node_t;
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_stack_rec {
+        _unused: [u8; 0],
+    }
+    pub type tre_stack_t = root::tre_stack_rec;
+    extern "C" {
+        pub fn tre_stack_new(
+            size: ::std::os::raw::c_int,
+            max_size: ::std::os::raw::c_int,
+            increment: ::std::os::raw::c_int,
+        ) -> *mut root::tre_stack_t;
+    }
+    extern "C" {
+        pub fn tre_stack_destroy(s: *mut root::tre_stack_t);
+    }
+    extern "C" {
+        pub fn tre_stack_num_objects(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn tre_stack_push_voidptr(
+            s: *mut root::tre_stack_t,
+            value: *mut ::std::os::raw::c_void,
+        ) -> root::reg_errcode_t;
+    }
+    extern "C" {
+        pub fn tre_stack_push_int(
+            s: *mut root::tre_stack_t,
+            value: ::std::os::raw::c_int,
+        ) -> root::reg_errcode_t;
+    }
+    extern "C" {
+        pub fn tre_stack_pop_voidptr(s: *mut root::tre_stack_t) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn tre_stack_pop_int(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
+    }
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct tre_parse_ctx_t {
+        pub mem: root::tre_mem_t,
+        pub stack: *mut root::tre_stack_t,
+        pub result: *mut root::tre_ast_node_t,
+        pub re: *const root::tre_char_t,
+        pub re_start: *const root::tre_char_t,
+        pub re_end: *const root::tre_char_t,
+        pub len: ::std::os::raw::c_int,
+        pub submatch_id: ::std::os::raw::c_int,
+        pub position: ::std::os::raw::c_int,
+        pub max_backref: ::std::os::raw::c_int,
+        pub have_approx: ::std::os::raw::c_int,
+        pub cflags: ::std::os::raw::c_int,
+        pub nofirstsub: ::std::os::raw::c_int,
+        pub params: [::std::os::raw::c_int; 9usize],
+    }
+    extern "C" {
+        pub fn tre_parse(ctx: *mut root::tre_parse_ctx_t) -> root::reg_errcode_t;
     }
 }

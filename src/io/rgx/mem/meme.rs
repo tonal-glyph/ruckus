@@ -27,7 +27,7 @@ pub struct tre_mem_struct {
     pub ptr: *mut c_char,
     pub n: usize,
     pub failed: c_int,
-    pub provided: *mut *mut c_void,
+    pub provided: *mut c_void,
 }
 pub type tre_mem_t = *mut tre_mem_struct;
 extern "C" {

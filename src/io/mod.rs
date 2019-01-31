@@ -1,6 +1,5 @@
-pub mod io;
+pub mod ioe;
 pub mod audio;
-// pub mod hid;
-// pub mod midi;
-// pub mod osc;
-// pub mod rgx
+pub mod hid;
+pub mod midi;
+pub mod rgx;

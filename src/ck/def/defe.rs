@@ -1,5 +1,6 @@
 #![allow(
     dead_code,
+    improper_ctypes,
     mutable_transmutes,
     non_camel_case_types,
     non_snake_case,
@@ -8,22 +9,19 @@
     unused_mut
 )]
 #![feature(libc)]
-extern crate libc;
 use libc::*;
 use crate::dts::*;
-///* Rust equivalent is f32
-pub type t_CKTIME = c_float;
+pub type t_CKTIME = f32;
 pub type t_CKDUR = f64;
 pub type t_CKFLOAT = f64;
 pub type t_CKDOUBLE = f64;
 pub type t_CKSINGLE = f32;
 //TODO Using 64-bit signed int, check @ compile time
 pub type t_CKINT = i64;
+//TODO Using 64-bit unsigned int, check @ compile time
 pub type t_CKUINT = u64;
 pub type t_CKBOOL = u64;
-///* Should this be empty enum Void, (), or c_void?
-pub type t_CKVOID = ();
-pub type nullptr_t = *const c_void;
+pub type t_CKVOID = c_void;
 pub type t_CKVOIDPTR = *mut nullptr_t;
 pub type t_CKBYTE = u8;
 #[repr(C)]
@@ -68,13 +66,13 @@ pub const sz_INT: t_CKUINT = 0;
 pub const sz_UINT: t_CKUINT = 0;
 pub const sz_BOOL: t_CKBOOL = 0;
 pub const sz_BYTE: t_CKBYTE = 0;
-pub type sz_VOIDPTR = c_void;
-pub type sz_COMPLEX = f64;
+pub type sz_VOIDPTR = t_CKVOIDPTR;
+pub type sz_COMPLEX = t_CKCOMPLEX;
 pub type sz_POLAR = t_CKPOLAR;
 pub type sz_VEC3 = t_CKVEC3;
 pub type sz_VEC4 = t_CKVEC4;
 pub type sz_VECTOR = t_CKVECTOR;
-pub const sz_VOID: u32 = 0;
+pub const sz_VOID: t_CKVOID = 0;
 pub const sz_WORD: u32 = 4;
 pub const kindof_VOID: u32 = 0;
 pub const kindof_INT: u32 = 1;

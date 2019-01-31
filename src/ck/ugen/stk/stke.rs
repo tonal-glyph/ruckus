@@ -8,13 +8,13 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_carrier_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
 ///* ChucK import for Synthesis ToolKit (STK)
 ///*                        by Perry Cook and Gary Scavone
+#![feature(libc)]
 use libc::*;
+use crate::ck::carry::carrye::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
 pub fn DLLQUERY() {
     xform_query(QUERY: *mut Chuck_DL_Query);
 }

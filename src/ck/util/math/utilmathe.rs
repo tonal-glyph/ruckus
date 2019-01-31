@@ -8,11 +8,11 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::sys::*;
 ///* a mini-compatibility library for math functions.
+#![feature(libc)]
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::sys::*;
 pub type __u_char = c_uchar;
 pub type __u_short = c_ushort;
 pub type __u_int = c_uint;

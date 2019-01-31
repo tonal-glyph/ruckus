@@ -2,9 +2,10 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
-    pub const TRE_MEM_H: u32 = 1;
+    
+    
+    pub const _XMALLOC_H: u32 = 1;
+    pub const _SYS_TYPES_H: u32 = 1;
     pub const _FEATURES_H: u32 = 1;
     pub const __USE_ISOC11: u32 = 1;
     pub const __USE_ISOC99: u32 = 1;
@@ -25,6 +26,17 @@ pub mod root {
     pub const __SYSCALL_WORDSIZE: u32 = 64;
     pub const __HAVE_GENERIC_SELECTION: u32 = 1;
     pub const __USE_EXTERN_INLINES: u32 = 1;
+    pub const _BITS_TYPES_H: u32 = 1;
+    pub const _BITS_TYPESIZES_H: u32 = 1;
+    pub const __OFF_T_MATCHES_OFF64_T: u32 = 1;
+    pub const __INO_T_MATCHES_INO64_T: u32 = 1;
+    pub const __RLIM_T_MATCHES_RLIM64_T: u32 = 1;
+    pub const __FD_SETSIZE: u32 = 1024;
+    pub const __clockid_t_defined: u32 = 1;
+    pub const __time_t_defined: u32 = 1;
+    pub const __timer_t_defined: u32 = 1;
+    pub const _BITS_STDINT_INTN_H: u32 = 1;
+    pub const __BIT_TYPES_DEFINED__: u32 = 1;
     pub const __GLIBC_USE_LIB_EXT2: u32 = 0;
     pub const __GLIBC_USE_IEC_60559_BFP_EXT: u32 = 0;
     pub const __GLIBC_USE_IEC_60559_FUNCS_EXT: u32 = 0;
@@ -51,7 +63,131 @@ pub mod root {
     pub const RAND_MAX: u32 = 2147483647;
     pub const EXIT_FAILURE: u32 = 1;
     pub const EXIT_SUCCESS: u32 = 0;
-    pub const TRE_MEM_BLOCK_SIZE: u32 = 1024;
+    pub type __u_char = ::std::os::raw::c_uchar;
+    pub type __u_short = ::std::os::raw::c_ushort;
+    pub type __u_int = ::std::os::raw::c_uint;
+    pub type __u_long = ::std::os::raw::c_ulong;
+    pub type __int8_t = ::std::os::raw::c_schar;
+    pub type __uint8_t = ::std::os::raw::c_uchar;
+    pub type __int16_t = ::std::os::raw::c_short;
+    pub type __uint16_t = ::std::os::raw::c_ushort;
+    pub type __int32_t = ::std::os::raw::c_int;
+    pub type __uint32_t = ::std::os::raw::c_uint;
+    pub type __int64_t = ::std::os::raw::c_long;
+    pub type __uint64_t = ::std::os::raw::c_ulong;
+    pub type __int_least8_t = root::__int8_t;
+    pub type __uint_least8_t = root::__uint8_t;
+    pub type __int_least16_t = root::__int16_t;
+    pub type __uint_least16_t = root::__uint16_t;
+    pub type __int_least32_t = root::__int32_t;
+    pub type __uint_least32_t = root::__uint32_t;
+    pub type __int_least64_t = root::__int64_t;
+    pub type __uint_least64_t = root::__uint64_t;
+    pub type __quad_t = ::std::os::raw::c_long;
+    pub type __u_quad_t = ::std::os::raw::c_ulong;
+    pub type __intmax_t = ::std::os::raw::c_long;
+    pub type __uintmax_t = ::std::os::raw::c_ulong;
+    pub type __dev_t = ::std::os::raw::c_ulong;
+    pub type __uid_t = ::std::os::raw::c_uint;
+    pub type __gid_t = ::std::os::raw::c_uint;
+    pub type __ino_t = ::std::os::raw::c_ulong;
+    pub type __ino64_t = ::std::os::raw::c_ulong;
+    pub type __mode_t = ::std::os::raw::c_uint;
+    pub type __nlink_t = ::std::os::raw::c_ulong;
+    pub type __off_t = ::std::os::raw::c_long;
+    pub type __off64_t = ::std::os::raw::c_long;
+    pub type __pid_t = ::std::os::raw::c_int;
+    #[repr(C)]
+    #[derive(Debug, Copy, Clone)]
+    pub struct __fsid_t {
+        pub __val: [::std::os::raw::c_int; 2usize],
+    }
+    pub type __clock_t = ::std::os::raw::c_long;
+    pub type __rlim_t = ::std::os::raw::c_ulong;
+    pub type __rlim64_t = ::std::os::raw::c_ulong;
+    pub type __id_t = ::std::os::raw::c_uint;
+    pub type __time_t = ::std::os::raw::c_long;
+    pub type __useconds_t = ::std::os::raw::c_uint;
+    pub type __suseconds_t = ::std::os::raw::c_long;
+    pub type __daddr_t = ::std::os::raw::c_int;
+    pub type __key_t = ::std::os::raw::c_int;
+    pub type __clockid_t = ::std::os::raw::c_int;
+    pub type __timer_t = *mut ::std::os::raw::c_void;
+    pub type __blksize_t = ::std::os::raw::c_long;
+    pub type __blkcnt_t = ::std::os::raw::c_long;
+    pub type __blkcnt64_t = ::std::os::raw::c_long;
+    pub type __fsblkcnt_t = ::std::os::raw::c_ulong;
+    pub type __fsblkcnt64_t = ::std::os::raw::c_ulong;
+    pub type __fsfilcnt_t = ::std::os::raw::c_ulong;
+    pub type __fsfilcnt64_t = ::std::os::raw::c_ulong;
+    pub type __fsword_t = ::std::os::raw::c_long;
+    pub type __ssize_t = ::std::os::raw::c_long;
+    pub type __syscall_slong_t = ::std::os::raw::c_long;
+    pub type __syscall_ulong_t = ::std::os::raw::c_ulong;
+    pub type __loff_t = root::__off64_t;
+    pub type __caddr_t = *mut ::std::os::raw::c_char;
+    pub type __intptr_t = ::std::os::raw::c_long;
+    pub type __socklen_t = ::std::os::raw::c_uint;
+    pub type __sig_atomic_t = ::std::os::raw::c_int;
+    pub type ino_t = root::__ino_t;
+    pub type dev_t = root::__dev_t;
+    pub type gid_t = root::__gid_t;
+    pub type mode_t = root::__mode_t;
+    pub type nlink_t = root::__nlink_t;
+    pub type uid_t = root::__uid_t;
+    pub type off_t = root::__off_t;
+    pub type pid_t = root::__pid_t;
+    pub type clockid_t = root::__clockid_t;
+    pub type time_t = root::__time_t;
+    pub type timer_t = root::__timer_t;
+    pub type u_int8_t = ::std::os::raw::c_uchar;
+    pub type u_int16_t = ::std::os::raw::c_ushort;
+    pub type u_int32_t = ::std::os::raw::c_uint;
+    pub type u_int64_t = ::std::os::raw::c_ulong;
+    pub type register_t = ::std::os::raw::c_long;
+    pub type blkcnt_t = root::__blkcnt_t;
+    pub type fsblkcnt_t = root::__fsblkcnt_t;
+    pub type fsfilcnt_t = root::__fsfilcnt_t;
+    extern "C" {
+        pub fn xmalloc_impl(
+            size: usize,
+            file: *const ::std::os::raw::c_char,
+            line: ::std::os::raw::c_int,
+            func: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn xcalloc_impl(
+            nmemb: usize,
+            size: usize,
+            file: *const ::std::os::raw::c_char,
+            line: ::std::os::raw::c_int,
+            func: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn xfree_impl(
+            ptr: *mut ::std::os::raw::c_void,
+            file: *const ::std::os::raw::c_char,
+            line: ::std::os::raw::c_int,
+            func: *const ::std::os::raw::c_char,
+        );
+    }
+    extern "C" {
+        pub fn xrealloc_impl(
+            ptr: *mut ::std::os::raw::c_void,
+            new_size: usize,
+            file: *const ::std::os::raw::c_char,
+            line: ::std::os::raw::c_int,
+            func: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void;
+    }
+    extern "C" {
+        pub fn xmalloc_dump_leaks() -> ::std::os::raw::c_int;
+    }
+    extern "C" {
+        pub fn xmalloc_configure(fail_after: ::std::os::raw::c_int);
+    }
     pub type wchar_t = ::std::os::raw::c_int;
     pub type _Float32 = f32;
     pub type _Float64 = f64;
@@ -93,46 +229,46 @@ pub mod root {
     extern "C" {
         pub fn strtod(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f32;
     }
     extern "C" {
         pub fn strtold(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtol(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_long;
     }
     extern "C" {
         pub fn strtoul(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulong;
     }
     extern "C" {
         pub fn strtoll(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn strtoull(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
@@ -264,41 +400,5 @@ pub mod root {
             __pwcs: *const root::wchar_t,
             __n: usize,
         ) -> usize;
-    }
-    #[repr(C)]
-    #[derive(Debug, Copy, Clone)]
-    pub struct tre_list {
-        pub data: *mut ::std::os::raw::c_void,
-        pub next: *mut root::tre_list,
-    }
-    pub type tre_list_t = root::tre_list;
-    #[repr(C)]
-    #[derive(Debug, Copy, Clone)]
-    pub struct tre_mem_struct {
-        pub blocks: *mut root::tre_list_t,
-        pub current: *mut root::tre_list_t,
-        pub ptr: *mut ::std::os::raw::c_char,
-        pub n: usize,
-        pub failed: ::std::os::raw::c_int,
-        pub provided: *mut *mut ::std::os::raw::c_void,
-    }
-    pub type tre_mem_t = *mut root::tre_mem_struct;
-    extern "C" {
-        pub fn tre_mem_new_impl(
-            provided: ::std::os::raw::c_int,
-            provided_block: *mut ::std::os::raw::c_void,
-        ) -> root::tre_mem_t;
-    }
-    extern "C" {
-        pub fn tre_mem_alloc_impl(
-            mem: root::tre_mem_t,
-            provided: ::std::os::raw::c_int,
-            provided_block: *mut ::std::os::raw::c_void,
-            zero: ::std::os::raw::c_int,
-            size: usize,
-        ) -> *mut ::std::os::raw::c_void;
-    }
-    extern "C" {
-        pub fn tre_mem_destroy(mem: root::tre_mem_t);
     }
 }

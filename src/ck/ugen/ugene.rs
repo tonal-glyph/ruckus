@@ -8,18 +8,18 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_compile_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_oo_h_edited::*;
-use crate::chuck_type_h_edited::*;
-use crate::dts::*;
 ///* interface for audio processing units (called unit generators), which include
 ///* oscillators, filters, envelopes, noise generators, etc... this module
 ///* defines data structures of unit generators and how to import them into the
 ///* type system.
+#![feature(libc)]
 use libc::*;
+use crate::ck::compile::compilee::*;
+use crate::ck::ctype::ctypee::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::oo::ooe::*;
+use crate::dts::*;
 pub const UGEN_OP_PASS: i32 = -1;
 pub const UGEN_OP_STOP: u32 = 0;
 pub const UGEN_OP_TICK: u32 = 1;

@@ -2,19 +2,21 @@
 name = "ruckus"
 version = "0.1.0"
 authors = ["Andrew Prentice <scalarwaves@null.net>"]
-# edition = "2018"
+edition = "2018"
 
-[[bin]]
+[lib]
 name = "ruckus"
-path = "src/main.rs"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
 
 [dependencies]
-clap = "2.32.0"
-# chuck_sys = { path = "../chuck_sys" }
-lalrpop = "0.16.3"
+chuck_sys = { path = "../chuck_sys" }
 libc = "0.2.48"
 midir = "0.5.0"
-nom = "4.1.1"
+nom = "4.2.0"
 regex = "1.1.0"
 rodio = "0.8.1"
 rosc = "0.1.5"
+rsoundio = "0.1.6"
+sdl2 = "0.32.1"
+sndfile-sys = "0.1.2"

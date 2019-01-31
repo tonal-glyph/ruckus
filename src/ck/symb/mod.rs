@@ -1,1 +1,1 @@
-pub mod symb;
+pub mod symbe;

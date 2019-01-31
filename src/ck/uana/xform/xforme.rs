@@ -8,10 +8,10 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_dl_h_edited::*;
 ///* unit analyzer transforms
+#![feature(libc)]
 use libc::*;
+use crate::ck::dynl::dynle::*;
 pub fn DLLQUERY() {
     xform_query(query: *mut Chuck_DL_Query);
 }

@@ -9,35 +9,31 @@
     unused_mut
 )]
 #![feature(libc)]
+use libc::*;
 //* ChucK byte-code emitter. if a program has made it this far, then it is type-checked.
 //**/ the emitter traverses the type-checked syntax tree, and emits virtual ChucK VM
 //**/ instructions for each file into a shred (ChucK thread). The instruction set is
 //**/ defined in chuck_instr.
 //! This file was largely hand-written, as bindgen didn't really work.
 //! TODO: Fix this file re: function syntax w/ return
-extern crate libc;
-use crate::chuck_carrier_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_frame_h_edited::*;
-use crate::chuck_oo_h_edited::*;
-use crate::chuck_type_h_edited::*;
-use crate::chuck_vm_h_edited::*;
+use crate::ck::carry::carrye::*;
+use crate::ck::def::defe::*;
+use crate::ck::frame::framee::*;
+use crate::ck::oo::ooe::*;
+use crate::ck::ctype::ctypee::*;
+use crate::ck::vm::vme::*;
+use crate::ck::util::thread::threade::*;
 use crate::dts::*;
-use crate::util_thread_h_edited::*;
-use std::mem::*;
-use std::option::Option;
-use std::os::raw::*;
-use std::prelude::v1::*;
 pub const NULL: u64 = 0;
 pub struct Chuck_Code {
     pub name: String,
     pub stack_depth: t_CKUINT,
     pub need_this: t_CKBOOL,
     pub frame: Chuck_Frame,
-    pub code: Vec::from(s: &a [Chuck_Instr]),
-    pub stack_cont: Vec::from(s: &a [Chuck_Instr_Goto]),
-    pub stack_break: Vec::from(s: &a [Chuck_Instr_Goto]),
-    pub stack_return: Vec::from(s: &a [Chuck_Instr_Goto]),
+    pub code: Vec::from(&'a [Chuck_Instr]),
+    pub stack_cont: Vec::from(&'a [Chuck_Instr_Goto]),
+    pub stack_break: Vec::from(&'a [Chuck_Instr_Goto]),
+    pub stack_return: Vec::from(&'a [Chuck_Instr_Goto]),
     pub filename: crate::dts::string,
 }
 // impl Chuck_Code {

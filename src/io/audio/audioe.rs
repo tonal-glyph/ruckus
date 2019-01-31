@@ -15,7 +15,7 @@ use crate::RtAudio_h_edited::*;
 use libc::*;
 fn main() {}
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
-#[allow(unused_imports)]
+
 pub const NUM_CHANNELS_DEFAULT: u32 = 2;
 pub const NUM_BUFFERS_DEFAULT: u32 = 8;
 pub const DEVICE_NUM_OUT_DEFAULT: u32 = 0;

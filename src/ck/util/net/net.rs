@@ -38,8 +38,8 @@ pub mod root {
             Self::new()
         }
     }
-    #[allow(unused_imports)]
-    use self::super::root;
+    
+    
     pub const _SYS_TYPES_H: u32 = 1;
     pub const _FEATURES_H: u32 = 1;
     pub const __USE_ISOC11: u32 = 1;
@@ -924,46 +924,46 @@ pub mod root {
     extern "C" {
         pub fn strtod(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f32;
     }
     extern "C" {
         pub fn strtold(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtol(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_long;
     }
     extern "C" {
         pub fn strtoul(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulong;
     }
     extern "C" {
         pub fn strtoll(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn strtoull(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
@@ -1229,7 +1229,7 @@ pub mod root {
         pub fn __strtok_r(
             __s: *mut ::std::os::raw::c_char,
             __delim: *const ::std::os::raw::c_char,
-            __save_ptr: *mut *mut ::std::os::raw::c_char,
+            __save_ptr: *mut ::std::os::raw::c_char,
         ) -> *mut ::std::os::raw::c_char;
     }
     extern "C" {

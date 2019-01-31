@@ -8,15 +8,14 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-#[allow(unused_imports)]
-use crate::chuck_utils_h_edited::*;
-use crate::dts::*;
 ///* No algorithm should use these functions directly, because
 ///* programming with void* is too error-prone.  Instead,
 ///* each module should make "wrapper" functions that take
 ///* well-typed arguments and call the TAB_ functions.
+#![feature(libc)]
 use libc::*;
+use crate::ck::util::utile::*;
+use crate::dts::*;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TAB_table_ {
@@ -24,8 +23,8 @@ pub struct TAB_table_ {
 }
 pub type TAB_table = *mut TAB_table_;
 pub type TAB_eq_func =
-    ::std::option::Option<unsafe extern "C" fn(lhs: *mut c_void, rhs: *mut c_void) -> c_long>;
-pub type TAB_hash_func = ::std::option::Option<unsafe extern "C" fn(key: *mut c_void) -> c_long>;
+    Option<unsafe extern "C" fn(lhs: *mut c_void, rhs: *mut c_void) -> c_long>;
+pub type TAB_hash_func = Option<unsafe extern "C" fn(key: *mut c_void) -> c_long>;
 /* Make a new table mapping "keys" to "values". */
 extern "C" {
     #[link_name = "\u{1}_Z9TAB_emptyv"]
@@ -71,7 +70,7 @@ extern "C" {
     #[link_name = "\u{1}_Z8TAB_dumpP10TAB_table_PFvPvS1_E"]
     pub fn TAB_dump(
         t: TAB_table,
-        show: ::std::option::Option<unsafe extern "C" fn(key: *mut c_void, value: *mut c_void)>,
+        show: Option<unsafe extern "C" fn(key: *mut c_void, value: *mut c_void)>,
     );
 }
 /* str eq function */

@@ -8,13 +8,17 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_compile_h_edited::*;
-use crate::chuck_oo_h_edited::*;
-use crate::util_opsc_h_edited::*;
-use crate::util_thread_h_edited::*;
 ///* buffer utilities
+#![feature(libc)]
 use libc::*;
+use crate::ck::compile::compilee::*;
+use crate::ck::oo::ooe::*;
+use crate::ck::util::osc::utilopsce::*;
+use crate::ck::util::thread::threade::*;
+use crate::dts::*;
+use std::mem::MaybeUninit;
+use std::marker::PhantomData;
+use std::cell::UnsafeCell;
 ///* These types are sorta duplicated from chuck_def_h
 pub type DWORD__ = u64;
 pub type SINT__ = i64;
@@ -27,7 +31,7 @@ pub const FALSE: u64 = 0;
 pub struct CBufferAdvance {
     pub m_data: *mut BYTE__,
     pub m_data_width: UINT__,
-    pub m_read_offsets: std::vector,
+    pub m_read_offsets: Vec<f64>,
     pub m_free: deque,
     pub m_write_offset: SINT__,
     pub m_max_elem: SINT__,
@@ -51,7 +55,7 @@ extern "C" {
 impl CBufferAdvance_ReadOffset {
     #[inline]
     pub unsafe fn new(ro: SINT__, e: *mut Chuck_Event) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         CBufferAdvance_ReadOffset_ReadOffset(&mut __bindgen_tmp, ro, e);
         __bindgen_tmp
     }
@@ -143,7 +147,7 @@ impl CBufferAdvance {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         CBufferAdvance_CBufferAdvance(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -212,7 +216,7 @@ impl CBufferSimple {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         CBufferSimple_CBufferSimple(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -271,7 +275,7 @@ impl AccumBuffer {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         AccumBuffer_AccumBuffer(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -338,7 +342,7 @@ impl DeccumBuffer {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         DeccumBuffer_DeccumBuffer(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -436,7 +440,7 @@ impl FastCircularBuffer {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         FastCircularBuffer_FastCircularBuffer(&mut __bindgen_tmp);
         __bindgen_tmp
     }

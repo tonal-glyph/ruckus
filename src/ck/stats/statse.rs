@@ -8,20 +8,21 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::chuck_vm_h_edited::*;
-use crate::dts::*;
-use crate::util_thread_h_edited::*;
 ///* Statistics for audicle. This file was largely written by hand, as bindgen didn't work.
+#![feature(libc)]
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::ck::vm::vme::*;
+use crate::ck::util::thread::threade::*;
+use crate::dts::*;
+use std::collections::HashMap;
 pub struct Shred_Activation {
     when: t_CKTIME,
     cycles: t_CKUINT,
 }
-// impl Shred_Activation {
-//     pub fn proc(a: t_CKTIME, b: t_CKUINT) {} -> Shred_Activation<when: a, cycles: b>;
-// }
+impl Shred_Activation {
+    pub fn proc(a: t_CKTIME, b: t_CKUINT) {} -> Shred_Activation<when: a, cycles: b>;
+}
 pub struct Shred_Stat {
     cycles: t_CKUINT,
     xid: t_CKUINT,
@@ -39,14 +40,14 @@ pub struct Shred_Stat {
     name: string,
     owner: string,
     source: string,
-    diffs: std::collections::queue<t_CKDUR>,
+    diffs: Vec<t_CKDUR>,
     num_diffs: t_CKUINT,
     diff_total: t_CKDUR,
-    act_cycles: std::collections::queue<t_CKUINT>,
+    act_cycles: Vec<t_CKUINT>,
     act_cycles_total: t_CKUINT,
     last_cycles: t_CKUINT,
-    children: std::collections::Vec<Shred_Stat>,
-    activationss: std::collections::Vec<Shred_Activation>,
+    children: Vec<Shred_Stat>,
+    activationss: Vec<Shred_Activation>,
     mutex: XMutex,
     data: Shred_Data,
     time: Shred_Time,
@@ -86,8 +87,8 @@ impl Shred_Stat {
 }
 pub struct Chuck_Stats {
     vm: Chuck_VM,
-    shreds: std::collections::HashMap<t_CKUINT, *mut Shred_Stat>,
-    done: std::collections::Vec<*mut Shred_Stat>,
+    shreds: HashMap<t_CKUINT, *mut Shred_Stat>,
+    done: Vec<*mut Shred_Stat>,
     mutex: XMutex,
     our_instance: *mut Chuck_Stats,
     activations_yes: t_CKBOOL,
@@ -100,10 +101,10 @@ impl Chuck_Stats {
         return s;
     }
 }
-// pub fn get_shreds(xid: vector<*mut Shred_Stat>, shreds: map<(*mut Shred_Stat, *mut Shred_Stat)>);
-// pub fn set_vm_ref(_vm: Chuck_Stats::vm);
-// pub fn add_shred(shred: *mut Chuck_VM_Shred);
-// pub fn activate_shred(shred: *mut Chuck_VM_Shred);
-// pub fn advance_time(shred: *mut Chuck_VM_Shred, to: t_CKTIME);
-// pub fn deactivate_shred(shred: *mut Chuck_VM_Shred);
-// pub fn remove_shred(shred: *mut Chuck_VM_Shred);
+pub fn get_shreds(xid: vector<*mut Shred_Stat>, shreds: map<(*mut Shred_Stat, *mut Shred_Stat)>);
+pub fn set_vm_ref(_vm: Chuck_Stats::vm);
+pub fn add_shred(shred: *mut Chuck_VM_Shred);
+pub fn activate_shred(shred: *mut Chuck_VM_Shred);
+pub fn advance_time(shred: *mut Chuck_VM_Shred, to: t_CKTIME);
+pub fn deactivate_shred(shred: *mut Chuck_VM_Shred);
+pub fn remove_shred(shred: *mut Chuck_VM_Shred);

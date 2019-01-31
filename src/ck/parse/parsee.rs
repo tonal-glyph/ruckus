@@ -8,15 +8,18 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use libc::*;
-use crate::chuck_absyn_h_edited::*;
-use crate::chuck_def_h_edited::*;
 ///* chuck parser interface (using flex and bison)
 ///* I'm leaving most of the system-level artifacts in this file to try to make
 ///* the parser work. I might move it to a separate file eventually
 ///* chuck.tab.c, chuck.tab.h, and chuck.yy.c implement the lexer/parser, maybe pull
 ///* these to a separate lib?
+#![feature(libc)]
+use libc::*;
+use crate::ck::ast::aste::*;
+use crate::ck::def::defe::*;
+use crate::ck::util::string::stringe::*
+use crate::dts::*;
+use crate::sys::*;
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct __BindgenBitfieldUnit<Storage, Align>
@@ -142,7 +145,7 @@ impl<T> PartialEq for __BindgenUnionField<T> {
     }
 }
 impl<T> Eq for __BindgenUnionField<T> {}
-#[allow(unused_imports)]
+
 pub const _GLIBCXX_STDLIB_H: u32 = 1;
 pub const _GLIBCXX_CXX_CONFIG_H: u32 = 1;
 pub const _GLIBCXX_RELEASE: u32 = 8;
@@ -1000,7 +1003,7 @@ pub const _STL_VECTOR_H: u32 = 1;
 pub const _STL_BVECTOR_H: u32 = 1;
 pub const _VECTOR_TCC: u32 = 1;
 pub mod std {
-    #[allow(unused_imports)]
+    
     pub type nullptr_t = *const c_void;
     pub type string = crate::chuck_parse_h_edited::std::basic_string<c_char>;
     pub type wstring = crate::chuck_parse_h_edited::std::basic_string<u32>;
@@ -2168,7 +2171,7 @@ pub mod std {
         pub _address: u8,
     }
     pub mod __swappable_details {
-        #[allow(unused_imports)]
+        
         #[repr(C)]
         #[derive(Debug, Copy, Clone)]
         pub struct __do_is_swappable_impl {
@@ -2543,7 +2546,7 @@ pub mod std {
         pub fn type_info___do_catch(
             this: *mut c_void,
             __thr_type: *const crate::chuck_parse_h_edited::std::type_info,
-            __thr_obj: *mut *mut c_void,
+            __thr_obj: *mut c_void,
             __outer: c_uint,
         ) -> bool;
     }
@@ -2552,7 +2555,7 @@ pub mod std {
         pub fn type_info___do_upcast(
             this: *mut c_void,
             __target: *const __class_type_info,
-            __obj_ptr: *mut *mut c_void,
+            __obj_ptr: *mut c_void,
         ) -> bool;
     }
     #[repr(C)]
@@ -2584,7 +2587,7 @@ pub mod std {
         pub fn bad_typeid_what(this: *mut c_void) -> *const c_char;
     }
     pub mod __exception_ptr {
-        #[allow(unused_imports)]
+        
         #[repr(C)]
         #[derive(Debug)]
         pub struct exception_ptr {
@@ -3302,26 +3305,26 @@ pub mod std {
         pub _base: crate::chuck_parse_h_edited::std::_Vector_base,
     }
     pub type vector__Base = crate::chuck_parse_h_edited::std::_Vector_base;
-    pub type vector__Tp_alloc_type = crate::dts::vector__Base;
+    pub type vector__Tp_alloc_type = Vec<f64>__Base;
     pub type vector__Alloc_traits = __alloc_traits;
     pub type vector_value_type<_Tp> = _Tp;
-    pub type vector_pointer = crate::dts::vector__Base;
-    pub type vector_const_pointer = crate::dts::vector__Alloc_traits;
-    pub type vector_reference = crate::dts::vector__Alloc_traits;
-    pub type vector_const_reference = crate::dts::vector__Alloc_traits;
-    pub type vector_iterator = __normal_iterator<crate::dts::vector_pointer>;
-    pub type vector_const_iterator = __normal_iterator<crate::dts::vector_const_pointer>;
+    pub type vector_pointer = Vec<f64>__Base;
+    pub type vector_const_pointer = Vec<f64>__Alloc_traits;
+    pub type vector_reference = Vec<f64>__Alloc_traits;
+    pub type vector_const_reference = Vec<f64>__Alloc_traits;
+    pub type vector_iterator = __normal_iterator<Vec<f64>_pointer>;
+    pub type vector_const_iterator = __normal_iterator<Vec<f64>_const_pointer>;
     pub type vector_const_reverse_iterator =
-        crate::chuck_parse_h_edited::std::reverse_iterator<crate::dts::vector_const_iterator>;
+        crate::chuck_parse_h_edited::std::reverse_iterator<Vec<f64>_const_iterator>;
     pub type vector_reverse_iterator =
-        crate::chuck_parse_h_edited::std::reverse_iterator<crate::dts::vector_iterator>;
+        crate::chuck_parse_h_edited::std::reverse_iterator<Vec<f64>_iterator>;
     pub type vector_size_type = usize;
     pub type vector_difference_type = isize;
     pub type vector_allocator_type<_Alloc> = _Alloc;
     #[repr(C)]
     #[derive(Debug)]
     pub struct vector__Temporary_value {
-        pub _M_this: *mut crate::dts::vector,
+        pub _M_this: *mut Vec<f64>,
         pub __buf: u8,
     }
     pub type _Bit_type = c_ulong;
@@ -3377,7 +3380,7 @@ pub mod std {
     pub type _Bvector_base_allocator_type<_Alloc> = _Alloc;
 }
 pub mod __gnu_cxx {
-    #[allow(unused_imports)]
+    
     pub type __conditional_type___type<_Iftrue> = _Iftrue;
     #[repr(C)]
     #[derive(Debug, Copy, Clone)]
@@ -3462,7 +3465,7 @@ pub mod __gnu_cxx {
     pub type __normal_iterator_reference = __normal_iterator___traits_type;
     pub type __normal_iterator_pointer = __normal_iterator___traits_type;
     pub mod __ops {
-        #[allow(unused_imports)]
+        
         #[repr(C)]
         #[derive(Debug, Copy, Clone)]
         pub struct _Iter_less_iter {
@@ -3653,46 +3656,46 @@ extern "C" {
     pub fn atoll(__nptr: *const c_char) -> c_longlong;
 }
 extern "C" {
-    pub fn strtod(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f64;
+    pub fn strtod(__nptr: *const c_char, __endptr: *mut c_char) -> f64;
 }
 extern "C" {
-    pub fn strtof(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f32;
+    pub fn strtof(__nptr: *const c_char, __endptr: *mut c_char) -> f32;
 }
 extern "C" {
-    pub fn strtold(__nptr: *const c_char, __endptr: *mut *mut c_char) -> f64;
+    pub fn strtold(__nptr: *const c_char, __endptr: *mut c_char) -> f64;
 }
 extern "C" {
-    pub fn strtof32(__nptr: *const c_char, __endptr: *mut *mut c_char) -> _Float32;
+    pub fn strtof32(__nptr: *const c_char, __endptr: *mut c_char) -> _Float32;
 }
 extern "C" {
-    pub fn strtof64(__nptr: *const c_char, __endptr: *mut *mut c_char) -> _Float64;
+    pub fn strtof64(__nptr: *const c_char, __endptr: *mut c_char) -> _Float64;
 }
 extern "C" {
-    pub fn strtof32x(__nptr: *const c_char, __endptr: *mut *mut c_char) -> _Float32x;
+    pub fn strtof32x(__nptr: *const c_char, __endptr: *mut c_char) -> _Float32x;
 }
 extern "C" {
-    pub fn strtof64x(__nptr: *const c_char, __endptr: *mut *mut c_char) -> _Float64x;
+    pub fn strtof64x(__nptr: *const c_char, __endptr: *mut c_char) -> _Float64x;
 }
 extern "C" {
-    pub fn strtol(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_long;
+    pub fn strtol(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_long;
 }
 extern "C" {
-    pub fn strtoul(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_ulong;
+    pub fn strtoul(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_ulong;
 }
 extern "C" {
-    pub fn strtoq(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_longlong;
+    pub fn strtoq(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_longlong;
 }
 extern "C" {
-    pub fn strtouq(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int)
+    pub fn strtouq(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int)
         -> c_ulonglong;
 }
 extern "C" {
-    pub fn strtoll(__nptr: *const c_char, __endptr: *mut *mut c_char, __base: c_int) -> c_longlong;
+    pub fn strtoll(__nptr: *const c_char, __endptr: *mut c_char, __base: c_int) -> c_longlong;
 }
 extern "C" {
     pub fn strtoull(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
     ) -> c_ulonglong;
 }
@@ -3754,7 +3757,7 @@ pub type locale_t = __locale_t;
 extern "C" {
     pub fn strtol_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_long;
@@ -3762,7 +3765,7 @@ extern "C" {
 extern "C" {
     pub fn strtoul_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulong;
@@ -3770,7 +3773,7 @@ extern "C" {
 extern "C" {
     pub fn strtoll_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_longlong;
@@ -3778,45 +3781,45 @@ extern "C" {
 extern "C" {
     pub fn strtoull_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulonglong;
 }
 extern "C" {
-    pub fn strtod_l(__nptr: *const c_char, __endptr: *mut *mut c_char, __loc: locale_t) -> f64;
+    pub fn strtod_l(__nptr: *const c_char, __endptr: *mut c_char, __loc: locale_t) -> f64;
 }
 extern "C" {
-    pub fn strtof_l(__nptr: *const c_char, __endptr: *mut *mut c_char, __loc: locale_t) -> f32;
+    pub fn strtof_l(__nptr: *const c_char, __endptr: *mut c_char, __loc: locale_t) -> f32;
 }
 extern "C" {
-    pub fn strtold_l(__nptr: *const c_char, __endptr: *mut *mut c_char, __loc: locale_t) -> f64;
+    pub fn strtold_l(__nptr: *const c_char, __endptr: *mut c_char, __loc: locale_t) -> f64;
 }
 extern "C" {
     pub fn strtof32_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float32;
 }
 extern "C" {
     pub fn strtof64_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float64;
 }
 extern "C" {
     pub fn strtof32x_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float32x;
 }
 extern "C" {
     pub fn strtof64x_l(
         __nptr: *const c_char,
-        __endptr: *mut *mut c_char,
+        __endptr: *mut c_char,
         __loc: locale_t,
     ) -> _Float64x;
 }
@@ -4267,7 +4270,7 @@ extern "C" {
     pub fn valloc(__size: usize) -> *mut c_void;
 }
 extern "C" {
-    pub fn posix_memalign(__memptr: *mut *mut c_void, __alignment: usize, __size: usize) -> c_int;
+    pub fn posix_memalign(__memptr: *mut c_void, __alignment: usize, __size: usize) -> c_int;
 }
 extern "C" {
     pub fn aligned_alloc(__alignment: usize, __size: usize) -> *mut c_void;
@@ -4496,9 +4499,9 @@ extern "C" {
 }
 extern "C" {
     pub fn getsubopt(
-        __optionp: *mut *mut c_char,
+        __optionp: *mut c_char,
         __tokens: *const *mut c_char,
-        __valuep: *mut *mut c_char,
+        __valuep: *mut c_char,
     ) -> c_int;
 }
 extern "C" {
@@ -4616,14 +4619,14 @@ extern "C" {
     pub fn __strtok_r(
         __s: *mut c_char,
         __delim: *const c_char,
-        __save_ptr: *mut *mut c_char,
+        __save_ptr: *mut c_char,
     ) -> *mut c_char;
 }
 extern "C" {
     pub fn strtok_r(
         __s: *mut c_char,
         __delim: *const c_char,
-        __save_ptr: *mut *mut c_char,
+        __save_ptr: *mut c_char,
     ) -> *mut c_char;
 }
 extern "C" {
@@ -4703,7 +4706,7 @@ extern "C" {
     pub fn explicit_bzero(__s: *mut c_void, __n: usize);
 }
 extern "C" {
-    pub fn strsep(__stringp: *mut *mut c_char, __delim: *const c_char) -> *mut c_char;
+    pub fn strsep(__stringp: *mut c_char, __delim: *const c_char) -> *mut c_char;
 }
 extern "C" {
     pub fn strsignal(__sig: c_int) -> *mut c_char;
@@ -4751,47 +4754,6 @@ extern "C" {
 extern "C" {
     pub fn __assert(__assertion: *const c_char, __file: *const c_char, __line: c_int);
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKCOMPLEX {
-    pub re: f64,
-    pub im: f64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKPOLAR {
-    pub modulus: f64,
-    pub phase: f64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKVEC3 {
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKVEC4 {
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-    pub w: f64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKVECTOR {
-    pub N: c_ulong,
-    pub values: *mut f64,
-}
-pub type c_str = *mut c_char;
-pub type c_constr = *const c_char;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct t_CKCOMPLEX_SAMPLE {
-    pub re: f64,
-    pub im: f64,
-}
 pub type U_boolList = *mut U_boolList_;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -4808,169 +4770,6 @@ extern "C" {
 extern "C" {
     pub fn U_BoolList(head: c_ulong, tail: U_boolList) -> U_boolList;
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct S_Symbol_ {
-    _unused: [u8; 0],
-}
-pub type S_Symbol = *mut S_Symbol_;
-extern "C" {
-    pub fn insert_symbol(arg1: c_constr) -> S_Symbol;
-}
-extern "C" {
-    pub fn S_name(arg1: S_Symbol) -> c_str;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct TAB_table_ {
-    _unused: [u8; 0],
-}
-pub type S_table = *mut TAB_table_;
-extern "C" {
-    pub fn S_empty() -> S_table;
-}
-extern "C" {
-    pub fn S_empty2(size: c_uint) -> S_table;
-}
-extern "C" {
-    pub fn S_enter(t: S_table, sym: S_Symbol, value: *mut c_void);
-}
-extern "C" {
-    pub fn S_enter2(t: S_table, str: c_constr, value: *mut c_void);
-}
-extern "C" {
-    pub fn S_look(t: S_table, sym: S_Symbol) -> *mut c_void;
-}
-extern "C" {
-    pub fn S_look2(t: S_table, str: c_constr) -> *mut c_void;
-}
-extern "C" {
-    pub fn S_beginScope(t: S_table);
-}
-extern "C" {
-    pub fn S_endScope(t: S_table);
-}
-extern "C" {
-    pub fn S_pop(t: S_table);
-}
-pub type a_Pos = c_int;
-pub const ae_Operator_ae_op_plus: ae_Operator = 0;
-pub const ae_Operator_ae_op_minus: ae_Operator = 1;
-pub const ae_Operator_ae_op_times: ae_Operator = 2;
-pub const ae_Operator_ae_op_divide: ae_Operator = 3;
-pub const ae_Operator_ae_op_eq: ae_Operator = 4;
-pub const ae_Operator_ae_op_neq: ae_Operator = 5;
-pub const ae_Operator_ae_op_lt: ae_Operator = 6;
-pub const ae_Operator_ae_op_le: ae_Operator = 7;
-pub const ae_Operator_ae_op_gt: ae_Operator = 8;
-pub const ae_Operator_ae_op_ge: ae_Operator = 9;
-pub const ae_Operator_ae_op_and: ae_Operator = 10;
-pub const ae_Operator_ae_op_or: ae_Operator = 11;
-pub const ae_Operator_ae_op_s_or: ae_Operator = 12;
-pub const ae_Operator_ae_op_s_and: ae_Operator = 13;
-pub const ae_Operator_ae_op_shift_left: ae_Operator = 14;
-pub const ae_Operator_ae_op_shift_right: ae_Operator = 15;
-pub const ae_Operator_ae_op_percent: ae_Operator = 16;
-pub const ae_Operator_ae_op_s_xor: ae_Operator = 17;
-pub const ae_Operator_ae_op_chuck: ae_Operator = 18;
-pub const ae_Operator_ae_op_plus_chuck: ae_Operator = 19;
-pub const ae_Operator_ae_op_minus_chuck: ae_Operator = 20;
-pub const ae_Operator_ae_op_times_chuck: ae_Operator = 21;
-pub const ae_Operator_ae_op_divide_chuck: ae_Operator = 22;
-pub const ae_Operator_ae_op_s_and_chuck: ae_Operator = 23;
-pub const ae_Operator_ae_op_s_or_chuck: ae_Operator = 24;
-pub const ae_Operator_ae_op_s_xor_chuck: ae_Operator = 25;
-pub const ae_Operator_ae_op_shift_right_chuck: ae_Operator = 26;
-pub const ae_Operator_ae_op_shift_left_chuck: ae_Operator = 27;
-pub const ae_Operator_ae_op_percent_chuck: ae_Operator = 28;
-pub const ae_Operator_ae_op_s_chuck: ae_Operator = 29;
-pub const ae_Operator_ae_op_plusplus: ae_Operator = 30;
-pub const ae_Operator_ae_op_minusminus: ae_Operator = 31;
-pub const ae_Operator_ae_op_tilda: ae_Operator = 32;
-pub const ae_Operator_ae_op_exclamation: ae_Operator = 33;
-pub const ae_Operator_ae_op_at_chuck: ae_Operator = 34;
-pub const ae_Operator_ae_op_unchuck: ae_Operator = 35;
-pub const ae_Operator_ae_op_upchuck: ae_Operator = 36;
-pub const ae_Operator_ae_op_spork: ae_Operator = 37;
-pub const ae_Operator_ae_op_typeof: ae_Operator = 38;
-pub const ae_Operator_ae_op_sizeof: ae_Operator = 39;
-pub const ae_Operator_ae_op_new: ae_Operator = 40;
-pub const ae_Operator_ae_op_arrow_left: ae_Operator = 41;
-pub const ae_Operator_ae_op_arrow_right: ae_Operator = 42;
-pub type ae_Operator = u32;
-extern "C" {
-    pub fn op2str(op: ae_Operator) -> *const c_char;
-}
-pub const ae_Keyword_ae_key_this: ae_Keyword = 0;
-pub const ae_Keyword_ae_key_me: ae_Keyword = 1;
-pub const ae_Keyword_ae_key_func: ae_Keyword = 2;
-pub const ae_Keyword_ae_key_public: ae_Keyword = 3;
-pub const ae_Keyword_ae_key_protected: ae_Keyword = 4;
-pub const ae_Keyword_ae_key_private: ae_Keyword = 5;
-pub const ae_Keyword_ae_key_static: ae_Keyword = 6;
-pub const ae_Keyword_ae_key_instance: ae_Keyword = 7;
-pub const ae_Keyword_ae_key_abstract: ae_Keyword = 8;
-pub type ae_Keyword = u32;
-pub type a_Program = *mut a_Program_;
-pub type a_Section = *mut a_Section_;
-pub type a_Stmt_List = *mut a_Stmt_List_;
-pub type a_Class_Def = *mut a_Class_Def_;
-pub type a_Func_Def = *mut a_Func_Def_;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Code_Segment_ {
-    _unused: [u8; 0],
-}
-pub type a_Code_Segment = *mut a_Code_Segment_;
-pub type a_Stmt = *mut a_Stmt_;
-pub type a_Exp = *mut a_Exp_;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Chuck_ {
-    _unused: [u8; 0],
-}
-pub type a_Exp_Chuck = *mut a_Exp_Chuck_;
-pub type a_Exp_Binary = *mut a_Exp_Binary_;
-pub type a_Exp_Cast = *mut a_Exp_Cast_;
-pub type a_Exp_Unary = *mut a_Exp_Unary_;
-pub type a_Exp_Postfix = *mut a_Exp_Postfix_;
-pub type a_Exp_Primary = *mut a_Exp_Primary_;
-pub type a_Exp_Dur = *mut a_Exp_Dur_;
-pub type a_Exp_Array = *mut a_Exp_Array_;
-pub type a_Exp_Func_Call = *mut a_Exp_Func_Call_;
-pub type a_Exp_Dot_Member = *mut a_Exp_Dot_Member_;
-pub type a_Exp_If = *mut a_Exp_If_;
-pub type a_Exp_Decl = *mut a_Exp_Decl_;
-pub type a_Exp_Hack = *mut a_Exp_Hack_;
-pub type a_Stmt_Code = *mut a_Stmt_Code_;
-pub type a_Stmt_If = *mut a_Stmt_If_;
-pub type a_Stmt_While = *mut a_Stmt_While_;
-pub type a_Stmt_Until = *mut a_Stmt_Until_;
-pub type a_Stmt_For = *mut a_Stmt_For_;
-pub type a_Stmt_Loop = *mut a_Stmt_Loop_;
-pub type a_Stmt_Switch = *mut a_Stmt_Switch_;
-pub type a_Stmt_Break = *mut a_Stmt_Break_;
-pub type a_Stmt_Continue = *mut a_Stmt_Continue_;
-pub type a_Stmt_Return = *mut a_Stmt_Return_;
-pub type a_Stmt_Case = *mut a_Stmt_Case_;
-pub type a_Stmt_GotoLabel = *mut a_Stmt_GotoLabel_;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Decl_ {
-    _unused: [u8; 0],
-}
-pub type a_Decl = *mut a_Decl_;
-pub type a_Var_Decl = *mut a_Var_Decl_;
-pub type a_Var_Decl_List = *mut a_Var_Decl_List_;
-pub type a_Type_Decl = *mut a_Type_Decl_;
-pub type a_Arg_List = *mut a_Arg_List_;
-pub type a_Id_List = *mut a_Id_List_;
-pub type a_Class_Ext = *mut a_Class_Ext_;
-pub type a_Class_Body = *mut a_Class_Body_;
-pub type a_Array_Sub = *mut a_Array_Sub_;
-pub type a_Complex = *mut a_Complex_;
-pub type a_Polar = *mut a_Polar_;
-pub type a_Vec = *mut a_Vec_;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Chuck_Type {
@@ -5268,478 +5067,6 @@ extern "C" {
 extern "C" {
     pub fn delete_id_list(x: a_Id_List);
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Binary_ {
-    pub lhs: a_Exp,
-    pub op: ae_Operator,
-    pub rhs: a_Exp,
-    pub ck_func: t_CKFUNC,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Cast_ {
-    pub type_: a_Type_Decl,
-    pub exp: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Unary_ {
-    pub op: ae_Operator,
-    pub exp: a_Exp,
-    pub type_: a_Type_Decl,
-    pub array: a_Array_Sub,
-    pub code: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Postfix_ {
-    pub exp: a_Exp,
-    pub op: ae_Operator,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Dur_ {
-    pub base: a_Exp,
-    pub unit: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Array_ {
-    pub base: a_Exp,
-    pub indices: a_Array_Sub,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Func_Call_ {
-    pub func: a_Exp,
-    pub args: a_Exp,
-    pub ret_type: t_CKTYPE,
-    pub ck_func: t_CKFUNC,
-    pub ck_vm_code: t_CKVMCODE,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Dot_Member_ {
-    pub base: a_Exp,
-    pub t_base: t_CKTYPE,
-    pub xid: S_Symbol,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_If_ {
-    pub cond: a_Exp,
-    pub if_exp: a_Exp,
-    pub else_exp: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Decl_ {
-    pub type_: a_Type_Decl,
-    pub var_decl_list: a_Var_Decl_List,
-    pub num_var_decls: c_int,
-    pub is_static: c_int,
-    pub is_global: c_int,
-    pub ck_type: t_CKTYPE,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Exp_Hack_ {
-    pub exp: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Var_Decl_List_ {
-    pub var_decl: a_Var_Decl,
-    pub next: a_Var_Decl_List,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Var_Decl_ {
-    pub xid: S_Symbol,
-    pub var_decl: a_Var_Decl,
-    pub array: a_Array_Sub,
-    pub value: t_CKVALUE,
-    pub addr: *mut c_void,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Type_Decl_ {
-    pub xid: a_Id_List,
-    pub array: a_Array_Sub,
-    pub ref_: c_int,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Array_Sub_ {
-    pub depth: c_ulong,
-    pub exp_list: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-    pub err_num: c_int,
-    pub err_pos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Arg_List_ {
-    pub type_decl: a_Type_Decl,
-    pub var_decl: a_Var_Decl,
-    pub type_: t_CKTYPE,
-    pub next: a_Arg_List,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Complex_ {
-    pub re: a_Exp,
-    pub im: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Polar_ {
-    pub mod_: a_Exp,
-    pub phase: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Vec_ {
-    pub args: a_Exp,
-    pub numdims: c_int,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-pub const ae_Exp_Primary_Type_ae_primary_var: ae_Exp_Primary_Type = 0;
-pub const ae_Exp_Primary_Type_ae_primary_num: ae_Exp_Primary_Type = 1;
-pub const ae_Exp_Primary_Type_ae_primary_float: ae_Exp_Primary_Type = 2;
-pub const ae_Exp_Primary_Type_ae_primary_str: ae_Exp_Primary_Type = 3;
-pub const ae_Exp_Primary_Type_ae_primary_array: ae_Exp_Primary_Type = 4;
-pub const ae_Exp_Primary_Type_ae_primary_exp: ae_Exp_Primary_Type = 5;
-pub const ae_Exp_Primary_Type_ae_primary_hack: ae_Exp_Primary_Type = 6;
-pub const ae_Exp_Primary_Type_ae_primary_complex: ae_Exp_Primary_Type = 7;
-pub const ae_Exp_Primary_Type_ae_primary_polar: ae_Exp_Primary_Type = 8;
-pub const ae_Exp_Primary_Type_ae_primary_vec: ae_Exp_Primary_Type = 9;
-pub const ae_Exp_Primary_Type_ae_primary_char: ae_Exp_Primary_Type = 10;
-pub const ae_Exp_Primary_Type_ae_primary_nil: ae_Exp_Primary_Type = 11;
-pub type ae_Exp_Primary_Type = u32;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct a_Exp_Primary_ {
-    pub s_type: ae_Exp_Primary_Type,
-    pub value: t_CKVALUE,
-    pub __bindgen_anon_1: a_Exp_Primary___bindgen_ty_1,
-    pub linepos: c_int,
-    pub self_: a_Exp,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union a_Exp_Primary___bindgen_ty_1 {
-    pub var: S_Symbol,
-    pub num: c_long,
-    pub fnum: f64,
-    pub str: c_str,
-    pub chr: c_str,
-    pub array: a_Array_Sub,
-    pub exp: a_Exp,
-    pub complex: a_Complex,
-    pub polar: a_Polar,
-    pub vec: a_Vec,
-    _bindgen_union_align: u64,
-}
-pub const ae_Exp_Type_ae_exp_binary: ae_Exp_Type = 0;
-pub const ae_Exp_Type_ae_exp_unary: ae_Exp_Type = 1;
-pub const ae_Exp_Type_ae_exp_cast: ae_Exp_Type = 2;
-pub const ae_Exp_Type_ae_exp_postfix: ae_Exp_Type = 3;
-pub const ae_Exp_Type_ae_exp_dur: ae_Exp_Type = 4;
-pub const ae_Exp_Type_ae_exp_primary: ae_Exp_Type = 5;
-pub const ae_Exp_Type_ae_exp_array: ae_Exp_Type = 6;
-pub const ae_Exp_Type_ae_exp_func_call: ae_Exp_Type = 7;
-pub const ae_Exp_Type_ae_exp_dot_member: ae_Exp_Type = 8;
-pub const ae_Exp_Type_ae_exp_if: ae_Exp_Type = 9;
-pub const ae_Exp_Type_ae_exp_decl: ae_Exp_Type = 10;
-pub type ae_Exp_Type = u32;
-pub const ae_Exp_Meta_ae_meta_value: ae_Exp_Meta = 0;
-pub const ae_Exp_Meta_ae_meta_var: ae_Exp_Meta = 1;
-pub type ae_Exp_Meta = u32;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct a_Exp_ {
-    pub s_type: ae_Exp_Type,
-    pub s_meta: ae_Exp_Meta,
-    pub type_: t_CKTYPE,
-    pub owner: t_CKNSPC,
-    pub next: a_Exp,
-    pub group_size: c_ulong,
-    pub cast_to: t_CKTYPE,
-    pub emit_var: c_ulong,
-    pub __bindgen_anon_1: a_Exp___bindgen_ty_1,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union a_Exp___bindgen_ty_1 {
-    pub binary: a_Exp_Binary_,
-    pub unary: a_Exp_Unary_,
-    pub cast: a_Exp_Cast_,
-    pub postfix: a_Exp_Postfix_,
-    pub dur: a_Exp_Dur_,
-    pub primary: a_Exp_Primary_,
-    pub array: a_Exp_Array_,
-    pub func_call: a_Exp_Func_Call_,
-    pub dot_member: a_Exp_Dot_Member_,
-    pub exp_if: a_Exp_If_,
-    pub decl: a_Exp_Decl_,
-    _bindgen_union_align: [u64; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_While_ {
-    pub is_do: c_int,
-    pub cond: a_Exp,
-    pub body: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Until_ {
-    pub is_do: c_int,
-    pub cond: a_Exp,
-    pub body: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_For_ {
-    pub c1: a_Stmt,
-    pub c2: a_Stmt,
-    pub c3: a_Exp,
-    pub body: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Loop_ {
-    pub cond: a_Exp,
-    pub body: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Code_ {
-    pub stmt_list: a_Stmt_List,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_If_ {
-    pub cond: a_Exp,
-    pub if_body: a_Stmt,
-    pub else_body: a_Stmt,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Switch_ {
-    pub val: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Break_ {
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Continue_ {
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Return_ {
-    pub val: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_Case_ {
-    pub exp: a_Exp,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_GotoLabel_ {
-    pub name: S_Symbol,
-    pub linepos: c_int,
-    pub self_: a_Stmt,
-}
-pub const ae_Stmt_Type_ae_stmt_exp: ae_Stmt_Type = 0;
-pub const ae_Stmt_Type_ae_stmt_while: ae_Stmt_Type = 1;
-pub const ae_Stmt_Type_ae_stmt_until: ae_Stmt_Type = 2;
-pub const ae_Stmt_Type_ae_stmt_for: ae_Stmt_Type = 3;
-pub const ae_Stmt_Type_ae_stmt_loop: ae_Stmt_Type = 4;
-pub const ae_Stmt_Type_ae_stmt_if: ae_Stmt_Type = 5;
-pub const ae_Stmt_Type_ae_stmt_code: ae_Stmt_Type = 6;
-pub const ae_Stmt_Type_ae_stmt_switch: ae_Stmt_Type = 7;
-pub const ae_Stmt_Type_ae_stmt_break: ae_Stmt_Type = 8;
-pub const ae_Stmt_Type_ae_stmt_continue: ae_Stmt_Type = 9;
-pub const ae_Stmt_Type_ae_stmt_return: ae_Stmt_Type = 10;
-pub const ae_Stmt_Type_ae_stmt_case: ae_Stmt_Type = 11;
-pub const ae_Stmt_Type_ae_stmt_gotolabel: ae_Stmt_Type = 12;
-pub type ae_Stmt_Type = u32;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct a_Stmt_ {
-    pub s_type: ae_Stmt_Type,
-    pub skip: c_int,
-    pub __bindgen_anon_1: a_Stmt___bindgen_ty_1,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union a_Stmt___bindgen_ty_1 {
-    pub stmt_exp: a_Exp,
-    pub stmt_code: a_Stmt_Code_,
-    pub stmt_while: a_Stmt_While_,
-    pub stmt_until: a_Stmt_Until_,
-    pub stmt_loop: a_Stmt_Loop_,
-    pub stmt_for: a_Stmt_For_,
-    pub stmt_if: a_Stmt_If_,
-    pub stmt_switch: a_Stmt_Switch_,
-    pub stmt_break: a_Stmt_Break_,
-    pub stmt_continue: a_Stmt_Continue_,
-    pub stmt_return: a_Stmt_Return_,
-    pub stmt_case: a_Stmt_Case_,
-    pub stmt_gotolabel: a_Stmt_GotoLabel_,
-    _bindgen_union_align: [u64; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Stmt_List_ {
-    pub stmt: a_Stmt,
-    pub next: a_Stmt_List,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Class_Def_ {
-    pub decl: ae_Keyword,
-    pub name: a_Id_List,
-    pub ext: a_Class_Ext,
-    pub body: a_Class_Body,
-    pub type_: t_CKTYPE,
-    pub iface: c_int,
-    pub home: t_CKNSPC,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Class_Ext_ {
-    pub extend_id: a_Id_List,
-    pub impl_list: a_Id_List,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Class_Body_ {
-    pub section: a_Section,
-    pub next: a_Class_Body,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Id_List_ {
-    pub xid: S_Symbol,
-    pub next: a_Id_List,
-    pub linepos: c_int,
-}
-pub const ae_Func_Type_ae_func_user: ae_Func_Type = 0;
-pub const ae_Func_Type_ae_func_builtin: ae_Func_Type = 1;
-pub type ae_Func_Type = u32;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Func_Def_ {
-    pub func_decl: ae_Keyword,
-    pub static_decl: ae_Keyword,
-    pub type_decl: a_Type_Decl,
-    pub ret_type: t_CKTYPE,
-    pub name: S_Symbol,
-    pub arg_list: a_Arg_List,
-    pub code: a_Stmt,
-    pub ck_func: t_CKFUNC,
-    pub global: c_uint,
-    pub s_type: c_uint,
-    pub stack_depth: c_uint,
-    pub dl_func_ptr: *mut c_void,
-    pub linepos: c_int,
-}
-pub const ae_Section_Type_ae_section_stmt: ae_Section_Type = 0;
-pub const ae_Section_Type_ae_section_func: ae_Section_Type = 1;
-pub const ae_Section_Type_ae_section_class: ae_Section_Type = 2;
-pub type ae_Section_Type = u32;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct a_Section_ {
-    pub s_type: ae_Section_Type,
-    pub __bindgen_anon_1: a_Section___bindgen_ty_1,
-    pub linepos: c_int,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union a_Section___bindgen_ty_1 {
-    pub stmt_list: a_Stmt_List,
-    pub class_def: a_Class_Def,
-    pub func_def: a_Func_Def,
-    _bindgen_union_align: u64,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct a_Program_ {
-    pub section: a_Section,
-    pub next: a_Program,
-    pub linepos: c_int,
-}
 pub type __gnuc_va_list = __builtin_va_list;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -5936,7 +5263,7 @@ extern "C" {
     pub fn fmemopen(__s: *mut c_void, __len: usize, __modes: *const c_char) -> *mut FILE;
 }
 extern "C" {
-    pub fn open_memstream(__bufloc: *mut *mut c_char, __sizeloc: *mut usize) -> *mut FILE;
+    pub fn open_memstream(__bufloc: *mut c_char, __sizeloc: *mut usize) -> *mut FILE;
 }
 extern "C" {
     pub fn setbuf(__stream: *mut FILE, __buf: *mut c_char);
@@ -5981,16 +5308,16 @@ extern "C" {
 }
 extern "C" {
     pub fn vasprintf(
-        __ptr: *mut *mut c_char,
+        __ptr: *mut c_char,
         __f: *const c_char,
         __arg: *mut __va_list_tag,
     ) -> c_int;
 }
 extern "C" {
-    pub fn __asprintf(__ptr: *mut *mut c_char, __fmt: *const c_char, ...) -> c_int;
+    pub fn __asprintf(__ptr: *mut c_char, __fmt: *const c_char, ...) -> c_int;
 }
 extern "C" {
-    pub fn asprintf(__ptr: *mut *mut c_char, __fmt: *const c_char, ...) -> c_int;
+    pub fn asprintf(__ptr: *mut c_char, __fmt: *const c_char, ...) -> c_int;
 }
 extern "C" {
     pub fn vdprintf(__fd: c_int, __fmt: *const c_char, __arg: *mut __va_list_tag) -> c_int;
@@ -6067,7 +5394,7 @@ extern "C" {
 }
 extern "C" {
     pub fn __getdelim(
-        __lineptr: *mut *mut c_char,
+        __lineptr: *mut c_char,
         __n: *mut usize,
         __delimiter: c_int,
         __stream: *mut FILE,
@@ -6075,14 +5402,14 @@ extern "C" {
 }
 extern "C" {
     pub fn getdelim(
-        __lineptr: *mut *mut c_char,
+        __lineptr: *mut c_char,
         __n: *mut usize,
         __delimiter: c_int,
         __stream: *mut FILE,
     ) -> __ssize_t;
 }
 extern "C" {
-    pub fn getline(__lineptr: *mut *mut c_char, __n: *mut usize, __stream: *mut FILE) -> __ssize_t;
+    pub fn getline(__lineptr: *mut c_char, __n: *mut usize, __stream: *mut FILE) -> __ssize_t;
 }
 extern "C" {
     pub fn fputs(__s: *const c_char, __stream: *mut FILE) -> c_int;
@@ -6305,7 +5632,7 @@ extern "C" {
     pub fn wcsstr(__haystack: *const u32, __needle: *const u32) -> *mut u32;
 }
 extern "C" {
-    pub fn wcstok(__s: *mut u32, __delim: *const u32, __ptr: *mut *mut u32) -> *mut u32;
+    pub fn wcstok(__s: *mut u32, __delim: *const u32, __ptr: *mut u32) -> *mut u32;
 }
 extern "C" {
     pub fn wcslen(__s: *const u32) -> usize;
@@ -6396,48 +5723,48 @@ extern "C" {
     pub fn wcswidth(__s: *const u32, __n: usize) -> c_int;
 }
 extern "C" {
-    pub fn wcstod(__nptr: *const u32, __endptr: *mut *mut u32) -> f64;
+    pub fn wcstod(__nptr: *const u32, __endptr: *mut u32) -> f64;
 }
 extern "C" {
-    pub fn wcstof(__nptr: *const u32, __endptr: *mut *mut u32) -> f32;
+    pub fn wcstof(__nptr: *const u32, __endptr: *mut u32) -> f32;
 }
 extern "C" {
-    pub fn wcstold(__nptr: *const u32, __endptr: *mut *mut u32) -> f64;
+    pub fn wcstold(__nptr: *const u32, __endptr: *mut u32) -> f64;
 }
 extern "C" {
-    pub fn wcstof32(__nptr: *const u32, __endptr: *mut *mut u32) -> _Float32;
+    pub fn wcstof32(__nptr: *const u32, __endptr: *mut u32) -> _Float32;
 }
 extern "C" {
-    pub fn wcstof64(__nptr: *const u32, __endptr: *mut *mut u32) -> _Float64;
+    pub fn wcstof64(__nptr: *const u32, __endptr: *mut u32) -> _Float64;
 }
 extern "C" {
-    pub fn wcstof32x(__nptr: *const u32, __endptr: *mut *mut u32) -> _Float32x;
+    pub fn wcstof32x(__nptr: *const u32, __endptr: *mut u32) -> _Float32x;
 }
 extern "C" {
-    pub fn wcstof64x(__nptr: *const u32, __endptr: *mut *mut u32) -> _Float64x;
+    pub fn wcstof64x(__nptr: *const u32, __endptr: *mut u32) -> _Float64x;
 }
 extern "C" {
-    pub fn wcstol(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_long;
+    pub fn wcstol(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_long;
 }
 extern "C" {
-    pub fn wcstoul(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_ulong;
+    pub fn wcstoul(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_ulong;
 }
 extern "C" {
-    pub fn wcstoll(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_longlong;
+    pub fn wcstoll(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_longlong;
 }
 extern "C" {
-    pub fn wcstoull(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_ulonglong;
+    pub fn wcstoull(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_ulonglong;
 }
 extern "C" {
-    pub fn wcstoq(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_longlong;
+    pub fn wcstoq(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_longlong;
 }
 extern "C" {
-    pub fn wcstouq(__nptr: *const u32, __endptr: *mut *mut u32, __base: c_int) -> c_ulonglong;
+    pub fn wcstouq(__nptr: *const u32, __endptr: *mut u32, __base: c_int) -> c_ulonglong;
 }
 extern "C" {
     pub fn wcstol_l(
         __nptr: *const u32,
-        __endptr: *mut *mut u32,
+        __endptr: *mut u32,
         __base: c_int,
         __loc: locale_t,
     ) -> c_long;
@@ -6445,7 +5772,7 @@ extern "C" {
 extern "C" {
     pub fn wcstoul_l(
         __nptr: *const u32,
-        __endptr: *mut *mut u32,
+        __endptr: *mut u32,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulong;
@@ -6453,7 +5780,7 @@ extern "C" {
 extern "C" {
     pub fn wcstoll_l(
         __nptr: *const u32,
-        __endptr: *mut *mut u32,
+        __endptr: *mut u32,
         __base: c_int,
         __loc: locale_t,
     ) -> c_longlong;
@@ -6461,31 +5788,31 @@ extern "C" {
 extern "C" {
     pub fn wcstoull_l(
         __nptr: *const u32,
-        __endptr: *mut *mut u32,
+        __endptr: *mut u32,
         __base: c_int,
         __loc: locale_t,
     ) -> c_ulonglong;
 }
 extern "C" {
-    pub fn wcstod_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> f64;
+    pub fn wcstod_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> f64;
 }
 extern "C" {
-    pub fn wcstof_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> f32;
+    pub fn wcstof_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> f32;
 }
 extern "C" {
-    pub fn wcstold_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> f64;
+    pub fn wcstold_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> f64;
 }
 extern "C" {
-    pub fn wcstof32_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> _Float32;
+    pub fn wcstof32_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> _Float32;
 }
 extern "C" {
-    pub fn wcstof64_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> _Float64;
+    pub fn wcstof64_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> _Float64;
 }
 extern "C" {
-    pub fn wcstof32x_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> _Float32x;
+    pub fn wcstof32x_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> _Float32x;
 }
 extern "C" {
-    pub fn wcstof64x_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: locale_t) -> _Float64x;
+    pub fn wcstof64x_l(__nptr: *const u32, __endptr: *mut u32, __loc: locale_t) -> _Float64x;
 }
 extern "C" {
     pub fn wcpcpy(__dest: *mut u32, __src: *const u32) -> *mut u32;
@@ -6494,7 +5821,7 @@ extern "C" {
     pub fn wcpncpy(__dest: *mut u32, __src: *const u32, __n: usize) -> *mut u32;
 }
 extern "C" {
-    pub fn open_wmemstream(__bufloc: *mut *mut u32, __sizeloc: *mut usize) -> *mut __FILE;
+    pub fn open_wmemstream(__bufloc: *mut u32, __sizeloc: *mut usize) -> *mut __FILE;
 }
 extern "C" {
     pub fn fwide(__fp: *mut __FILE, __mode: c_int) -> c_int;
@@ -6634,7 +5961,7 @@ pub struct max_align_t {
     pub __max_align_ld: f64,
 }
 pub mod __cxxabiv1 {
-    #[allow(unused_imports)]
+    
     #[repr(C)]
     #[derive(Debug, Copy, Clone)]
     pub struct __cxa_refcounted_exception {
@@ -7208,15 +6535,15 @@ extern "C" {
     pub fn pthread_exit(__retval: *mut c_void);
 }
 extern "C" {
-    pub fn pthread_join(__th: pthread_t, __thread_return: *mut *mut c_void) -> c_int;
+    pub fn pthread_join(__th: pthread_t, __thread_return: *mut c_void) -> c_int;
 }
 extern "C" {
-    pub fn pthread_tryjoin_np(__th: pthread_t, __thread_return: *mut *mut c_void) -> c_int;
+    pub fn pthread_tryjoin_np(__th: pthread_t, __thread_return: *mut c_void) -> c_int;
 }
 extern "C" {
     pub fn pthread_timedjoin_np(
         __th: pthread_t,
-        __thread_return: *mut *mut c_void,
+        __thread_return: *mut c_void,
         __abstime: *const timespec,
     ) -> c_int;
 }
@@ -7292,7 +6619,7 @@ extern "C" {
 extern "C" {
     pub fn pthread_attr_getstackaddr(
         __attr: *const pthread_attr_t,
-        __stackaddr: *mut *mut c_void,
+        __stackaddr: *mut c_void,
     ) -> c_int;
 }
 extern "C" {
@@ -7313,7 +6640,7 @@ extern "C" {
 extern "C" {
     pub fn pthread_attr_getstack(
         __attr: *const pthread_attr_t,
-        __stackaddr: *mut *mut c_void,
+        __stackaddr: *mut c_void,
         __stacksize: *mut usize,
     ) -> c_int;
 }
@@ -7829,14 +7156,14 @@ pub const SyntaxType_NUM_SYNTAX_TYPES: SyntaxType = 15;
 pub type SyntaxType = u32;
 #[repr(C)]
 pub struct SyntaxToken {
-    pub token: crate::dts::string,
+    pub token: string,
     pub type_: c_ulong,
     pub begin: SyntaxToken_size_type,
     pub end: SyntaxToken_size_type,
 }
 #[repr(C)]
 pub struct SyntaxTokenList {
-    pub list: crate::dts::vector,
+    pub list: Vec<f64>,
     pub howmany: SyntaxTokenList_size_type,
 }
 #[repr(C)]
@@ -7848,7 +7175,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN11SyntaxQuery9parseLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER15SyntaxTokenList"]
     pub fn SyntaxQuery_parseLine(
         this: *mut SyntaxQuery,
-        line: *const crate::dts::string,
+        line: *const string,
         tokens: *mut SyntaxTokenList,
     ) -> c_ulong;
 }
@@ -7856,7 +7183,7 @@ impl SyntaxQuery {
     #[inline]
     pub unsafe fn parseLine(
         &mut self,
-        line: *const crate::dts::string,
+        line: *const string,
         tokens: *mut SyntaxTokenList,
     ) -> c_ulong {
         SyntaxQuery_parseLine(self, line, tokens)

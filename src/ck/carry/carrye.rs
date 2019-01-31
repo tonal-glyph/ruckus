@@ -1,8 +1,7 @@
 #![feature(libc)]
-///* desc: carrier of things associated with each ChucK instance
-extern crate libc;
 use libc::*;
-use crate::util_thread_h_edited::*;
+///* desc: carrier of things associated with each ChucK instance
+use crate::ck::util::thread::threade::*;
 #[allow(
     non_snake_case,
     non_camel_case_types,
@@ -50,7 +49,7 @@ pub type ck_socket = *mut ck_socket_;
 pub struct WvOut {
     _unused: [u8; 0],
 }
-//! From SE: https://codereview.stackexchange.com/questions/146339/btreemap-as-a-multimap-in-rust
+// From SE: https://codereview.stackexchange.com/questions/146339/btreemap-as-a-multimap-in-rust
 use std::collections::BTreeMap;
 use std::io::{self, BufRead};
 pub fn insert_dup<V>(map: &mut BTreeMap<i32, Vec<V>>, k: i32, v: V) {
@@ -63,7 +62,7 @@ pub fn remove_dup_internal<V>(map: &mut BTreeMap<i32, Vec<V>>, k: i32) -> Option
         vec.len()
     })
 }
-//! From SE: https://codereview.stackexchange.com/questions/127350/idiomatic-word-counting-in-rust/127381#127381
+// From SE: https://codereview.stackexchange.com/questions/127350/idiomatic-word-counting-in-rust/127381#127381
 // pub fn wordcount() {
 //     let mut counts = BTreeMap::new();
 //     let stdin = io::stdin();

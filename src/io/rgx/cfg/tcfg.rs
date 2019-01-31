@@ -2,8 +2,8 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
+    
+    
     pub const HAVE_ALLOCA: u32 = 1;
     pub const HAVE_ALLOCA_H: u32 = 1;
     pub const HAVE_SYS_TYPES_H: u32 = 1;

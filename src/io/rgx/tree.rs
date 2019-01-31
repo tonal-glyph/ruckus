@@ -2,9 +2,8 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
-    pub const TRE_STACK_H: u32 = 1;
+    
+    
     pub const TRE_H: u32 = 1;
     pub const HAVE_ALLOCA: u32 = 1;
     pub const HAVE_ALLOCA_H: u32 = 1;
@@ -314,42 +313,5 @@ pub mod root {
     }
     extern "C" {
         pub fn tre_have_approx(preg: *const root::regex_t) -> ::std::os::raw::c_int;
-    }
-    #[repr(C)]
-    #[derive(Debug, Copy, Clone)]
-    pub struct tre_stack_rec {
-        _unused: [u8; 0],
-    }
-    pub type tre_stack_t = root::tre_stack_rec;
-    extern "C" {
-        pub fn tre_stack_new(
-            size: ::std::os::raw::c_int,
-            max_size: ::std::os::raw::c_int,
-            increment: ::std::os::raw::c_int,
-        ) -> *mut root::tre_stack_t;
-    }
-    extern "C" {
-        pub fn tre_stack_destroy(s: *mut root::tre_stack_t);
-    }
-    extern "C" {
-        pub fn tre_stack_num_objects(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn tre_stack_push_voidptr(
-            s: *mut root::tre_stack_t,
-            value: *mut ::std::os::raw::c_void,
-        ) -> root::reg_errcode_t;
-    }
-    extern "C" {
-        pub fn tre_stack_push_int(
-            s: *mut root::tre_stack_t,
-            value: ::std::os::raw::c_int,
-        ) -> root::reg_errcode_t;
-    }
-    extern "C" {
-        pub fn tre_stack_pop_voidptr(s: *mut root::tre_stack_t) -> *mut ::std::os::raw::c_void;
-    }
-    extern "C" {
-        pub fn tre_stack_pop_int(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
     }
 }

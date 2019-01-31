@@ -232,7 +232,7 @@ pub struct OSC_Receiver {
     pub _started: bool,
     pub _in_read: c_int,
     pub _in_write: c_int,
-    pub _address_space: *mut *mut OSC_Address_Space,
+    pub _address_space: *mut OSC_Address_Space,
     pub _address_size: c_int,
     pub _address_num: c_int,
     pub m_event_buffer: *mut CBufferSimple,

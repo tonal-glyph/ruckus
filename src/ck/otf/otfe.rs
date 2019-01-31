@@ -8,27 +8,21 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
 //* On-the-fly programming utilities
+#![feature(libc)]
 use libc::*;
-// If std::prelude is implicit, then this shouldn't be necessary
-// use std::clone::*;
-// use std::fmt::*;
-// use std::marker::*;
-// use std::mem::*;
-// use std::option::Option;
-// use std::os::raw::*;
-// use std::slice::*;
-// use std::prelude::v1::*;
-use crate::chuck_def_h_edited::*;
-use crate::util_network_h_edited::*;
+use crate::ck::def::defe::*;
+use crate::ck::util::net::nete::*;
+use crate::dts::*;
+use crate::sys::*;
+use std::marker::PhantomData;
 #[repr(C)]
 #[derive(Default)]
-pub struct __IncompleteArrayField<T>(::std::marker::PhantomData<T>);
+pub struct __IncompleteArrayField<T>(PhantomData<T>);
 impl<T> __IncompleteArrayField<T> {
     #[inline]
     pub fn new() -> Self {
-        __IncompleteArrayField(::std::marker::PhantomData)
+        __IncompleteArrayField(PhantomData)
     }
     #[inline]
     pub unsafe fn as_ptr(&self) -> *const T {
@@ -58,8 +52,8 @@ impl<T> Clone for __IncompleteArrayField<T> {
         Self::new()
     }
 }
-impl<T> ::std::marker::Copy for __IncompleteArrayField<T> {}
-#[allow(unused_imports)]
+impl<T> Copy for __IncompleteArrayField<T> {}
+
 pub const NET_HEADER: u32 = 2358036680;
 pub const NET_BUFFER_SIZE: u32 = 512;
 pub const NET_ERROR: u32 = 4294967295;

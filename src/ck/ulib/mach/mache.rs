@@ -8,15 +8,15 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_carrier_h_edited::*;
-use crate::chuck_compile_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_otf_h_edited::*;
-use crate::chuck_vm_h_edited::*;
 ///* class library for `Machine`
+#![feature(libc)]
 use libc::*;
+use crate::ck::carry::carrye::*;
+use crate::ck::compile::compilee::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::otf::otfe::*;
+use crate::ck::vm::vme::*;
 pub fn DLLQUERY() {
     machine_query(QUERY: *mut Chuck_DL_Query);
     init();

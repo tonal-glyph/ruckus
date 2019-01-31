@@ -127,8 +127,8 @@ pub mod root {
         }
     }
     impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
-    #[allow(unused_imports)]
-    use self::super::root;
+    
+    
     pub const _GLIBCXX_STDLIB_H: u32 = 1;
     pub const _GLIBCXX_CXX_CONFIG_H: u32 = 1;
     pub const _GLIBCXX_RELEASE: u32 = 8;
@@ -1137,11 +1137,11 @@ pub mod root {
     pub const CK_LOG_CORE: u32 = 1;
     pub const CK_LOG_NONE: u32 = 0;
     pub mod std {
-        #[allow(unused_imports)]
+        
         use self::super::super::root;
         pub type nullptr_t = *const ::std::os::raw::c_void;
         pub mod __cxx11 {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
             pub type string = root::std::__cxx11::basic_string<::std::os::raw::c_char>;
             pub type wstring = root::std::__cxx11::basic_string<u32>;
@@ -2367,7 +2367,7 @@ pub mod root {
             pub _address: u8,
         }
         pub mod __swappable_details {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
@@ -2709,7 +2709,7 @@ pub mod root {
             pub fn type_info___do_catch(
                 this: *mut ::std::os::raw::c_void,
                 __thr_type: *const root::std::type_info,
-                __thr_obj: *mut *mut ::std::os::raw::c_void,
+                __thr_obj: *mut ::std::os::raw::c_void,
                 __outer: ::std::os::raw::c_uint,
             ) -> bool;
         }
@@ -2718,7 +2718,7 @@ pub mod root {
             pub fn type_info___do_upcast(
                 this: *mut ::std::os::raw::c_void,
                 __target: *const root::__cxxabiv1::__class_type_info,
-                __obj_ptr: *mut *mut ::std::os::raw::c_void,
+                __obj_ptr: *mut ::std::os::raw::c_void,
             ) -> bool;
         }
         #[repr(C)]
@@ -2752,7 +2752,7 @@ pub mod root {
             ) -> *const ::std::os::raw::c_char;
         }
         pub mod __exception_ptr {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
             #[repr(C)]
             #[derive(Debug)]
@@ -3527,7 +3527,7 @@ pub mod root {
             pub _base: root::std::true_type,
         }
         pub mod literals {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
         }
         extern "C" {
@@ -4633,7 +4633,7 @@ pub mod root {
             pub _M_facets: *mut *const root::std::locale_facet,
             pub _M_facets_size: usize,
             pub _M_caches: *mut *const root::std::locale_facet,
-            pub _M_names: *mut *mut ::std::os::raw::c_char,
+            pub _M_names: *mut ::std::os::raw::c_char,
         }
         extern "C" {
             #[link_name = "\u{1}_ZNSt6locale5_Impl11_S_id_ctypeE"]
@@ -4761,7 +4761,7 @@ pub mod root {
             pub _base: root::std::false_type,
         }
         pub mod _V2 {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
             #[repr(C)]
             pub struct error_category__bindgen_vtable(::std::os::raw::c_void);
@@ -5769,7 +5769,7 @@ pub mod root {
             root::std::basic_iostream<root::std::basic_fstream_char_type<_CharT>>;
     }
     pub mod __gnu_cxx {
-        #[allow(unused_imports)]
+        
         use self::super::super::root;
         pub type __conditional_type___type<_Iftrue> = _Iftrue;
         #[repr(C)]
@@ -5857,7 +5857,7 @@ pub mod root {
         pub type __normal_iterator_reference = root::__gnu_cxx::__normal_iterator___traits_type;
         pub type __normal_iterator_pointer = root::__gnu_cxx::__normal_iterator___traits_type;
         pub mod __ops {
-            #[allow(unused_imports)]
+            
             use self::super::super::super::root;
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
@@ -6066,84 +6066,84 @@ pub mod root {
     extern "C" {
         pub fn strtod(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f32;
     }
     extern "C" {
         pub fn strtold(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof32(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> root::_Float32;
     }
     extern "C" {
         pub fn strtof64(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> root::_Float64;
     }
     extern "C" {
         pub fn strtof32x(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> root::_Float32x;
     }
     extern "C" {
         pub fn strtof64x(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
         ) -> root::_Float64x;
     }
     extern "C" {
         pub fn strtol(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_long;
     }
     extern "C" {
         pub fn strtoul(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulong;
     }
     extern "C" {
         pub fn strtoq(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn strtouq(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
     extern "C" {
         pub fn strtoll(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn strtoull(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
@@ -6217,7 +6217,7 @@ pub mod root {
     extern "C" {
         pub fn strtol_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_long;
@@ -6225,7 +6225,7 @@ pub mod root {
     extern "C" {
         pub fn strtoul_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_ulong;
@@ -6233,7 +6233,7 @@ pub mod root {
     extern "C" {
         pub fn strtoll_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_longlong;
@@ -6241,7 +6241,7 @@ pub mod root {
     extern "C" {
         pub fn strtoull_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_ulonglong;
@@ -6249,49 +6249,49 @@ pub mod root {
     extern "C" {
         pub fn strtod_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> f32;
     }
     extern "C" {
         pub fn strtold_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> f64;
     }
     extern "C" {
         pub fn strtof32_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> root::_Float32;
     }
     extern "C" {
         pub fn strtof64_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> root::_Float64;
     }
     extern "C" {
         pub fn strtof32x_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> root::_Float32x;
     }
     extern "C" {
         pub fn strtof64x_l(
             __nptr: *const ::std::os::raw::c_char,
-            __endptr: *mut *mut ::std::os::raw::c_char,
+            __endptr: *mut ::std::os::raw::c_char,
             __loc: root::locale_t,
         ) -> root::_Float64x;
     }
@@ -6779,7 +6779,7 @@ pub mod root {
     }
     extern "C" {
         pub fn posix_memalign(
-            __memptr: *mut *mut ::std::os::raw::c_void,
+            __memptr: *mut ::std::os::raw::c_void,
             __alignment: usize,
             __size: usize,
         ) -> ::std::os::raw::c_int;
@@ -7080,9 +7080,9 @@ pub mod root {
     }
     extern "C" {
         pub fn getsubopt(
-            __optionp: *mut *mut ::std::os::raw::c_char,
+            __optionp: *mut ::std::os::raw::c_char,
             __tokens: *const *mut ::std::os::raw::c_char,
-            __valuep: *mut *mut ::std::os::raw::c_char,
+            __valuep: *mut ::std::os::raw::c_char,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
@@ -7297,14 +7297,14 @@ pub mod root {
         pub fn __strtok_r(
             __s: *mut ::std::os::raw::c_char,
             __delim: *const ::std::os::raw::c_char,
-            __save_ptr: *mut *mut ::std::os::raw::c_char,
+            __save_ptr: *mut ::std::os::raw::c_char,
         ) -> *mut ::std::os::raw::c_char;
     }
     extern "C" {
         pub fn strtok_r(
             __s: *mut ::std::os::raw::c_char,
             __delim: *const ::std::os::raw::c_char,
-            __save_ptr: *mut *mut ::std::os::raw::c_char,
+            __save_ptr: *mut ::std::os::raw::c_char,
         ) -> *mut ::std::os::raw::c_char;
     }
     extern "C" {
@@ -7428,7 +7428,7 @@ pub mod root {
     }
     extern "C" {
         pub fn strsep(
-            __stringp: *mut *mut ::std::os::raw::c_char,
+            __stringp: *mut ::std::os::raw::c_char,
             __delim: *const ::std::os::raw::c_char,
         ) -> *mut ::std::os::raw::c_char;
     }
@@ -8849,7 +8849,7 @@ pub mod root {
     }
     extern "C" {
         pub fn open_memstream(
-            __bufloc: *mut *mut ::std::os::raw::c_char,
+            __bufloc: *mut ::std::os::raw::c_char,
             __sizeloc: *mut usize,
         ) -> *mut root::FILE;
     }
@@ -8929,21 +8929,21 @@ pub mod root {
     }
     extern "C" {
         pub fn vasprintf(
-            __ptr: *mut *mut ::std::os::raw::c_char,
+            __ptr: *mut ::std::os::raw::c_char,
             __f: *const ::std::os::raw::c_char,
             __arg: *mut root::__va_list_tag,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn __asprintf(
-            __ptr: *mut *mut ::std::os::raw::c_char,
+            __ptr: *mut ::std::os::raw::c_char,
             __fmt: *const ::std::os::raw::c_char,
             ...
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn asprintf(
-            __ptr: *mut *mut ::std::os::raw::c_char,
+            __ptr: *mut ::std::os::raw::c_char,
             __fmt: *const ::std::os::raw::c_char,
             ...
         ) -> ::std::os::raw::c_int;
@@ -9068,7 +9068,7 @@ pub mod root {
     }
     extern "C" {
         pub fn __getdelim(
-            __lineptr: *mut *mut ::std::os::raw::c_char,
+            __lineptr: *mut ::std::os::raw::c_char,
             __n: *mut usize,
             __delimiter: ::std::os::raw::c_int,
             __stream: *mut root::FILE,
@@ -9076,7 +9076,7 @@ pub mod root {
     }
     extern "C" {
         pub fn getdelim(
-            __lineptr: *mut *mut ::std::os::raw::c_char,
+            __lineptr: *mut ::std::os::raw::c_char,
             __n: *mut usize,
             __delimiter: ::std::os::raw::c_int,
             __stream: *mut root::FILE,
@@ -9084,7 +9084,7 @@ pub mod root {
     }
     extern "C" {
         pub fn getline(
-            __lineptr: *mut *mut ::std::os::raw::c_char,
+            __lineptr: *mut ::std::os::raw::c_char,
             __n: *mut usize,
             __stream: *mut root::FILE,
         ) -> root::__ssize_t;
@@ -9733,19 +9733,19 @@ pub mod root {
     extern "C" {
         pub fn pthread_join(
             __th: root::pthread_t,
-            __thread_return: *mut *mut ::std::os::raw::c_void,
+            __thread_return: *mut ::std::os::raw::c_void,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn pthread_tryjoin_np(
             __th: root::pthread_t,
-            __thread_return: *mut *mut ::std::os::raw::c_void,
+            __thread_return: *mut ::std::os::raw::c_void,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn pthread_timedjoin_np(
             __th: root::pthread_t,
-            __thread_return: *mut *mut ::std::os::raw::c_void,
+            __thread_return: *mut ::std::os::raw::c_void,
             __abstime: *const root::timespec,
         ) -> ::std::os::raw::c_int;
     }
@@ -9842,7 +9842,7 @@ pub mod root {
     extern "C" {
         pub fn pthread_attr_getstackaddr(
             __attr: *const root::pthread_attr_t,
-            __stackaddr: *mut *mut ::std::os::raw::c_void,
+            __stackaddr: *mut ::std::os::raw::c_void,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
@@ -9866,7 +9866,7 @@ pub mod root {
     extern "C" {
         pub fn pthread_attr_getstack(
             __attr: *const root::pthread_attr_t,
-            __stackaddr: *mut *mut ::std::os::raw::c_void,
+            __stackaddr: *mut ::std::os::raw::c_void,
             __stacksize: *mut usize,
         ) -> ::std::os::raw::c_int;
     }
@@ -10678,7 +10678,7 @@ pub mod root {
         }
     }
     pub mod __gnu_debug {
-        #[allow(unused_imports)]
+        
         use self::super::super::root;
     }
     #[repr(C)]
@@ -10689,7 +10689,7 @@ pub mod root {
         pub __max_align_ld: f64,
     }
     pub mod __cxxabiv1 {
-        #[allow(unused_imports)]
+        
         use self::super::super::root;
         #[repr(C)]
         #[derive(Debug, Copy, Clone)]
@@ -10812,7 +10812,7 @@ pub mod root {
         pub fn wcsstr(__haystack: *const u32, __needle: *const u32) -> *mut u32;
     }
     extern "C" {
-        pub fn wcstok(__s: *mut u32, __delim: *const u32, __ptr: *mut *mut u32) -> *mut u32;
+        pub fn wcstok(__s: *mut u32, __delim: *const u32, __ptr: *mut u32) -> *mut u32;
     }
     extern "C" {
         pub fn wcslen(__s: *const u32) -> usize;
@@ -10920,72 +10920,72 @@ pub mod root {
         pub fn wcswidth(__s: *const u32, __n: usize) -> ::std::os::raw::c_int;
     }
     extern "C" {
-        pub fn wcstod(__nptr: *const u32, __endptr: *mut *mut u32) -> f64;
+        pub fn wcstod(__nptr: *const u32, __endptr: *mut u32) -> f64;
     }
     extern "C" {
-        pub fn wcstof(__nptr: *const u32, __endptr: *mut *mut u32) -> f32;
+        pub fn wcstof(__nptr: *const u32, __endptr: *mut u32) -> f32;
     }
     extern "C" {
-        pub fn wcstold(__nptr: *const u32, __endptr: *mut *mut u32) -> f64;
+        pub fn wcstold(__nptr: *const u32, __endptr: *mut u32) -> f64;
     }
     extern "C" {
-        pub fn wcstof32(__nptr: *const u32, __endptr: *mut *mut u32) -> root::_Float32;
+        pub fn wcstof32(__nptr: *const u32, __endptr: *mut u32) -> root::_Float32;
     }
     extern "C" {
-        pub fn wcstof64(__nptr: *const u32, __endptr: *mut *mut u32) -> root::_Float64;
+        pub fn wcstof64(__nptr: *const u32, __endptr: *mut u32) -> root::_Float64;
     }
     extern "C" {
-        pub fn wcstof32x(__nptr: *const u32, __endptr: *mut *mut u32) -> root::_Float32x;
+        pub fn wcstof32x(__nptr: *const u32, __endptr: *mut u32) -> root::_Float32x;
     }
     extern "C" {
-        pub fn wcstof64x(__nptr: *const u32, __endptr: *mut *mut u32) -> root::_Float64x;
+        pub fn wcstof64x(__nptr: *const u32, __endptr: *mut u32) -> root::_Float64x;
     }
     extern "C" {
         pub fn wcstol(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_long;
     }
     extern "C" {
         pub fn wcstoul(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulong;
     }
     extern "C" {
         pub fn wcstoll(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn wcstoull(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
     extern "C" {
         pub fn wcstoq(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_longlong;
     }
     extern "C" {
         pub fn wcstouq(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_ulonglong;
     }
     extern "C" {
         pub fn wcstol_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_long;
@@ -10993,7 +10993,7 @@ pub mod root {
     extern "C" {
         pub fn wcstoul_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_ulong;
@@ -11001,7 +11001,7 @@ pub mod root {
     extern "C" {
         pub fn wcstoll_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_longlong;
@@ -11009,46 +11009,46 @@ pub mod root {
     extern "C" {
         pub fn wcstoull_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __base: ::std::os::raw::c_int,
             __loc: root::locale_t,
         ) -> ::std::os::raw::c_ulonglong;
     }
     extern "C" {
-        pub fn wcstod_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: root::locale_t) -> f64;
+        pub fn wcstod_l(__nptr: *const u32, __endptr: *mut u32, __loc: root::locale_t) -> f64;
     }
     extern "C" {
-        pub fn wcstof_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: root::locale_t) -> f32;
+        pub fn wcstof_l(__nptr: *const u32, __endptr: *mut u32, __loc: root::locale_t) -> f32;
     }
     extern "C" {
-        pub fn wcstold_l(__nptr: *const u32, __endptr: *mut *mut u32, __loc: root::locale_t)
+        pub fn wcstold_l(__nptr: *const u32, __endptr: *mut u32, __loc: root::locale_t)
             -> f64;
     }
     extern "C" {
         pub fn wcstof32_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __loc: root::locale_t,
         ) -> root::_Float32;
     }
     extern "C" {
         pub fn wcstof64_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __loc: root::locale_t,
         ) -> root::_Float64;
     }
     extern "C" {
         pub fn wcstof32x_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __loc: root::locale_t,
         ) -> root::_Float32x;
     }
     extern "C" {
         pub fn wcstof64x_l(
             __nptr: *const u32,
-            __endptr: *mut *mut u32,
+            __endptr: *mut u32,
             __loc: root::locale_t,
         ) -> root::_Float64x;
     }
@@ -11059,7 +11059,7 @@ pub mod root {
         pub fn wcpncpy(__dest: *mut u32, __src: *const u32, __n: usize) -> *mut u32;
     }
     extern "C" {
-        pub fn open_wmemstream(__bufloc: *mut *mut u32, __sizeloc: *mut usize)
+        pub fn open_wmemstream(__bufloc: *mut u32, __sizeloc: *mut usize)
             -> *mut root::__FILE;
     }
     extern "C" {
@@ -11736,14 +11736,14 @@ pub mod root {
         pub fn readdir_r(
             __dirp: *mut root::DIR,
             __entry: *mut root::dirent,
-            __result: *mut *mut root::dirent,
+            __result: *mut root::dirent,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn readdir64_r(
             __dirp: *mut root::DIR,
             __entry: *mut root::dirent64,
-            __result: *mut *mut root::dirent64,
+            __result: *mut root::dirent64,
         ) -> ::std::os::raw::c_int;
     }
     extern "C" {
@@ -11761,7 +11761,7 @@ pub mod root {
     extern "C" {
         pub fn scandir(
             __dir: *const ::std::os::raw::c_char,
-            __namelist: *mut *mut *mut root::dirent,
+            __namelist: *mut root::dirent,
             __selector: ::std::option::Option<
                 unsafe extern "C" fn(arg1: *const root::dirent) -> ::std::os::raw::c_int,
             >,
@@ -11776,7 +11776,7 @@ pub mod root {
     extern "C" {
         pub fn scandir64(
             __dir: *const ::std::os::raw::c_char,
-            __namelist: *mut *mut *mut root::dirent64,
+            __namelist: *mut root::dirent64,
             __selector: ::std::option::Option<
                 unsafe extern "C" fn(arg1: *const root::dirent64) -> ::std::os::raw::c_int,
             >,
@@ -11792,7 +11792,7 @@ pub mod root {
         pub fn scandirat(
             __dfd: ::std::os::raw::c_int,
             __dir: *const ::std::os::raw::c_char,
-            __namelist: *mut *mut *mut root::dirent,
+            __namelist: *mut root::dirent,
             __selector: ::std::option::Option<
                 unsafe extern "C" fn(arg1: *const root::dirent) -> ::std::os::raw::c_int,
             >,
@@ -11808,7 +11808,7 @@ pub mod root {
         pub fn scandirat64(
             __dfd: ::std::os::raw::c_int,
             __dir: *const ::std::os::raw::c_char,
-            __namelist: *mut *mut *mut root::dirent64,
+            __namelist: *mut root::dirent64,
             __selector: ::std::option::Option<
                 unsafe extern "C" fn(arg1: *const root::dirent64) -> ::std::os::raw::c_int,
             >,
@@ -13476,7 +13476,7 @@ pub mod root {
         _unused: [u8; 0],
     }
     pub mod Chuck_DL_Api {
-        #[allow(unused_imports)]
+        
         use self::super::super::root;
         pub type Object = *mut ::std::os::raw::c_void;
         pub type Type = *mut ::std::os::raw::c_void;
@@ -14178,7 +14178,7 @@ pub mod root {
         pub fn dladdr1(
             __address: *const ::std::os::raw::c_void,
             __info: *mut root::Dl_info,
-            __extra_info: *mut *mut ::std::os::raw::c_void,
+            __extra_info: *mut ::std::os::raw::c_void,
             __flags: ::std::os::raw::c_int,
         ) -> ::std::os::raw::c_int;
     }

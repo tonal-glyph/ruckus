@@ -9,18 +9,20 @@
     unused_mut
 )]
 #![feature(libc)]
-use crate::chuck_absyn_h_edited::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_errmsg_h_edited::*;
-use crate::chuck_oo_h_edited::*;
+use libc::*;
+use crate::ck::ast::aste::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::err::erre::*;
+use crate::ck::oo::ooe::*;
+use crate::ck::util::string::stringe::*;
 use crate::dts::*;
+use std::collections::HashMap;
 ///* ChucK type-checker. traverses the abstract syntax tree, and assigns and validates
 ///* types for each part of the tree. If a semantic error is encountered, a message is
 ///* generated and returned. if a program type-checks, the output is returned to be
 ///* passed to the code emitter.
 ///* I handwrote the parts that bindgen didn't see.
-use libc::*;
 //-----------------------------------------------------------------------------
 // name: enum te_Type
 // desc: basic, default ChucK types
@@ -86,8 +88,8 @@ pub type te_HowMuch = u32;
 //-----------------------------------------------------------------------------
 #[repr(C)]
 pub struct Chuck_Scope {
-    pub scope: vector,
-    pub commit_map: map,
+    pub scope: Vec<f64>,
+    pub commit_map: HashMap::new,
 }
 impl Chuck_Scope {
     // pub fn push() {
@@ -184,15 +186,15 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}get_types"]
-    pub fn Chuck_Namespace_get_types(this: *mut Chuck_Namespace, out: *mut vector);
+    pub fn Chuck_Namespace_get_types(this: *mut Chuck_Namespace, out: *mut Vec<f64>);
 }
 extern "C" {
     #[link_name = "\u{1}get_values"]
-    pub fn Chuck_Namespace_get_values(this: *mut Chuck_Namespace, out: *mut vector);
+    pub fn Chuck_Namespace_get_values(this: *mut Chuck_Namespace, out: *mut Vec<f64>);
 }
 extern "C" {
     #[link_name = "\u{1}get_funcs"]
-    pub fn Chuck_Namespace_get_funcs(this: *mut Chuck_Namespace, out: *mut vector);
+    pub fn Chuck_Namespace_get_funcs(this: *mut Chuck_Namespace, out: *mut Vec<f64>);
 }
 extern "C" {
     #[link_name = "\u{1}Chuck_Namespace"]
@@ -232,20 +234,20 @@ impl Chuck_Namespace {
         Chuck_Namespace_rollback(self)
     }
     #[inline]
-    pub unsafe fn get_types(&mut self, out: *mut vector) {
+    pub unsafe fn get_types(&mut self, out: *mut Vec<f64>) {
         Chuck_Namespace_get_types(self, out)
     }
     #[inline]
-    pub unsafe fn get_values(&mut self, out: *mut vector) {
+    pub unsafe fn get_values(&mut self, out: *mut Vec<f64>) {
         Chuck_Namespace_get_values(self, out)
     }
     #[inline]
-    pub unsafe fn get_funcs(&mut self, out: *mut vector) {
+    pub unsafe fn get_funcs(&mut self, out: *mut Vec<f64>) {
         Chuck_Namespace_get_funcs(self, out)
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Namespace_Chuck_Namespace(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -264,11 +266,11 @@ pub struct Chuck_Context {
     pub public_class_def: a_Class_Def,
     pub has_error: c_ulong,
     pub progress: c_ulong,
-    pub new_types: vector,
-    pub new_values: vector,
-    pub new_funcs: vector,
-    pub new_nspc: vector,
-    pub commit_map: map,
+    pub new_types: Vec<f64>,
+    pub new_values: Vec<f64>,
+    pub new_funcs: Vec<f64>,
+    pub new_nspc: Vec<f64>,
+    pub commit_map: HashMap::new,
 }
 pub const Chuck_Context_P_NONE: Chuck_Context__bindgen_ty_1 = 0;
 pub const Chuck_Context_P_CLASSES_ONLY: Chuck_Context__bindgen_ty_1 = 1;
@@ -356,7 +358,7 @@ impl Chuck_Context {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Context_Chuck_Context(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -372,19 +374,19 @@ pub struct Chuck_Env {
     pub global_nspc: *mut Chuck_Namespace,
     pub global_context: Chuck_Context,
     pub user_nspc: *mut Chuck_Namespace,
-    pub nspc_stack: vector,
+    pub nspc_stack: Vec<f64>,
     pub curr: *mut Chuck_Namespace,
-    pub class_stack: vector,
+    pub class_stack: Vec<f64>,
     pub class_def: *mut Chuck_Type,
     pub func: *mut Chuck_Func,
     pub class_scope: c_ulong,
-    pub contexts: vector,
+    pub contexts: Vec<f64>,
     pub context: *mut Chuck_Context,
-    pub breaks: vector,
-    pub key_words: map,
-    pub key_types: map,
-    pub key_values: map,
-    pub deprecated: map,
+    pub breaks: Vec<f64>,
+    pub key_words: HashMap::new,
+    pub key_types: HashMap::new,
+    pub key_values: HashMap::new,
+    pub deprecated: HashMap::new,
     pub deprecate_level: c_long,
     pub t_void: *mut Chuck_Type,
     pub t_int: *mut Chuck_Type,
@@ -501,7 +503,7 @@ impl Chuck_Env {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Env_Chuck_Env(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -530,7 +532,7 @@ extern "C" {
 impl Chuck_UGen_Info {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_UGen_Info_Chuck_UGen_Info(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -556,7 +558,7 @@ pub struct Chuck_Type {
     pub has_destructor: c_ulong,
     pub allocator: f_alloc,
     pub doc: string,
-    pub examples: vector,
+    pub examples: Vec<f64>,
     pub ret: string,
     pub m_env: *mut Chuck_Env,
 }
@@ -620,7 +622,7 @@ impl Chuck_Type {
         _p: *mut Chuck_Type,
         _s: c_ulong,
     ) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Type_Chuck_Type(&mut __bindgen_tmp, env, _id, _n, _p, _s);
         __bindgen_tmp
     }
@@ -675,7 +677,7 @@ impl Chuck_Value {
         oc: *mut Chuck_Type,
         s: c_ulong,
     ) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Value_Chuck_Value(&mut __bindgen_tmp, t, n, a, c, acc, o, oc, s);
         __bindgen_tmp
     }
@@ -704,7 +706,7 @@ extern "C" {
 impl Chuck_Func {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = std::mem::MaybeUninit::uninitialized();
         Chuck_Func_Chuck_Func(&mut __bindgen_tmp);
         __bindgen_tmp
     }

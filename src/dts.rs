@@ -1,17 +1,21 @@
 //* This module replaces some C++ types in the C++ `std` namespace with their
 //* Rust equivalents. (std::string, vector, queue, deque, map,
 //* list)
-#[allow(
-    non_snake_case,
-    non_camel_case_types,
-    non_upper_case_globals,
+#![allow(
+    dead_code,
     improper_ctypes,
-    unused_imports
+    mutable_transmutes,
+    non_camel_case_types,
+    non_snake_case,
+    non_upper_case_globals,
+    unused_imports,
+    unused_mut
 )]
 #[feature(libc)]
-extern crate libc;
 use libc::*;
 use std::collections::{HashMap, VecDeque};
+use std::marker::PhantomData;
+use std::cell::UnsafeCell;
 //* Rustified fstream
 pub mod fstream {
     use std::fs;
@@ -21,34 +25,37 @@ pub mod fstream {
     }
 }
 //* A double-ended queue implemented with a growable ring buffer
-pub type deque = VecDeque::default(Fn);
-pub type hash = Vec::default(Fn);
-pub type list = Vec::default(Fn);
+pub type deque = VecDeque::new;
+pub type hash = Vec::new;
+pub type list = Vec::new;
 //* A hash map implemented with linear probing and Robin Hood bucket stealing
-pub type map = HashMap::new();
+pub type map = HashMap::new;
 //* An actual void pointer
 pub type nullptr_t = *const c_void;
 //* A contiguous growable array type
-pub type queue = Vec::default(Fn);
-//* A C-style null terminated string
-extern "C" {
-    pub fn string(s: c_char) -> *const s;
-}
+pub type queue = Vec::new;
 // pub fn fstream() -> Result<()> {
 //     let mut f = File::open<p: AsRef<Path>;
 //     Ok(())
 // }
 //* A contiguous growable array type
-pub type vector = Vec::default(Fn);
+pub type vector = Vec::new;
 //* Closest thing Rust has to a `void` value
 pub type void = ();
 pub enum Void {}
 //* Rust char/string nonsense
 pub type c_str = *mut c_char;
 pub type c_constr = *const c_char;
-// pub type _CharT = *mut c_char;
-// pub type _Traits = PhantomData<UnsafeCell<_CharT>>;
-// pub type _Alloc = PhantomData<UnsafeCell<_CharT>>;
+pub type _CharT = *mut c_char;
+pub type _Traits = PhantomData<UnsafeCell<_CharT>>;
+pub type _Alloc = PhantomData<UnsafeCell<_CharT>>;
+pub type _Iftrue = PhantomData<UnsafeCell<_CharT>>;
+pub type _Tp2 = PhantomData<UnsafeCell<_CharT>>;
+pub type _Value = PhantomData<UnsafeCell<_CharT>>;
+pub type _Iterator = PhantomData<UnsafeCell<_CharT>>;
+pub type _Iterator1 = PhantomData<UnsafeCell<_CharT>>;
+pub type _Compare = PhantomData<UnsafeCell<_CharT>>;
+pub type _Predicate = PhantomData<UnsafeCell<_CharT>>;
 pub const __error_t_defined: u32 = 1;
 pub const _GLIBCXX_CERRNO: u32 = 1;
 pub const _FUNCTIONAL_HASH_H: u32 = 1;
@@ -389,29 +396,29 @@ pub struct _Val_less_iter {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_equal_to_iter {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_equal_to_val {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_comp_iter<_Compare> {
     pub _M_comp: _Compare,
     pub _phantom_0: PhantomData<UnsafeCell<_Compare>>,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_comp_val<_Compare> {
     pub _M_comp: _Compare,
     pub _phantom_0: PhantomData<UnsafeCell<_Compare>>,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Val_comp_iter<_Compare> {
     pub _M_comp: _Compare,
     pub _phantom_0: PhantomData<UnsafeCell<_Compare>>,
@@ -423,7 +430,7 @@ pub struct _Iter_equals_val<_Value> {
     pub _phantom_0: PhantomData<UnsafeCell<_Value>>,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_equals_iter<_Iterator1> {
     pub _M_it1: _Iterator1,
     pub _phantom_0: PhantomData<UnsafeCell<_Iterator1>>,
@@ -435,7 +442,7 @@ pub struct _Iter_pred<_Predicate> {
     pub _phantom_0: PhantomData<UnsafeCell<_Predicate>>,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_comp_to_val<_Compare, _Value> {
     pub _M_comp: _Compare,
     pub _M_value: *mut _Value,
@@ -443,7 +450,7 @@ pub struct _Iter_comp_to_val<_Compare, _Value> {
     pub _phantom_1: PhantomData<UnsafeCell<_Value>>,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct _Iter_comp_to_iter<_Compare, _Iterator1> {
     pub _M_comp: _Compare,
     pub _M_it1: _Iterator1,

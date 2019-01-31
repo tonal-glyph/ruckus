@@ -8,19 +8,20 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_oo_h_edited::*;
-use crate::util_buffers_h_edited::*;
-use crate::util_thread_h_edited::*;
 ///* standard class library
+#![feature(libc)]
 use libc::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::oo::ooe::*;
+use crate::ck::util::buff::buffe::*;
+use crate::ck::util::thread::threade::*;
+use std::mem::MaybeUninit;
 pub fn DLLQUERY() {
     libstd_query(QUERY: *mut Chuck_DL_Query);
 }
 pub fn main() {
     DLLQUERY();
-    // exports
+    //* exports
     CK_DLL_SFUN(abs_impl);
     CK_DLL_SFUN(fabs_impl);
     CK_DLL_SFUN(rand_impl);
@@ -146,7 +147,7 @@ impl KBHit {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         KBHit_KBHit(&mut __bindgen_tmp);
         __bindgen_tmp
     }

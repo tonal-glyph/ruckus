@@ -1,3 +1,3 @@
-pub mod utilsndfile;
-pub mod sndfile_config_h;
-pub mod sndfile_h;
+pub mod utilsndfilee;
+pub mod sndfile_config_he;
+pub mod sndfile_he;

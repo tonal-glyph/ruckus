@@ -2,11 +2,18 @@
 
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 pub mod root {
-    #[allow(unused_imports)]
-    use self::super::root;
-    pub const TRE_COMPILE_H: u32 = 1;
-    pub const TRE_INTERNAL_H: u32 = 1;
-    pub const _CTYPE_H: u32 = 1;
+    
+    
+    pub const TRE_STACK_H: u32 = 1;
+    pub const TRE_H: u32 = 1;
+    pub const HAVE_ALLOCA: u32 = 1;
+    pub const HAVE_ALLOCA_H: u32 = 1;
+    pub const HAVE_SYS_TYPES_H: u32 = 1;
+    pub const HAVE_WCHAR_H: u32 = 1;
+    pub const TRE_APPROX: u32 = 1;
+    pub const TRE_USE_ALLOCA: u32 = 1;
+    pub const TRE_VERSION: &'static [u8; 14usize] = b"@TRE_VERSION@\0";
+    pub const _SYS_TYPES_H: u32 = 1;
     pub const _FEATURES_H: u32 = 1;
     pub const __USE_ISOC11: u32 = 1;
     pub const __USE_ISOC99: u32 = 1;
@@ -33,21 +40,6 @@ pub mod root {
     pub const __INO_T_MATCHES_INO64_T: u32 = 1;
     pub const __RLIM_T_MATCHES_RLIM64_T: u32 = 1;
     pub const __FD_SETSIZE: u32 = 1024;
-    pub const _ENDIAN_H: u32 = 1;
-    pub const __LITTLE_ENDIAN: u32 = 1234;
-    pub const __BIG_ENDIAN: u32 = 4321;
-    pub const __PDP_ENDIAN: u32 = 3412;
-    pub const __BYTE_ORDER: u32 = 1234;
-    pub const __FLOAT_WORD_ORDER: u32 = 1234;
-    pub const TRE_H: u32 = 1;
-    pub const HAVE_ALLOCA: u32 = 1;
-    pub const HAVE_ALLOCA_H: u32 = 1;
-    pub const HAVE_SYS_TYPES_H: u32 = 1;
-    pub const HAVE_WCHAR_H: u32 = 1;
-    pub const TRE_APPROX: u32 = 1;
-    pub const TRE_USE_ALLOCA: u32 = 1;
-    pub const TRE_VERSION: &'static [u8; 14usize] = b"@TRE_VERSION@\0";
-    pub const _SYS_TYPES_H: u32 = 1;
     pub const __clockid_t_defined: u32 = 1;
     pub const __time_t_defined: u32 = 1;
     pub const __timer_t_defined: u32 = 1;
@@ -67,21 +59,6 @@ pub mod root {
     pub const REG_BACKTRACKING_MATCHER: u32 = 8;
     pub const REG_NOSPEC: u32 = 16;
     pub const RE_DUP_MAX: u32 = 255;
-    pub const TRE_CHAR_MAX: u32 = 255;
-    pub const TRE_MB_CUR_MAX: u32 = 1;
-    pub const STRF: &'static [u8; 2usize] = b"s\0";
-    pub const ASSERT_AT_BOL: u32 = 1;
-    pub const ASSERT_AT_EOL: u32 = 2;
-    pub const ASSERT_CHAR_CLASS: u32 = 4;
-    pub const ASSERT_CHAR_CLASS_NEG: u32 = 8;
-    pub const ASSERT_AT_BOW: u32 = 16;
-    pub const ASSERT_AT_EOW: u32 = 32;
-    pub const ASSERT_AT_WB: u32 = 64;
-    pub const ASSERT_AT_WB_NEG: u32 = 128;
-    pub const ASSERT_BACKREF: u32 = 256;
-    pub const ASSERT_LAST: u32 = 256;
-    pub const TRE_PARAM_UNSET: i32 = -1;
-    pub const TRE_PARAM_DEFAULT: i32 = -2;
     pub type __u_char = ::std::os::raw::c_uchar;
     pub type __u_short = ::std::os::raw::c_ushort;
     pub type __u_int = ::std::os::raw::c_uint;
@@ -148,70 +125,6 @@ pub mod root {
     pub type __intptr_t = ::std::os::raw::c_long;
     pub type __socklen_t = ::std::os::raw::c_uint;
     pub type __sig_atomic_t = ::std::os::raw::c_int;
-    pub const _ISupper: root::_bindgen_ty_1 = 256;
-    pub const _ISlower: root::_bindgen_ty_1 = 512;
-    pub const _ISalpha: root::_bindgen_ty_1 = 1024;
-    pub const _ISdigit: root::_bindgen_ty_1 = 2048;
-    pub const _ISxdigit: root::_bindgen_ty_1 = 4096;
-    pub const _ISspace: root::_bindgen_ty_1 = 8192;
-    pub const _ISprint: root::_bindgen_ty_1 = 16384;
-    pub const _ISgraph: root::_bindgen_ty_1 = 32768;
-    pub const _ISblank: root::_bindgen_ty_1 = 1;
-    pub const _IScntrl: root::_bindgen_ty_1 = 2;
-    pub const _ISpunct: root::_bindgen_ty_1 = 4;
-    pub const _ISalnum: root::_bindgen_ty_1 = 8;
-    pub type _bindgen_ty_1 = u32;
-    extern "C" {
-        pub fn __ctype_b_loc() -> *mut *const ::std::os::raw::c_ushort;
-    }
-    extern "C" {
-        pub fn __ctype_tolower_loc() -> *mut *const root::__int32_t;
-    }
-    extern "C" {
-        pub fn __ctype_toupper_loc() -> *mut *const root::__int32_t;
-    }
-    extern "C" {
-        pub fn isalnum(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isalpha(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn iscntrl(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isdigit(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn islower(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isgraph(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isprint(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn ispunct(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isspace(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isupper(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isxdigit(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn tolower(__c: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn toupper(__c: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
-    extern "C" {
-        pub fn isblank(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    }
     pub type ino_t = root::__ino_t;
     pub type dev_t = root::__dev_t;
     pub type gid_t = root::__gid_t;
@@ -390,163 +303,53 @@ pub mod root {
             result: *mut ::std::os::raw::c_void,
         ) -> ::std::os::raw::c_int;
     }
-    pub const TRE_CONFIG_APPROX: root::_bindgen_ty_2 = 0;
-    pub const TRE_CONFIG_WCHAR: root::_bindgen_ty_2 = 1;
-    pub const TRE_CONFIG_MULTIBYTE: root::_bindgen_ty_2 = 2;
-    pub const TRE_CONFIG_SYSTEM_ABI: root::_bindgen_ty_2 = 3;
-    pub const TRE_CONFIG_VERSION: root::_bindgen_ty_2 = 4;
-    pub type _bindgen_ty_2 = u32;
+    pub const TRE_CONFIG_APPROX: root::_bindgen_ty_1 = 0;
+    pub const TRE_CONFIG_WCHAR: root::_bindgen_ty_1 = 1;
+    pub const TRE_CONFIG_MULTIBYTE: root::_bindgen_ty_1 = 2;
+    pub const TRE_CONFIG_SYSTEM_ABI: root::_bindgen_ty_1 = 3;
+    pub const TRE_CONFIG_VERSION: root::_bindgen_ty_1 = 4;
+    pub type _bindgen_ty_1 = u32;
     extern "C" {
         pub fn tre_have_backrefs(preg: *const root::regex_t) -> ::std::os::raw::c_int;
     }
     extern "C" {
         pub fn tre_have_approx(preg: *const root::regex_t) -> ::std::os::raw::c_int;
     }
-    pub type tre_cint_t = ::std::os::raw::c_short;
-    pub type tre_ctype_t = ::std::option::Option<
-        unsafe extern "C" fn(arg1: root::tre_cint_t) -> ::std::os::raw::c_int,
-    >;
-    extern "C" {
-        pub fn tre_ctype(name: *const ::std::os::raw::c_char) -> root::tre_ctype_t;
-    }
-    pub const tre_str_type_t_STR_WIDE: root::tre_str_type_t = 0;
-    pub const tre_str_type_t_STR_BYTE: root::tre_str_type_t = 1;
-    pub const tre_str_type_t_STR_MBS: root::tre_str_type_t = 2;
-    pub const tre_str_type_t_STR_USER: root::tre_str_type_t = 3;
-    pub type tre_str_type_t = u32;
-    pub type tre_tnfa_transition_t = root::tnfa_transition;
-    #[repr(C)]
-    #[derive(Copy, Clone)]
-    pub struct tnfa_transition {
-        pub code_min: root::tre_cint_t,
-        pub code_max: root::tre_cint_t,
-        pub state: *mut root::tre_tnfa_transition_t,
-        pub state_id: ::std::os::raw::c_int,
-        pub tags: *mut ::std::os::raw::c_int,
-        pub params: *mut ::std::os::raw::c_int,
-        pub assertions: ::std::os::raw::c_int,
-        pub u: root::tnfa_transition__bindgen_ty_1,
-        pub neg_classes: *mut root::tre_ctype_t,
-    }
-    #[repr(C)]
-    #[derive(Copy, Clone)]
-    pub union tnfa_transition__bindgen_ty_1 {
-        pub class: root::tre_ctype_t,
-        pub backref: ::std::os::raw::c_int,
-        _bindgen_union_align: u64,
-    }
-    pub const tre_tag_direction_t_TRE_TAG_MINIMIZE: root::tre_tag_direction_t = 0;
-    pub const tre_tag_direction_t_TRE_TAG_MAXIMIZE: root::tre_tag_direction_t = 1;
-    pub type tre_tag_direction_t = u32;
-    pub const tre_param_t_TRE_PARAM_COST_INS: root::tre_param_t = 0;
-    pub const tre_param_t_TRE_PARAM_COST_DEL: root::tre_param_t = 1;
-    pub const tre_param_t_TRE_PARAM_COST_SUBST: root::tre_param_t = 2;
-    pub const tre_param_t_TRE_PARAM_COST_MAX: root::tre_param_t = 3;
-    pub const tre_param_t_TRE_PARAM_MAX_INS: root::tre_param_t = 4;
-    pub const tre_param_t_TRE_PARAM_MAX_DEL: root::tre_param_t = 5;
-    pub const tre_param_t_TRE_PARAM_MAX_SUBST: root::tre_param_t = 6;
-    pub const tre_param_t_TRE_PARAM_MAX_ERR: root::tre_param_t = 7;
-    pub const tre_param_t_TRE_PARAM_DEPTH: root::tre_param_t = 8;
-    pub const tre_param_t_TRE_PARAM_LAST: root::tre_param_t = 9;
-    pub type tre_param_t = u32;
     #[repr(C)]
     #[derive(Debug, Copy, Clone)]
-    pub struct tre_submatch_data {
-        pub so_tag: ::std::os::raw::c_int,
-        pub eo_tag: ::std::os::raw::c_int,
-        pub parents: *mut ::std::os::raw::c_int,
+    pub struct tre_stack_rec {
+        _unused: [u8; 0],
     }
-    pub type tre_submatch_data_t = root::tre_submatch_data;
-    pub type tre_tnfa_t = root::tnfa;
-    #[repr(C)]
-    #[derive(Debug, Copy, Clone)]
-    pub struct tnfa {
-        pub transitions: *mut root::tre_tnfa_transition_t,
-        pub num_transitions: ::std::os::raw::c_uint,
-        pub initial: *mut root::tre_tnfa_transition_t,
-        pub final_: *mut root::tre_tnfa_transition_t,
-        pub submatch_data: *mut root::tre_submatch_data_t,
-        pub firstpos_chars: *mut ::std::os::raw::c_char,
-        pub first_char: ::std::os::raw::c_int,
-        pub num_submatches: ::std::os::raw::c_uint,
-        pub tag_directions: *mut root::tre_tag_direction_t,
-        pub minimal_tags: *mut ::std::os::raw::c_int,
-        pub num_tags: ::std::os::raw::c_int,
-        pub num_minimals: ::std::os::raw::c_int,
-        pub end_tag: ::std::os::raw::c_int,
-        pub num_states: ::std::os::raw::c_int,
-        pub cflags: ::std::os::raw::c_int,
-        pub have_backrefs: ::std::os::raw::c_int,
-        pub have_approx: ::std::os::raw::c_int,
-        pub params_depth: ::std::os::raw::c_int,
+    pub type tre_stack_t = root::tre_stack_rec;
+    extern "C" {
+        pub fn tre_stack_new(
+            size: ::std::os::raw::c_int,
+            max_size: ::std::os::raw::c_int,
+            increment: ::std::os::raw::c_int,
+        ) -> *mut root::tre_stack_t;
     }
     extern "C" {
-        pub fn tre_compile(
-            preg: *mut root::regex_t,
-            regex: *const root::tre_char_t,
-            n: usize,
-            cflags: ::std::os::raw::c_int,
-        ) -> ::std::os::raw::c_int;
+        pub fn tre_stack_destroy(s: *mut root::tre_stack_t);
     }
     extern "C" {
-        pub fn tre_free(preg: *mut root::regex_t);
+        pub fn tre_stack_num_objects(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
     }
     extern "C" {
-        pub fn tre_fill_pmatch(
-            nmatch: usize,
-            pmatch: *mut root::regmatch_t,
-            cflags: ::std::os::raw::c_int,
-            tnfa: *const root::tre_tnfa_t,
-            tags: *mut ::std::os::raw::c_int,
-            match_eo: ::std::os::raw::c_int,
-        );
-    }
-    extern "C" {
-        pub fn tre_tnfa_run_parallel(
-            tnfa: *const root::tre_tnfa_t,
-            string: *const ::std::os::raw::c_void,
-            len: ::std::os::raw::c_int,
-            type_: root::tre_str_type_t,
-            match_tags: *mut ::std::os::raw::c_int,
-            eflags: ::std::os::raw::c_int,
-            match_end_ofs: *mut ::std::os::raw::c_int,
+        pub fn tre_stack_push_voidptr(
+            s: *mut root::tre_stack_t,
+            value: *mut ::std::os::raw::c_void,
         ) -> root::reg_errcode_t;
     }
     extern "C" {
-        pub fn tre_tnfa_run_backtrack(
-            tnfa: *const root::tre_tnfa_t,
-            string: *const ::std::os::raw::c_void,
-            len: ::std::os::raw::c_int,
-            type_: root::tre_str_type_t,
-            match_tags: *mut ::std::os::raw::c_int,
-            eflags: ::std::os::raw::c_int,
-            match_end_ofs: *mut ::std::os::raw::c_int,
+        pub fn tre_stack_push_int(
+            s: *mut root::tre_stack_t,
+            value: ::std::os::raw::c_int,
         ) -> root::reg_errcode_t;
     }
     extern "C" {
-        pub fn tre_tnfa_run_approx(
-            tnfa: *const root::tre_tnfa_t,
-            string: *const ::std::os::raw::c_void,
-            len: ::std::os::raw::c_int,
-            type_: root::tre_str_type_t,
-            match_tags: *mut ::std::os::raw::c_int,
-            match_: *mut root::regamatch_t,
-            params: root::regaparams_t,
-            eflags: ::std::os::raw::c_int,
-            match_end_ofs: *mut ::std::os::raw::c_int,
-        ) -> root::reg_errcode_t;
+        pub fn tre_stack_pop_voidptr(s: *mut root::tre_stack_t) -> *mut ::std::os::raw::c_void;
     }
-    #[repr(C)]
-    #[derive(Debug, Copy, Clone)]
-    pub struct tre_pos_and_tags_t {
-        pub position: ::std::os::raw::c_int,
-        pub code_min: ::std::os::raw::c_int,
-        pub code_max: ::std::os::raw::c_int,
-        pub tags: *mut ::std::os::raw::c_int,
-        pub assertions: ::std::os::raw::c_int,
-        pub class: root::tre_ctype_t,
-        pub neg_classes: *mut root::tre_ctype_t,
-        pub backref: ::std::os::raw::c_int,
-        pub params: *mut ::std::os::raw::c_int,
+    extern "C" {
+        pub fn tre_stack_pop_int(s: *mut root::tre_stack_t) -> ::std::os::raw::c_int;
     }
 }

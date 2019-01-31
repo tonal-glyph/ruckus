@@ -237,15 +237,15 @@ extern "C" {
     pub fn pthread_exit(__retval: *mut c_void);
 }
 extern "C" {
-    pub fn pthread_join(__th: pthread_t, __thread_return: *mut *mut c_void) -> c_int;
+    pub fn pthread_join(__th: pthread_t, __thread_return: *mut c_void) -> c_int;
 }
 extern "C" {
-    pub fn pthread_tryjoin_np(__th: pthread_t, __thread_return: *mut *mut c_void) -> c_int;
+    pub fn pthread_tryjoin_np(__th: pthread_t, __thread_return: *mut c_void) -> c_int;
 }
 extern "C" {
     pub fn pthread_timedjoin_np(
         __th: pthread_t,
-        __thread_return: *mut *mut c_void,
+        __thread_return: *mut c_void,
         __abstime: *const timespec,
     ) -> c_int;
 }
@@ -321,7 +321,7 @@ extern "C" {
 extern "C" {
     pub fn pthread_attr_getstackaddr(
         __attr: *const pthread_attr_t,
-        __stackaddr: *mut *mut c_void,
+        __stackaddr: *mut c_void,
     ) -> c_int;
 }
 extern "C" {
@@ -342,7 +342,7 @@ extern "C" {
 extern "C" {
     pub fn pthread_attr_getstack(
         __attr: *const pthread_attr_t,
-        __stackaddr: *mut *mut c_void,
+        __stackaddr: *mut c_void,
         __stacksize: *mut usize,
     ) -> c_int;
 }

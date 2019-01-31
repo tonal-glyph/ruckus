@@ -38,18 +38,18 @@ extern "C" {
     pub fn the_dct(x: *mut f64, N: c_ulong, out: *mut f64, Nout: c_ulong);
 }
 extern "C" {
-    pub fn the_dct_matrix(out: *mut *mut f64, N: c_ulong);
+    pub fn the_dct_matrix(out: *mut f64, N: c_ulong);
 }
 extern "C" {
     pub fn the_inverse_dct(x: *mut f64, N: c_ulong, out: *mut f64, Nout: c_ulong);
 }
 extern "C" {
-    pub fn the_inverse_dct_matrix(out: *mut *mut f64, N: c_ulong);
+    pub fn the_inverse_dct_matrix(out: *mut f64, N: c_ulong);
 }
 extern "C" {
     pub fn the_dct_now(
         x: *mut f64,
-        matrix: *mut *mut f64,
+        matrix: *mut f64,
         N: c_ulong,
         out: *mut f64,
         Nout: c_ulong,
@@ -58,7 +58,7 @@ extern "C" {
 extern "C" {
     pub fn the_inverse_dct_now(
         x: *mut f64,
-        matrix: *mut *mut f64,
+        matrix: *mut f64,
         N: c_ulong,
         out: *mut f64,
         Nout: c_ulong,

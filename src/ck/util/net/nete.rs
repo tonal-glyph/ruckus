@@ -9,10 +9,11 @@
     unused_mut
 )]
 #![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::sys::*;
-///* sockets
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::sys::*;
+use std::marker::PhantomData;
+///* sockets
 #[repr(C)]
 #[derive(Default)]
 pub struct __IncompleteArrayField<T>(PhantomData<T>);
@@ -50,7 +51,7 @@ impl<T> Clone for __IncompleteArrayField<T> {
     }
 }
 impl<T> Copy for __IncompleteArrayField<T> {}
-#[allow(unused_imports)]
+
 pub const _SYS_TYPES_H: u32 = 1;
 pub const _FEATURES_H: u32 = 1;
 pub const __USE_ISOC11: u32 = 1;
@@ -927,10 +928,10 @@ extern "C" {
     pub fn abort();
 }
 extern "C" {
-    pub fn atexit(__func: ::std::option::Option<unsafe extern "C" fn()>) -> c_int;
+    pub fn atexit(__func: Option<unsafe extern "C" fn()>) -> c_int;
 }
 extern "C" {
-    pub fn at_quick_exit(__func: ::std::option::Option<unsafe extern "C" fn()>) -> c_int;
+    pub fn at_quick_exit(__func: Option<unsafe extern "C" fn()>) -> c_int;
 }
 extern "C" {
     pub fn exit(__status: c_int);
@@ -948,7 +949,7 @@ extern "C" {
     pub fn system(__command: *const c_char) -> c_int;
 }
 pub type __compar_fn_t =
-    ::std::option::Option<unsafe extern "C" fn(arg1: *const c_void, arg2: *const c_void) -> c_int>;
+    Option<unsafe extern "C" fn(arg1: *const c_void, arg2: *const c_void) -> c_int>;
 extern "C" {
     pub fn bsearch(
         __key: *const c_void,

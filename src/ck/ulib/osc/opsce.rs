@@ -8,12 +8,12 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_oo_h_edited::*;
 ///* class library for open sound control
+#![feature(libc)]
 use libc::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::oo::ooe::*;
 pub fn DLLQUERY() {
     opensoundcontrol_query(QUERY: *mut Chuck_DL_Query);
 }

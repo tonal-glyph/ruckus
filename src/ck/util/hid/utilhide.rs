@@ -8,10 +8,10 @@
     unused_imports,
     unused_mut
 )]
-#![feature(libc)]
-use crate::chuck_def_h_edited::*;
 ///* header file for joystick/mouse/keyboard support
+#![feature(libc)]
 use libc::*;
+use crate::ck::def::defe::*;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct HidMsg {
@@ -22,6 +22,7 @@ pub struct HidMsg {
     pub idata: [c_long; 4usize],
     pub fdata: [f64; 4usize],
 }
+//! device types
 extern "C" {
     #[link_name = "\u{1}CK_HID_DEV_NONE"]
     pub static CK_HID_DEV_NONE: c_ulong;
@@ -58,6 +59,7 @@ extern "C" {
     #[link_name = "\u{1}CK_HID_DEV_COUNT"]
     pub static CK_HID_DEV_COUNT: c_ulong;
 }
+//! message types
 extern "C" {
     #[link_name = "\u{1}CK_HID_JOYSTICK_AXIS"]
     pub static CK_HID_JOYSTICK_AXIS: c_ulong;
@@ -134,6 +136,7 @@ extern "C" {
     #[link_name = "\u{1}CK_HID_MSG_COUNT"]
     pub static CK_HID_MSG_COUNT: c_ulong;
 }
+//! extension API
 pub const HidResult_HID_GENERALERROR: HidResult = -1;
 pub const HidResult_HID_NOERROR: HidResult = 0;
 pub type HidResult = i32;
@@ -157,6 +160,7 @@ pub struct _Chuck_Hid_Driver {
     pub driver_name: *const c_char,
 }
 pub type Chuck_Hid_Driver = _Chuck_Hid_Driver;
+//! functions
 extern "C" {
     #[link_name = "\u{1}_Z8Hid_initv"]
     pub fn Hid_init();
@@ -401,6 +405,7 @@ extern "C" {
     #[link_name = "\u{1}_Z15TiltSensor_namei"]
     pub fn TiltSensor_name(ts: c_int) -> *const c_char;
 }
+//* ge: SMS multi-thread poll rate
 extern "C" {
     #[link_name = "\u{1}_Z22TiltSensor_setPollRatel"]
     pub fn TiltSensor_setPollRate(usec: c_long) -> c_long;

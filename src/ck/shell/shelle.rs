@@ -8,15 +8,18 @@
     unused_imports,
     unused_mut
 )]
+///* ChucK shell implementation
 #![feature(libc)]
 use libc::*;
-use crate::chuck_def_h_edited::*;
-use crate::chuck_dl_h_edited::*;
-use crate::chuck_dl_h_edited::Chuck_DL_Api::*;
-use crate::chuck_errmsg_h_edited::*;
-use crate::chuck_vm_h_edited::*;
+use crate::ck::def::defe::*;
+use crate::ck::dynl::dynle::*;
+use crate::ck::dynl::dynle::Chuck_DL_Api::*;
+use crate::ck::err::erre::*;
+use crate::ck::vm::vme::*;
+use crate::ck::util::string::stringe::*;
 use crate::dts::*;
-///* ChucK shell implementation
+use crate::sys::*;
+use std::mem::MaybeUninit;
 pub const CK_LOG_CRAZY: u32 = 10;
 pub const CK_LOG_FINEST: u32 = 9;
 pub const CK_LOG_FINER: u32 = 8;
@@ -83,7 +86,7 @@ extern "C" {
 }
 #[repr(C)]
 pub struct ChuckOutStream {
-    pub m_stream: StringStream,
+    pub m_stream: crate::ck::util::string::basic_stringstream,
     pub m_callback: Option<unsafe extern "C" fn(arg1: *const c_char)>,
     pub m_isErr: bool,
 }
@@ -112,7 +115,7 @@ impl ChuckOutStream {
     }
     #[inline]
     pub unsafe fn new(isErr: bool) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         ChuckOutStream_ChuckOutStream(&mut __bindgen_tmp, isErr);
         __bindgen_tmp
     }
@@ -165,7 +168,7 @@ pub struct Chuck_Carrier {
     pub otf_port: c_long,
     pub otf_thread: pthread_t,
     pub stk_writeThread: *mut XWriteThread,
-    pub stk_wvOutMap: map,
+    pub stk_wvOutMap: HashMap::new,
 }
 extern "C" {
     #[link_name = "\u{1}hintIsRealtimeAudio"]
@@ -182,7 +185,7 @@ impl Chuck_Carrier {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Carrier_Chuck_Carrier(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -221,7 +224,7 @@ pub struct Chuck_VM_Object {
     pub m_ref_count: c_ulong,
     pub m_pooled: c_ulong,
     pub m_locked: c_ulong,
-    pub m_v_ref: *mut vector,
+    pub m_v_ref: *mut Vec<f64>,
 }
 extern "C" {
     #[link_name = "\u{1}our_locks_in_effect"]
@@ -250,7 +253,7 @@ impl Chuck_VM_Object {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Object_Chuck_VM_Object(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -273,7 +276,7 @@ extern "C" {
 }
 #[repr(C)]
 pub struct Chuck_VTable {
-    pub funcs: vector,
+    pub funcs: Vec<f64>,
 }
 #[repr(C)]
 #[derive(Debug)]
@@ -291,7 +294,7 @@ extern "C" {
 impl Chuck_Object {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Object_Chuck_Object(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -309,8 +312,8 @@ pub struct Chuck_Array {
 #[repr(C)]
 pub struct Chuck_Array4 {
     pub _base: Chuck_Array,
-    pub m_vector: vector,
-    pub m_map: map,
+    pub m_vector: Vec<f64>,
+    pub m_map: HashMap::new,
     pub m_is_obj: c_ulong,
 }
 extern "C" {
@@ -404,7 +407,7 @@ impl Chuck_Array4 {
     }
     #[inline]
     pub unsafe fn new(is_obj: c_ulong, capacity: c_long) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Array4_Chuck_Array4(&mut __bindgen_tmp, is_obj, capacity);
         __bindgen_tmp
     }
@@ -452,8 +455,8 @@ extern "C" {
 #[repr(C)]
 pub struct Chuck_Array8 {
     pub _base: Chuck_Array,
-    pub m_vector: vector,
-    pub m_map: map,
+    pub m_vector: Vec<f64>,
+    pub m_map: HashMap::new,
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -542,7 +545,7 @@ impl Chuck_Array8 {
     }
     #[inline]
     pub unsafe fn new(capacity: c_long) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Array8_Chuck_Array8(&mut __bindgen_tmp, capacity);
         __bindgen_tmp
     }
@@ -590,8 +593,8 @@ extern "C" {
 #[repr(C)]
 pub struct Chuck_Array16 {
     pub _base: Chuck_Array,
-    pub m_vector: vector,
-    pub m_map: map,
+    pub m_vector: Vec<f64>,
+    pub m_map: HashMap::new,
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -692,7 +695,7 @@ impl Chuck_Array16 {
     }
     #[inline]
     pub unsafe fn new(capacity: c_long) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Array16_Chuck_Array16(&mut __bindgen_tmp, capacity);
         __bindgen_tmp
     }
@@ -740,8 +743,8 @@ extern "C" {
 #[repr(C)]
 pub struct Chuck_Array24 {
     pub _base: Chuck_Array,
-    pub m_vector: vector,
-    pub m_map: map,
+    pub m_vector: Vec<f64>,
+    pub m_map: HashMap::new,
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -838,7 +841,7 @@ impl Chuck_Array24 {
     }
     #[inline]
     pub unsafe fn new(capacity: c_long) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Array24_Chuck_Array24(&mut __bindgen_tmp, capacity);
         __bindgen_tmp
     }
@@ -886,8 +889,8 @@ extern "C" {
 #[repr(C)]
 pub struct Chuck_Array32 {
     pub _base: Chuck_Array,
-    pub m_vector: vector,
-    pub m_map: map,
+    pub m_vector: Vec<f64>,
+    pub m_map: HashMap::new,
 }
 extern "C" {
     #[link_name = "\u{1}addr"]
@@ -984,7 +987,7 @@ impl Chuck_Array32 {
     }
     #[inline]
     pub unsafe fn new(capacity: c_long) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Array32_Chuck_Array32(&mut __bindgen_tmp, capacity);
         __bindgen_tmp
     }
@@ -1118,7 +1121,7 @@ impl Chuck_String {
     }
     #[inline]
     pub unsafe fn new(s: *const string) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_String_Chuck_String(&mut __bindgen_tmp, s);
         __bindgen_tmp
     }
@@ -1168,7 +1171,7 @@ extern "C" {
 impl Chuck_IO {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_IO_Chuck_IO(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -1182,7 +1185,7 @@ pub struct Chuck_IO_File {
     pub _base: Chuck_IO,
     pub m_flags: c_long,
     pub m_iomode: c_long,
-    pub m_io: std::fstream,
+    pub m_io: crate::dts::fstream(std::fs::Path(&str)),
     pub m_dir: *mut DIR,
     pub m_dir_start: c_long,
     pub m_path: string,
@@ -1243,7 +1246,7 @@ impl Chuck_IO_File {
     }
     #[inline]
     pub unsafe fn new(vm: *mut Chuck_VM) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_IO_File_Chuck_IO_File(&mut __bindgen_tmp, vm);
         __bindgen_tmp
     }
@@ -1336,7 +1339,7 @@ extern "C" {
 pub struct Chuck_IO_Chout {
     pub _base: Chuck_IO,
     pub m_callback: Option<unsafe extern "C" fn(arg1: *const c_char)>,
-    pub m_buffer: StringStream,
+    pub m_buffer: crate::ck::util::string::basic_stringstream,
 }
 extern "C" {
     #[link_name = "\u{1}set_output_callback"]
@@ -1359,7 +1362,7 @@ impl Chuck_IO_Chout {
     }
     #[inline]
     pub unsafe fn new(carrier: *mut Chuck_Carrier) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_IO_Chout_Chuck_IO_Chout(&mut __bindgen_tmp, carrier);
         __bindgen_tmp
     }
@@ -1428,7 +1431,7 @@ extern "C" {
 pub struct Chuck_IO_Cherr {
     pub _base: Chuck_IO,
     pub m_callback: Option<unsafe extern "C" fn(arg1: *const c_char)>,
-    pub m_buffer: StringStream,
+    pub m_buffer: crate::ck::util::string::basic_stringstream,
 }
 extern "C" {
     #[link_name = "\u{1}set_output_callback"]
@@ -1451,7 +1454,7 @@ impl Chuck_IO_Cherr {
     }
     #[inline]
     pub unsafe fn new(carrier: *mut Chuck_Carrier) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_IO_Cherr_Chuck_IO_Cherr(&mut __bindgen_tmp, carrier);
         __bindgen_tmp
     }
@@ -1528,15 +1531,15 @@ pub struct Chuck_UAnaBlobProxy {
     _unused: [u8; 0],
 }
 pub mod Chuck_DL_Api {
-    #[allow(unused_imports)]
+    
     pub type Object = *mut c_void;
     pub type Type = *mut c_void;
     pub type String = *mut c_void;
     #[repr(C)]
     #[derive(Debug, Copy, Clone)]
     pub struct Api {
-        pub vm: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Api_VMApi,
-        pub object: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Api_ObjectApi,
+        pub vm: *mut Chuck_DL_Api::Api_VMApi,
+        pub object: *mut Chuck_DL_Api::Api_ObjectApi,
     }
     #[repr(C)]
     #[derive(Debug, Copy, Clone)]
@@ -1546,12 +1549,12 @@ pub mod Chuck_DL_Api {
     }
     extern "C" {
         #[link_name = "\u{1}VMApi"]
-        pub fn Api_VMApi_VMApi(this: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Api_VMApi);
+        pub fn Api_VMApi_VMApi(this: *mut Chuck_DL_Api::Api_VMApi);
     }
     impl Api_VMApi {
         #[inline]
         pub unsafe fn new() -> Self {
-            let mut __bindgen_tmp = uninitialized();
+            let mut __bindgen_tmp = MaybeUninit::uninitialized();
             Api_VMApi_VMApi(&mut __bindgen_tmp);
             __bindgen_tmp
         }
@@ -1564,26 +1567,26 @@ pub mod Chuck_DL_Api {
                 arg1: CK_DL_API,
                 arg2: *mut Chuck_VM_Shred,
                 name: *mut string,
-            ) -> crate::chuck_dl_h_edited::Chuck_DL_Api::Type,
+            ) -> Chuck_DL_Api::Type,
         >,
         pub create: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
                 arg2: *mut Chuck_VM_Shred,
-                type_: crate::chuck_dl_h_edited::Chuck_DL_Api::Type,
-            ) -> crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                type_: Chuck_DL_Api::Type,
+            ) -> Chuck_DL_Api::Object,
         >,
         pub create_string: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
                 arg2: *mut Chuck_VM_Shred,
                 value: *mut string,
-            ) -> crate::chuck_dl_h_edited::Chuck_DL_Api::String,
+            ) -> Chuck_DL_Api::String,
         >,
         pub get_mvar_int: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
                 value: *mut c_long,
             ) -> c_ulong,
@@ -1591,7 +1594,7 @@ pub mod Chuck_DL_Api {
         pub get_mvar_float: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
                 value: *mut f64,
             ) -> c_ulong,
@@ -1599,7 +1602,7 @@ pub mod Chuck_DL_Api {
         pub get_mvar_dur: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
                 value: *mut f64,
             ) -> c_ulong,
@@ -1607,7 +1610,7 @@ pub mod Chuck_DL_Api {
         pub get_mvar_time: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
                 value: *mut f64,
             ) -> c_ulong,
@@ -1615,65 +1618,65 @@ pub mod Chuck_DL_Api {
         pub get_mvar_string: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
-                value: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::String,
+                value: *mut Chuck_DL_Api::String,
             ) -> c_ulong,
         >,
         pub get_mvar_object: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                object: crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                object: Chuck_DL_Api::Object,
                 name: *mut string,
-                value: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Object,
+                value: *mut Chuck_DL_Api::Object,
             ) -> c_ulong,
         >,
         pub set_string: Option<
             unsafe extern "C" fn(
                 arg1: CK_DL_API,
-                string: crate::chuck_dl_h_edited::Chuck_DL_Api::String,
+                string: Chuck_DL_Api::String,
                 value: *mut string,
             ) -> c_ulong,
         >,
     }
     extern "C" {
         #[link_name = "\u{1}ObjectApi"]
-        pub fn Api_ObjectApi_ObjectApi(this: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Api_ObjectApi);
+        pub fn Api_ObjectApi_ObjectApi(this: *mut Chuck_DL_Api::Api_ObjectApi);
     }
     impl Api_ObjectApi {
         #[inline]
         pub unsafe fn new() -> Self {
-            let mut __bindgen_tmp = uninitialized();
+            let mut __bindgen_tmp = MaybeUninit::uninitialized();
             Api_ObjectApi_ObjectApi(&mut __bindgen_tmp);
             __bindgen_tmp
         }
     }
     extern "C" {
         #[link_name = "\u{1}g_api"]
-        pub static mut Api_g_api: crate::chuck_dl_h_edited::Chuck_DL_Api::Api;
+        pub static mut Api_g_api: Chuck_DL_Api::Api;
     }
     extern "C" {
         #[link_name = "\u{1}instance"]
-        pub fn Api_instance() -> *const crate::chuck_dl_h_edited::Chuck_DL_Api::Api;
+        pub fn Api_instance() -> *const Chuck_DL_Api::Api;
     }
     extern "C" {
         #[link_name = "\u{1}Api"]
-        pub fn Api_Api(this: *mut crate::chuck_dl_h_edited::Chuck_DL_Api::Api);
+        pub fn Api_Api(this: *mut Chuck_DL_Api::Api);
     }
     impl Api {
         #[inline]
-        pub unsafe fn instance() -> *const crate::chuck_dl_h_edited::Chuck_DL_Api::Api {
+        pub unsafe fn instance() -> *const Chuck_DL_Api::Api {
             Api_instance()
         }
         #[inline]
         pub unsafe fn new() -> Self {
-            let mut __bindgen_tmp = uninitialized();
+            let mut __bindgen_tmp = MaybeUninit::uninitialized();
             Api_Api(&mut __bindgen_tmp);
             __bindgen_tmp
         }
     }
 }
-pub type CK_DL_API = *const crate::chuck_dl_h_edited::Chuck_DL_Api::Api;
+pub type CK_DL_API = *const Chuck_DL_Api::Api;
 pub type f_ck_declversion = Option<unsafe extern "C" fn() -> c_ulong>;
 pub type f_ck_query = Option<unsafe extern "C" fn(QUERY: *mut Chuck_DL_Query) -> c_ulong>;
 pub type f_alloc = Option<
@@ -1886,8 +1889,8 @@ pub struct Chuck_DL_Query {
     pub curr_class: *mut Chuck_DL_Class,
     pub curr_func: *mut Chuck_DL_Func,
     pub name: string,
-    pub classes: vector,
-    pub stack: vector,
+    pub classes: Vec<f64>,
+    pub stack: Vec<f64>,
 }
 extern "C" {
     #[link_name = "\u{1}compiler"]
@@ -1932,7 +1935,7 @@ impl Chuck_DL_Query {
     }
     #[inline]
     pub unsafe fn new(carrier: *mut Chuck_Carrier) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Query_Chuck_DL_Query(&mut __bindgen_tmp, carrier);
         __bindgen_tmp
     }
@@ -1945,23 +1948,23 @@ impl Chuck_DL_Query {
 pub struct Chuck_DL_Class {
     pub name: string,
     pub parent: string,
-    pub ctors: vector,
+    pub ctors: Vec<f64>,
     pub dtor: *mut Chuck_DL_Func,
-    pub mfuns: vector,
-    pub sfuns: vector,
-    pub mvars: vector,
-    pub svars: vector,
+    pub mfuns: Vec<f64>,
+    pub sfuns: Vec<f64>,
+    pub mvars: Vec<f64>,
+    pub svars: Vec<f64>,
     pub ugen_tick: f_tick,
     pub ugen_tickf: f_tickf,
     pub ugen_pmsg: f_pmsg,
-    pub ugen_ctrl: vector,
+    pub ugen_ctrl: Vec<f64>,
     pub uana_tock: f_tock,
-    pub classes: vector,
+    pub classes: Vec<f64>,
     pub current_mvar_offset: c_ulong,
     pub ugen_num_in: c_ulong,
     pub ugen_num_out: c_ulong,
     pub doc: string,
-    pub examples: vector,
+    pub examples: Vec<f64>,
 }
 extern "C" {
     #[link_name = "\u{1}Chuck_DL_Class"]
@@ -1974,7 +1977,7 @@ extern "C" {
 impl Chuck_DL_Class {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Class_Chuck_DL_Class(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2008,13 +2011,13 @@ extern "C" {
 impl Chuck_DL_Value {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Value_Chuck_DL_Value(&mut __bindgen_tmp);
         __bindgen_tmp
     }
     #[inline]
     pub unsafe fn new1(t: *const c_char, n: *const c_char, c: c_ulong, a: *mut c_void) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Value_Chuck_DL_Value1(&mut __bindgen_tmp, t, n, c, a);
         __bindgen_tmp
     }
@@ -2024,7 +2027,7 @@ pub struct Chuck_DL_Func {
     pub name: string,
     pub type_: string,
     pub __bindgen_anon_1: Chuck_DL_Func__bindgen_ty_1,
-    pub args: vector,
+    pub args: Vec<f64>,
     pub doc: string,
 }
 #[repr(C)]
@@ -2066,13 +2069,13 @@ impl Chuck_DL_Func {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Func_Chuck_DL_Func(&mut __bindgen_tmp);
         __bindgen_tmp
     }
     #[inline]
     pub unsafe fn new1(t: *const c_char, n: *const c_char, a: c_ulong) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Func_Chuck_DL_Func1(&mut __bindgen_tmp, t, n, a);
         __bindgen_tmp
     }
@@ -2085,7 +2088,7 @@ impl Chuck_DL_Func {
 pub struct Chuck_DL_Ctrl {
     pub name: string,
     pub type_: string,
-    pub types: vector,
+    pub types: Vec<f64>,
     pub ctrl: f_ctrl,
     pub cget: f_cget,
 }
@@ -2133,7 +2136,7 @@ extern "C" {
 impl Chuck_DL_Return {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DL_Return_Chuck_DL_Return(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2236,7 +2239,7 @@ impl Chuck_DLL {
     }
     #[inline]
     pub unsafe fn new(carrier: *mut Chuck_Carrier, xid: *const c_char) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_DLL_Chuck_DLL(&mut __bindgen_tmp, carrier, xid);
         __bindgen_tmp
     }
@@ -2448,7 +2451,7 @@ impl Chuck_UGen {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_UGen_Chuck_UGen(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2530,7 +2533,7 @@ impl Chuck_UAna {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_UAna_Chuck_UAna(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2613,7 +2616,7 @@ impl Chuck_VM_Stack {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Stack_Chuck_VM_Stack(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2647,7 +2650,7 @@ extern "C" {
 impl Chuck_VM_Code {
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Code_Chuck_VM_Code(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2666,7 +2669,7 @@ pub struct Chuck_VM_Shred {
     pub code_orig: *mut Chuck_VM_Code,
     pub instr: *mut Chuck_Instr,
     pub parent: *mut Chuck_VM_Shred,
-    pub children: map,
+    pub children: HashMap::new,
     pub pc: c_ulong,
     pub vm_ref: *mut Chuck_VM,
     pub now: f64,
@@ -2678,14 +2681,14 @@ pub struct Chuck_VM_Shred {
     pub is_abort: c_ulong,
     pub is_dumped: c_ulong,
     pub event: *mut Chuck_Event,
-    pub m_ugen_map: map,
-    pub m_parent_objects: vector,
+    pub m_ugen_map: HashMap::new,
+    pub m_parent_objects: Vec<f64>,
     pub xid: c_ulong,
     pub name: string,
-    pub args: vector,
+    pub args: Vec<f64>,
     pub prev: *mut Chuck_VM_Shred,
     pub next: *mut Chuck_VM_Shred,
-    pub m_loopCounters: vector,
+    pub m_loopCounters: Vec<f64>,
     pub m_serials: *mut list,
 }
 extern "C" {
@@ -2793,7 +2796,7 @@ impl Chuck_VM_Shred {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Shred_Chuck_VM_Shred(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2823,7 +2826,7 @@ extern "C" {
 impl Chuck_VM_Shred_Status {
     #[inline]
     pub unsafe fn new(_id: c_ulong, n: *const string, _start: f64, e: c_ulong) -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Shred_Status_Chuck_VM_Shred_Status(&mut __bindgen_tmp, _id, n, _start, e);
         __bindgen_tmp
     }
@@ -2836,7 +2839,7 @@ pub struct Chuck_VM_Status {
     pub t_second: c_ulong,
     pub t_minute: c_ulong,
     pub t_hour: c_ulong,
-    pub list: vector,
+    pub list: Vec<f64>,
 }
 extern "C" {
     #[link_name = "\u{1}clear"]
@@ -2853,7 +2856,7 @@ impl Chuck_VM_Status {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Status_Chuck_VM_Status(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -2869,7 +2872,7 @@ pub struct Chuck_VM_Shreduler {
     pub rt_audio: c_ulong,
     pub vm_ref: *mut Chuck_VM,
     pub shred_list: *mut Chuck_VM_Shred,
-    pub blocked: map,
+    pub blocked: HashMap::new,
     pub m_current_shred: *mut Chuck_VM_Shred,
     pub m_dac: *mut Chuck_UGen,
     pub m_adc: *mut Chuck_UGen,
@@ -3047,7 +3050,7 @@ impl Chuck_VM_Shreduler {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_VM_Shreduler_Chuck_VM_Shreduler(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -3121,543 +3124,6 @@ pub union Chuck_Global_Request__bindgen_ty_1 {
     pub shred: *mut Chuck_VM_Shred,
     _bindgen_union_align: u64,
 }
-#[repr(C)]
-pub struct Chuck_VM {
-    pub _base: Chuck_Object,
-    pub m_carrier: *mut Chuck_Carrier,
-    pub m_adc: *mut Chuck_UGen,
-    pub m_dac: *mut Chuck_UGen,
-    pub m_bunghole: *mut Chuck_UGen,
-    pub m_srate: c_ulong,
-    pub m_num_adc_channels: c_ulong,
-    pub m_num_dac_channels: c_ulong,
-    pub m_halt: c_ulong,
-    pub m_is_running: c_ulong,
-    pub m_input_ref: *const f32,
-    pub m_output_ref: *mut f32,
-    pub m_init: c_ulong,
-    pub m_last_error: string,
-    pub m_shreds: *mut Chuck_VM_Shred,
-    pub m_num_shreds: c_ulong,
-    pub m_shred_id: c_ulong,
-    pub m_shreduler: *mut Chuck_VM_Shreduler,
-    pub m_shred_dump: vector,
-    pub m_num_dumped_shreds: c_ulong,
-    pub m_msg_buffer: *mut CBufferSimple,
-    pub m_reply_buffer: *mut CBufferSimple,
-    pub m_event_buffer: *mut CBufferSimple,
-    pub m_event_buffers: list,
-    pub m_global_ints: map,
-    pub m_global_floats: map,
-    pub m_global_events: map,
-    pub m_global_request_queue: XCircleBuffer<Chuck_Global_Request>,
-}
-extern "C" {
-    #[link_name = "\u{1}initialize"]
-    pub fn Chuck_VM_initialize(
-        this: *mut Chuck_VM,
-        srate: c_ulong,
-        dac_chan: c_ulong,
-        adc_chan: c_ulong,
-        adaptive: c_ulong,
-        halt: c_ulong,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}initialize_synthesis"]
-    pub fn Chuck_VM_initialize_synthesis(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}setCarrier"]
-    pub fn Chuck_VM_setCarrier(this: *mut Chuck_VM, c: *mut Chuck_Carrier) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}shutdown"]
-    pub fn Chuck_VM_shutdown(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}has_init"]
-    pub fn Chuck_VM_has_init(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}start"]
-    pub fn Chuck_VM_start(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}running"]
-    pub fn Chuck_VM_running(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}stop"]
-    pub fn Chuck_VM_stop(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}runningState"]
-    pub fn Chuck_VM_runningState(this: *mut Chuck_VM) -> *mut c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}spork"]
-    pub fn Chuck_VM_spork(
-        this: *mut Chuck_VM,
-        code: *mut Chuck_VM_Code,
-        parent: *mut Chuck_VM_Shred,
-        immediate: c_ulong,
-    ) -> *mut Chuck_VM_Shred;
-}
-extern "C" {
-    #[link_name = "\u{1}shreduler"]
-    pub fn Chuck_VM_shreduler(this: *const Chuck_VM) -> *mut Chuck_VM_Shreduler;
-}
-extern "C" {
-    #[link_name = "\u{1}next_id"]
-    pub fn Chuck_VM_next_id(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}srate"]
-    pub fn Chuck_VM_srate(this: *const Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}run"]
-    pub fn Chuck_VM_run(
-        this: *mut Chuck_VM,
-        numFrames: c_long,
-        input: *const f32,
-        output: *mut f32,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}compute"]
-    pub fn Chuck_VM_compute(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}abort_current_shred"]
-    pub fn Chuck_VM_abort_current_shred(this: *mut Chuck_VM) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}invoke_static"]
-    pub fn Chuck_VM_invoke_static(this: *mut Chuck_VM, shred: *mut Chuck_VM_Shred) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}gc"]
-    pub fn Chuck_VM_gc(this: *mut Chuck_VM);
-}
-extern "C" {
-    #[link_name = "\u{1}gc"]
-    pub fn Chuck_VM_gc1(this: *mut Chuck_VM, amount: c_ulong);
-}
-extern "C" {
-    #[link_name = "\u{1}queue_msg"]
-    pub fn Chuck_VM_queue_msg(this: *mut Chuck_VM, msg: *mut Chuck_Msg, num_msg: c_int) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}queue_event"]
-    pub fn Chuck_VM_queue_event(
-        this: *mut Chuck_VM,
-        event: *mut Chuck_Event,
-        num_msg: c_int,
-        buffer: *mut CBufferSimple,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}process_msg"]
-    pub fn Chuck_VM_process_msg(this: *mut Chuck_VM, msg: *mut Chuck_Msg) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}get_reply"]
-    pub fn Chuck_VM_get_reply(this: *mut Chuck_VM) -> *mut Chuck_Msg;
-}
-extern "C" {
-    #[link_name = "\u{1}create_event_buffer"]
-    pub fn Chuck_VM_create_event_buffer(this: *mut Chuck_VM) -> *mut CBufferSimple;
-}
-extern "C" {
-    #[link_name = "\u{1}destroy_event_buffer"]
-    pub fn Chuck_VM_destroy_event_buffer(this: *mut Chuck_VM, buffer: *mut CBufferSimple);
-}
-extern "C" {
-    #[link_name = "\u{1}last_error"]
-    pub fn Chuck_VM_last_error(this: *const Chuck_VM) -> *const c_char;
-}
-extern "C" {
-    #[link_name = "\u{1}get_global_int"]
-    pub fn Chuck_VM_get_global_int(
-        this: *mut Chuck_VM,
-        name: string,
-        callback: Option<unsafe extern "C" fn(arg1: c_long)>,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}set_global_int"]
-    pub fn Chuck_VM_set_global_int(this: *mut Chuck_VM, name: string, val: c_long) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}get_global_float"]
-    pub fn Chuck_VM_get_global_float(
-        this: *mut Chuck_VM,
-        name: string,
-        callback: Option<unsafe extern "C" fn(arg1: f64)>,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}set_global_float"]
-    pub fn Chuck_VM_set_global_float(this: *mut Chuck_VM, name: string, val: f64) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}signal_global_event"]
-    pub fn Chuck_VM_signal_global_event(this: *mut Chuck_VM, name: string) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}broadcast_global_event"]
-    pub fn Chuck_VM_broadcast_global_event(this: *mut Chuck_VM, name: string) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}init_global_int"]
-    pub fn Chuck_VM_init_global_int(this: *mut Chuck_VM, name: string) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}get_global_int_value"]
-    pub fn Chuck_VM_get_global_int_value(this: *mut Chuck_VM, name: string) -> c_long;
-}
-extern "C" {
-    #[link_name = "\u{1}get_ptr_to_global_int"]
-    pub fn Chuck_VM_get_ptr_to_global_int(this: *mut Chuck_VM, name: string) -> *mut c_long;
-}
-extern "C" {
-    #[link_name = "\u{1}init_global_float"]
-    pub fn Chuck_VM_init_global_float(this: *mut Chuck_VM, name: string) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}get_global_float_value"]
-    pub fn Chuck_VM_get_global_float_value(this: *mut Chuck_VM, name: string) -> f64;
-}
-extern "C" {
-    #[link_name = "\u{1}get_ptr_to_global_float"]
-    pub fn Chuck_VM_get_ptr_to_global_float(this: *mut Chuck_VM, name: string) -> *mut f64;
-}
-extern "C" {
-    #[link_name = "\u{1}init_global_event"]
-    pub fn Chuck_VM_init_global_event(
-        this: *mut Chuck_VM,
-        name: string,
-        type_: *mut Chuck_Type,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}get_global_event"]
-    pub fn Chuck_VM_get_global_event(this: *mut Chuck_VM, name: string) -> *mut Chuck_Event;
-}
-extern "C" {
-    #[link_name = "\u{1}get_ptr_to_global_event"]
-    pub fn Chuck_VM_get_ptr_to_global_event(this: *mut Chuck_VM, name: string) -> *mut Chuck_Event;
-}
-extern "C" {
-    #[link_name = "\u{1}handle_global_queue_messages"]
-    pub fn Chuck_VM_handle_global_queue_messages(this: *mut Chuck_VM);
-}
-extern "C" {
-    #[link_name = "\u{1}carrier"]
-    pub fn Chuck_VM_carrier(this: *const Chuck_VM) -> *mut Chuck_Carrier;
-}
-extern "C" {
-    #[link_name = "\u{1}env"]
-    pub fn Chuck_VM_env(this: *const Chuck_VM) -> *mut Chuck_Env;
-}
-extern "C" {
-    #[link_name = "\u{1}chout"]
-    pub fn Chuck_VM_chout(this: *const Chuck_VM) -> *mut Chuck_IO_Chout;
-}
-extern "C" {
-    #[link_name = "\u{1}cherr"]
-    pub fn Chuck_VM_cherr(this: *const Chuck_VM) -> *mut Chuck_IO_Cherr;
-}
-extern "C" {
-    #[link_name = "\u{1}input_ref"]
-    pub fn Chuck_VM_input_ref(this: *mut Chuck_VM) -> *const f32;
-}
-extern "C" {
-    #[link_name = "\u{1}output_ref"]
-    pub fn Chuck_VM_output_ref(this: *mut Chuck_VM) -> *mut f32;
-}
-extern "C" {
-    #[link_name = "\u{1}spork"]
-    pub fn Chuck_VM_spork1(this: *mut Chuck_VM, shred: *mut Chuck_VM_Shred) -> *mut Chuck_VM_Shred;
-}
-extern "C" {
-    #[link_name = "\u{1}free"]
-    pub fn Chuck_VM_free(
-        this: *mut Chuck_VM,
-        shred: *mut Chuck_VM_Shred,
-        cascade: c_ulong,
-        dec: c_ulong,
-    ) -> c_ulong;
-}
-extern "C" {
-    #[link_name = "\u{1}dump"]
-    pub fn Chuck_VM_dump(this: *mut Chuck_VM, shred: *mut Chuck_VM_Shred);
-}
-extern "C" {
-    #[link_name = "\u{1}release_dump"]
-    pub fn Chuck_VM_release_dump(this: *mut Chuck_VM);
-}
-extern "C" {
-    #[link_name = "\u{1}Chuck_VM"]
-    pub fn Chuck_VM_Chuck_VM(this: *mut Chuck_VM);
-}
-impl Chuck_VM {
-    #[inline]
-    pub unsafe fn initialize(
-        &mut self,
-        srate: c_ulong,
-        dac_chan: c_ulong,
-        adc_chan: c_ulong,
-        adaptive: c_ulong,
-        halt: c_ulong,
-    ) -> c_ulong {
-        Chuck_VM_initialize(self, srate, dac_chan, adc_chan, adaptive, halt)
-    }
-    #[inline]
-    pub unsafe fn initialize_synthesis(&mut self) -> c_ulong {
-        Chuck_VM_initialize_synthesis(self)
-    }
-    #[inline]
-    pub unsafe fn setCarrier(&mut self, c: *mut Chuck_Carrier) -> c_ulong {
-        Chuck_VM_setCarrier(self, c)
-    }
-    #[inline]
-    pub unsafe fn shutdown(&mut self) -> c_ulong {
-        Chuck_VM_shutdown(self)
-    }
-    #[inline]
-    pub unsafe fn has_init(&mut self) -> c_ulong {
-        Chuck_VM_has_init(self)
-    }
-    #[inline]
-    pub unsafe fn start(&mut self) -> c_ulong {
-        Chuck_VM_start(self)
-    }
-    #[inline]
-    pub unsafe fn running(&mut self) -> c_ulong {
-        Chuck_VM_running(self)
-    }
-    #[inline]
-    pub unsafe fn stop(&mut self) -> c_ulong {
-        Chuck_VM_stop(self)
-    }
-    #[inline]
-    pub unsafe fn runningState(&mut self) -> *mut c_ulong {
-        Chuck_VM_runningState(self)
-    }
-    #[inline]
-    pub unsafe fn spork(
-        &mut self,
-        code: *mut Chuck_VM_Code,
-        parent: *mut Chuck_VM_Shred,
-        immediate: c_ulong,
-    ) -> *mut Chuck_VM_Shred {
-        Chuck_VM_spork(self, code, parent, immediate)
-    }
-    #[inline]
-    pub unsafe fn shreduler(&self) -> *mut Chuck_VM_Shreduler {
-        Chuck_VM_shreduler(self)
-    }
-    #[inline]
-    pub unsafe fn next_id(&mut self) -> c_ulong {
-        Chuck_VM_next_id(self)
-    }
-    #[inline]
-    pub unsafe fn srate(&self) -> c_ulong {
-        Chuck_VM_srate(self)
-    }
-    #[inline]
-    pub unsafe fn run(
-        &mut self,
-        numFrames: c_long,
-        input: *const f32,
-        output: *mut f32,
-    ) -> c_ulong {
-        Chuck_VM_run(self, numFrames, input, output)
-    }
-    #[inline]
-    pub unsafe fn compute(&mut self) -> c_ulong {
-        Chuck_VM_compute(self)
-    }
-    #[inline]
-    pub unsafe fn abort_current_shred(&mut self) -> c_ulong {
-        Chuck_VM_abort_current_shred(self)
-    }
-    #[inline]
-    pub unsafe fn invoke_static(&mut self, shred: *mut Chuck_VM_Shred) -> c_ulong {
-        Chuck_VM_invoke_static(self, shred)
-    }
-    #[inline]
-    pub unsafe fn gc(&mut self) {
-        Chuck_VM_gc(self)
-    }
-    #[inline]
-    pub unsafe fn gc1(&mut self, amount: c_ulong) {
-        Chuck_VM_gc1(self, amount)
-    }
-    #[inline]
-    pub unsafe fn queue_msg(&mut self, msg: *mut Chuck_Msg, num_msg: c_int) -> c_ulong {
-        Chuck_VM_queue_msg(self, msg, num_msg)
-    }
-    #[inline]
-    pub unsafe fn queue_event(
-        &mut self,
-        event: *mut Chuck_Event,
-        num_msg: c_int,
-        buffer: *mut CBufferSimple,
-    ) -> c_ulong {
-        Chuck_VM_queue_event(self, event, num_msg, buffer)
-    }
-    #[inline]
-    pub unsafe fn process_msg(&mut self, msg: *mut Chuck_Msg) -> c_ulong {
-        Chuck_VM_process_msg(self, msg)
-    }
-    #[inline]
-    pub unsafe fn get_reply(&mut self) -> *mut Chuck_Msg {
-        Chuck_VM_get_reply(self)
-    }
-    #[inline]
-    pub unsafe fn create_event_buffer(&mut self) -> *mut CBufferSimple {
-        Chuck_VM_create_event_buffer(self)
-    }
-    #[inline]
-    pub unsafe fn destroy_event_buffer(&mut self, buffer: *mut CBufferSimple) {
-        Chuck_VM_destroy_event_buffer(self, buffer)
-    }
-    #[inline]
-    pub unsafe fn last_error(&self) -> *const c_char {
-        Chuck_VM_last_error(self)
-    }
-    #[inline]
-    pub unsafe fn get_global_int(
-        &mut self,
-        name: string,
-        callback: Option<unsafe extern "C" fn(arg1: c_long)>,
-    ) -> c_ulong {
-        Chuck_VM_get_global_int(self, name, callback)
-    }
-    #[inline]
-    pub unsafe fn set_global_int(&mut self, name: string, val: c_long) -> c_ulong {
-        Chuck_VM_set_global_int(self, name, val)
-    }
-    #[inline]
-    pub unsafe fn get_global_float(
-        &mut self,
-        name: string,
-        callback: Option<unsafe extern "C" fn(arg1: f64)>,
-    ) -> c_ulong {
-        Chuck_VM_get_global_float(self, name, callback)
-    }
-    #[inline]
-    pub unsafe fn set_global_float(&mut self, name: string, val: f64) -> c_ulong {
-        Chuck_VM_set_global_float(self, name, val)
-    }
-    #[inline]
-    pub unsafe fn signal_global_event(&mut self, name: string) -> c_ulong {
-        Chuck_VM_signal_global_event(self, name)
-    }
-    #[inline]
-    pub unsafe fn broadcast_global_event(&mut self, name: string) -> c_ulong {
-        Chuck_VM_broadcast_global_event(self, name)
-    }
-    #[inline]
-    pub unsafe fn init_global_int(&mut self, name: string) -> c_ulong {
-        Chuck_VM_init_global_int(self, name)
-    }
-    #[inline]
-    pub unsafe fn get_global_int_value(&mut self, name: string) -> c_long {
-        Chuck_VM_get_global_int_value(self, name)
-    }
-    #[inline]
-    pub unsafe fn get_ptr_to_global_int(&mut self, name: string) -> *mut c_long {
-        Chuck_VM_get_ptr_to_global_int(self, name)
-    }
-    #[inline]
-    pub unsafe fn init_global_float(&mut self, name: string) -> c_ulong {
-        Chuck_VM_init_global_float(self, name)
-    }
-    #[inline]
-    pub unsafe fn get_global_float_value(&mut self, name: string) -> f64 {
-        Chuck_VM_get_global_float_value(self, name)
-    }
-    #[inline]
-    pub unsafe fn get_ptr_to_global_float(&mut self, name: string) -> *mut f64 {
-        Chuck_VM_get_ptr_to_global_float(self, name)
-    }
-    #[inline]
-    pub unsafe fn init_global_event(&mut self, name: string, type_: *mut Chuck_Type) -> c_ulong {
-        Chuck_VM_init_global_event(self, name, type_)
-    }
-    #[inline]
-    pub unsafe fn get_global_event(&mut self, name: string) -> *mut Chuck_Event {
-        Chuck_VM_get_global_event(self, name)
-    }
-    #[inline]
-    pub unsafe fn get_ptr_to_global_event(&mut self, name: string) -> *mut Chuck_Event {
-        Chuck_VM_get_ptr_to_global_event(self, name)
-    }
-    #[inline]
-    pub unsafe fn handle_global_queue_messages(&mut self) {
-        Chuck_VM_handle_global_queue_messages(self)
-    }
-    #[inline]
-    pub unsafe fn carrier(&self) -> *mut Chuck_Carrier {
-        Chuck_VM_carrier(self)
-    }
-    #[inline]
-    pub unsafe fn env(&self) -> *mut Chuck_Env {
-        Chuck_VM_env(self)
-    }
-    #[inline]
-    pub unsafe fn chout(&self) -> *mut Chuck_IO_Chout {
-        Chuck_VM_chout(self)
-    }
-    #[inline]
-    pub unsafe fn cherr(&self) -> *mut Chuck_IO_Cherr {
-        Chuck_VM_cherr(self)
-    }
-    #[inline]
-    pub unsafe fn input_ref(&mut self) -> *const f32 {
-        Chuck_VM_input_ref(self)
-    }
-    #[inline]
-    pub unsafe fn output_ref(&mut self) -> *mut f32 {
-        Chuck_VM_output_ref(self)
-    }
-    #[inline]
-    pub unsafe fn spork1(&mut self, shred: *mut Chuck_VM_Shred) -> *mut Chuck_VM_Shred {
-        Chuck_VM_spork1(self, shred)
-    }
-    #[inline]
-    pub unsafe fn free(
-        &mut self,
-        shred: *mut Chuck_VM_Shred,
-        cascade: c_ulong,
-        dec: c_ulong,
-    ) -> c_ulong {
-        Chuck_VM_free(self, shred, cascade, dec)
-    }
-    #[inline]
-    pub unsafe fn dump(&mut self, shred: *mut Chuck_VM_Shred) {
-        Chuck_VM_dump(self, shred)
-    }
-    #[inline]
-    pub unsafe fn release_dump(&mut self) {
-        Chuck_VM_release_dump(self)
-    }
-    #[inline]
-    pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
-        Chuck_VM_Chuck_VM(&mut __bindgen_tmp);
-        __bindgen_tmp
-    }
-}
-extern "C" {
-    #[link_name = "\u{1}Chuck_VM_destructor"]
-    pub fn Chuck_VM_Chuck_VM_destructor(this: *mut Chuck_VM);
-}
 pub const Chuck_Msg_Type_MSG_ADD: Chuck_Msg_Type = 1;
 pub const Chuck_Msg_Type_MSG_REMOVE: Chuck_Msg_Type = 2;
 pub const Chuck_Msg_Type_MSG_REMOVEALL: Chuck_Msg_Type = 3;
@@ -3686,7 +3152,7 @@ pub struct Chuck_Msg {
     pub replyA: c_ulong,
     pub replyB: c_ulong,
     pub replyC: *mut c_void,
-    pub args: *mut vector,
+    pub args: *mut Vec<f64>,
 }
 extern "C" {
     #[link_name = "\u{1}clear"]
@@ -3694,7 +3160,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}set"]
-    pub fn Chuck_Msg_set(this: *mut Chuck_Msg, vargs: *const vector);
+    pub fn Chuck_Msg_set(this: *mut Chuck_Msg, vargs: *const Vec<f64>);
 }
 extern "C" {
     #[link_name = "\u{1}Chuck_Msg"]
@@ -3710,12 +3176,12 @@ impl Chuck_Msg {
         Chuck_Msg_clear(self)
     }
     #[inline]
-    pub unsafe fn set(&mut self, vargs: *const vector) {
+    pub unsafe fn set(&mut self, vargs: *const Vec<f64>) {
         Chuck_Msg_set(self, vargs)
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Msg_Chuck_Msg(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -3736,14 +3202,14 @@ pub struct Chuck_Shell__bindgen_vtable(c_void);
 #[repr(C)]
 pub struct Chuck_Shell {
     pub vtable_: *const Chuck_Shell__bindgen_vtable,
-    pub vms: vector,
+    pub vms: Vec<f64>,
     pub process_vm: *mut Chuck_VM,
     pub current_vm: *mut Chuck_Shell_VM,
-    pub aliases: map,
-    pub variables: map,
-    pub commands: map,
-    pub allocated_commands: vector,
-    pub saved_code: map,
+    pub aliases: HashMap::new,
+    pub variables: HashMap::new,
+    pub commands: HashMap::new,
+    pub allocated_commands: Vec<f64>,
+    pub saved_code: HashMap::new,
     pub code: string,
     pub ui: *mut Chuck_Shell_UI,
     pub initialized: c_ulong,
@@ -3768,8 +3234,8 @@ pub struct Chuck_Shell_Command {
 #[repr(C)]
 pub struct Chuck_Shell_Command_VM {
     pub _base: Chuck_Shell_Command,
-    pub commands: map,
-    pub allocated_commands: vector,
+    pub commands: HashMap::new,
+    pub allocated_commands: Vec<f64>,
 }
 #[repr(C)]
 #[derive(Debug)]
@@ -3879,8 +3345,8 @@ pub struct Chuck_Shell_Command_Source {
 #[repr(C)]
 pub struct Chuck_Shell_Command_Code {
     pub _base: Chuck_Shell_Command,
-    pub commands: map,
-    pub allocated_commands: vector,
+    pub commands: HashMap::new,
+    pub allocated_commands: Vec<f64>,
 }
 #[repr(C)]
 #[derive(Debug)]
@@ -3961,7 +3427,7 @@ extern "C" {
         this: *mut Chuck_Shell,
         arg1: *const string,
         arg2: *mut string,
-        arg3: *mut vector,
+        arg3: *mut Vec<f64>,
     ) -> c_ulong;
 }
 extern "C" {
@@ -4028,7 +3494,7 @@ impl Chuck_Shell {
         &mut self,
         arg1: *const string,
         arg2: *mut string,
-        arg3: *mut vector,
+        arg3: *mut Vec<f64>,
     ) -> c_ulong {
         Chuck_Shell_do_glob(self, arg1, arg2, arg3)
     }
@@ -4062,7 +3528,7 @@ impl Chuck_Shell {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = uninitialized();
+        let mut __bindgen_tmp = MaybeUninit::uninitialized();
         Chuck_Shell_Chuck_Shell(&mut __bindgen_tmp);
         __bindgen_tmp
     }
@@ -4099,7 +3565,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VM_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4111,7 +3577,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMAdd_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4119,7 +3585,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMRemove_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4127,7 +3593,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMAttach_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4135,7 +3601,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMList_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4143,7 +3609,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMSwap_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4151,7 +3617,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_VMAttachAdd_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4159,7 +3625,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Add_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4171,7 +3637,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Remove_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4183,7 +3649,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Status_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4195,7 +3661,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Removeall_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4207,7 +3673,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Removelast_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4219,7 +3685,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Replace_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4231,7 +3697,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Kill_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4239,7 +3705,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Close_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4247,7 +3713,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Exit_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4255,7 +3721,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Ls_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4263,7 +3729,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Cd_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4271,7 +3737,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Pwd_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4279,7 +3745,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Alias_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4287,7 +3753,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Unalias_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4295,7 +3761,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Source_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4311,7 +3777,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Code_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4323,7 +3789,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeContext_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4331,7 +3797,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeSave_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4339,7 +3805,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeDelete_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4347,7 +3813,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeAdd_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4355,7 +3821,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeList_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4363,7 +3829,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodePrint_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4371,7 +3837,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeWrite_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4379,7 +3845,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_CodeRead_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4387,7 +3853,7 @@ extern "C" {
     #[link_name = "\u{1}execute"]
     pub fn Chuck_Shell_Command_Help_execute(
         this: *mut c_void,
-        arg1: *mut vector,
+        arg1: *mut Vec<f64>,
         arg2: *mut string,
     ) -> c_long;
 }
@@ -4444,7 +3910,7 @@ extern "C" {
     #[link_name = "\u{1}add_shred"]
     pub fn Chuck_Shell_Network_VM_add_shred(
         this: *mut c_void,
-        arg1: *const vector,
+        arg1: *const Vec<f64>,
         arg2: *mut string,
     ) -> c_ulong;
 }
@@ -4452,7 +3918,7 @@ extern "C" {
     #[link_name = "\u{1}remove_shred"]
     pub fn Chuck_Shell_Network_VM_remove_shred(
         this: *mut c_void,
-        arg1: *const vector,
+        arg1: *const Vec<f64>,
         arg2: *mut string,
     ) -> c_ulong;
 }
@@ -4468,7 +3934,7 @@ extern "C" {
     #[link_name = "\u{1}replace_shred"]
     pub fn Chuck_Shell_Network_VM_replace_shred(
         this: *mut c_void,
-        arg1: *const vector,
+        arg1: *const Vec<f64>,
         arg2: *mut string,
     ) -> c_ulong;
 }

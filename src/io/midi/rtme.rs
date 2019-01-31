@@ -139,7 +139,7 @@ impl<T> PartialEq for __BindgenUnionField<T> {
     }
 }
 impl<T> Eq for __BindgenUnionField<T> {}
-#[allow(unused_imports)]
+
 pub type nullptr_t = *const c_void;
 pub type string = basic_string<c_char>;
 pub type wstring = basic_string<u32>;
@@ -440,7 +440,7 @@ extern "C" {
     #[link_name = "\u{1}_ZSt15get_new_handlerv"]
     pub fn get_new_handler() -> new_handler;
 }
-#[allow(unused_imports)]
+
 #[repr(C)]
 #[derive(Debug)]
 pub struct exception_ptr {
@@ -1368,7 +1368,7 @@ pub struct __is_tuple_like_impl {
 pub struct __is_tuple_like {
     pub _address: u8,
 }
-#[allow(unused_imports)]
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __do_is_swappable_impl {
@@ -4139,7 +4139,7 @@ pub type priority_queue_const_reference = [u8; 0usize];
 pub type priority_queue_size_type = [u8; 0usize];
 pub type priority_queue_container_type<_Sequence> = _Sequence;
 pub type priority_queue_value_compare<_Compare> = _Compare;
-#[allow(unused_imports)]
+
 extern "C" {
     #[link_name = "\u{1}_ZN9__gnu_cxx27__verbose_terminate_handlerEv"]
     pub fn __verbose_terminate_handler();
@@ -4227,7 +4227,7 @@ pub type __normal_iterator_value_type = __normal_iterator___traits_type;
 pub type __normal_iterator_difference_type = __normal_iterator___traits_type;
 pub type __normal_iterator_reference = __normal_iterator___traits_type;
 pub type __normal_iterator_pointer = __normal_iterator___traits_type;
-#[allow(unused_imports)]
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _Iter_less_iter {
@@ -4380,7 +4380,7 @@ pub struct max_align_t {
     pub __bindgen_padding_0: u64,
     pub __max_align_ld: f64,
 }
-#[allow(unused_imports)]
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __cxa_refcounted_exception {
