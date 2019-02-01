@@ -1,6 +1,8 @@
 [package]
 name = "ruckus"
+description = "A memory-safe high-level interface for ChucK"
 version = "0.1.0"
+license = "Apache2 OR MIT"
 authors = ["Andrew Prentice <scalarwaves@null.net>"]
 edition = "2018"
 
@@ -17,5 +19,6 @@ nom = "4.2.0"
 regex = "1.1.0"
 rodio = "0.8.1"
 rosc = "0.1.5"
+ruck = { path = "ruck" }
 sdl2 = "0.32.1"
 sndfile-sys = "0.1.2"
