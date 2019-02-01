@@ -1,15 +1,13 @@
 #![feature(maybe_uninit)]
 #![feature(type_ascription)]
 #![feature(untagged_unions)]
-extern crate clap;
-extern crate chuck_sys;
-extern crate lalrpop;
+pub extern crate chuck_sys;
+#![feature(libc)]
+extern crate libc;
 extern crate midir;
 extern crate nom;
 extern crate regex;
 extern crate rodio;
 extern crate rosc;
-pub mod ck;
-mod dts;
-pub mod io;
-mod sys;
+extern crate sdl2;
+extern crate sndfile_sys;
