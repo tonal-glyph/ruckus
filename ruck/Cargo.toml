@@ -1,9 +1,18 @@
 [package]
 name = "ruck"
-version = "0.1.0"
+description = "A Rust wrapper around the ChucK command line interface"
+version = "0.2.0"
 authors = ["Andrew Prentice <scalarwaves@null.net>"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
 edition = "2018"
+exclude = ["justfile"]
+include = ["src/**/*", "Cargo.toml"]
+repository = "https://github.com/tonal-glyph/ruckus"
+documentation = "https://docs.rs/crate/ruck"
+keywords = ["cli", "chuck", "audio", "linux"]
+categories = ["command-line-utilities", "multimedia"]
 
-[dependencies]
-quicli = "0.4.0"
-structopt = "0.2.14"
+[[bin]]
+name = "ruck"
+path = "src/main.rs"

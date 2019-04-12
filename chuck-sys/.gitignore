@@ -1,0 +1,29 @@
+*.d
+*.o
+
+src/chuck
+src/chuck.output
+src/chuck.tab.c
+src/chuck.tab.h
+src/chuck.yy.c
+src/Release
+src/Debug
+
+.DS_Store
+project.xcworkspace
+xcuserdata
+
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+/target
+**/*.rs.bk
+.vscode/cquery_cached_index
+.vscode/ipch
+CMakeFiles
+.ninja_deps
+.ninja_log
+cmake_install.cmake
+CMakeCache.txt

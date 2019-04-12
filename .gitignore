@@ -4,7 +4,8 @@ tags
 cmake_install.cmake
 Win32
 CMakeFiles
-.vscode
+.vscode/cquery_cached_index
+.vscode/ipch
 CMakeCache.txt
 **/*.o
 **/*.d
@@ -31,7 +32,7 @@ doxygen.log
 .ccls-cache/**/*
 .ccls-cache
 .ninja*
-chuck-sys
+# chuck-sys
 cbindgen*
 achuck
 pchuck

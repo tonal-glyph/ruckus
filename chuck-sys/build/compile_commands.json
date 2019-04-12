@@ -1,0 +1,385 @@
+[
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/chuck.yy.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.yy.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.yy.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/chuck.tab.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.tab.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck.tab.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_absyn.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_absyn.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_absyn.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_carrier.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_carrier.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_carrier.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_compile.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_compile.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_compile.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_dl.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_dl.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_dl.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_emit.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_emit.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_emit.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_errmsg.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_errmsg.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_errmsg.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_frame.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_frame.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_frame.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_instr.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_instr.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_instr.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_io.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_io.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_io.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_lang.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_lang.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_lang.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_oo.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_oo.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_oo.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_otf.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_otf.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_otf.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_parse.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_parse.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_parse.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_scan.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_scan.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_scan.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_shell.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_shell.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_shell.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_stats.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_stats.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_stats.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_symbol.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_symbol.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_symbol.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_table.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_table.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_table.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_type.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_type.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_type.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_ugen.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_ugen.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_ugen.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_utils.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_utils.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_utils.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/chuck_vm.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_vm.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/chuck_vm.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/hidio_sdl.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/hidio_sdl.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/hidio_sdl.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/midiio_rtmidi.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/midiio_rtmidi.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/midiio_rtmidi.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/rtmidi.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/rtmidi.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/rtmidi.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/uana_extract.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/uana_extract.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/uana_extract.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/uana_xform.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/uana_xform.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/uana_xform.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ugen_filter.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_filter.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_filter.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ugen_osc.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_osc.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_osc.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ugen_stk.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_stk.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_stk.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ugen_xxx.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_xxx.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ugen_xxx.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ulib_machine.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_machine.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_machine.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ulib_math.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_math.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_math.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ulib_opsc.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_opsc.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_opsc.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ulib_regex.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_regex.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_regex.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/ulib_std.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_std.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/ulib_std.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_buffers.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_buffers.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_buffers.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_console.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_console.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_console.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_hid.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_hid.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_hid.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/util_math.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_math.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_math.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/util_network.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_network.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_network.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_opsc.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_opsc.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_opsc.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/util_raw.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_raw.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_raw.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_serial.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_serial.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_serial.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/util_sndfile.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_sndfile.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_sndfile.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_string.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_string.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_string.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/core/util_thread.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_thread.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_thread.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/util_xforms.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_xforms.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/util_xforms.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/address.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/address.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/address.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/blob.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/blob.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/blob.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/bundle.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/bundle.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/bundle.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/message.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/message.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/message.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/method.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/method.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/method.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/pattern_match.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/pattern_match.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/pattern_match.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/send.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/send.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/send.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/server.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/server.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/server.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/server_thread.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/server_thread.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/server_thread.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/cc   -O3 -march=native -std=c11 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -B chuck/src/ck -B chuck/src/src/ck/lo -B chuck/src/src/ck/rgx  -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -DUSE_XV -mtune=generic -fPIC -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -o CMakeFiles/chuck.dir/src/core/lo/timetag.c.o   -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/timetag.c",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/core/lo/timetag.c"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/host/chuck_audio.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/chuck_audio.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/chuck_audio.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/host/chuck_console.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/chuck_console.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/chuck_console.cpp"
+},
+
+{
+  "directory": "/home/dark/proj/chuck-src/ruckus/chuck-sys/build",
+  "command": "/usr/bin/c++    -O3 -march=native -std=c++14 -D__LINUX_ALSA__ -D__UNIX_JACK__ -D__PLATFORM_LINUX__ -fno-strict-aliasing  -D__CK_SNDFILE_NATIVE__ -DHAVE_CONFIG_H -I. -D_USE_AUTOCONF -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE=1 -D_REENTRANT -DUSE_ALSA -DUSE_DLTRICK_ALSA -DUSE_OSS -DUSE_NETWORK -DUSE_X11 -march=x86-64 -mtune=generic -fPIC  -pipe -fstack-protector-strong -fno-plt -B --sysroot -I./src/core -I./src/core/lo -I./src/core/regex -I./scripts -I/usr/include/SDL -I/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include   -std=gnu++17 -o CMakeFiles/chuck.dir/src/host/libchuck.cpp.o -c /home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/libchuck.cpp",
+  "file": "/home/dark/proj/chuck-src/ruckus/chuck-sys/src/host/libchuck.cpp"
+}
+]
