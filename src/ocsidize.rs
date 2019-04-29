@@ -17,10 +17,11 @@
 // option. All files in the project carrying such notice may not be copied,
 // modified, or distributed except according to those terms.
 
-//! `ruckus` is a creative coding toolkit for the ChucK language. It includes:
-//! * **ruckus** - This library, for handling ChucK VMs
-//! * **ruck** - A simple command line wrapper for the chuck binary
-//! * **ocsidize** - An Open Sound Control module with serde
+//! ocsidize is an Open Sound Control toolkit using serde
 
-/// Open Sound Control stuff
-pub mod ocsidize;
+extern crate osc_address;
+extern crate serde_bytes;
+extern crate serde_osc;
+use osc_address as oa;
+use serde_bytes as sb;
+use serde_osc as so;

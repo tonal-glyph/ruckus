@@ -1,28 +1,24 @@
 [package]
 name = "ruckus"
-description = "A creative coding toolkit for the ChucK language."
+description = "ChucK creative coding toolkit in Rust"
 version = "0.1.0"
-license = "Apache2 OR MIT"
 authors = ["Andrew Prentice <scalarwaves@null.net>"]
 edition = "2018"
-keywords = ["cli", "chuck", "audio", "linux"]
-repository = "https://github.com/tonal-glyph/ruckus"
-documentation = "https://docs.rs/crate/ruckus"
-categories = ["command-line-utilities", "multimedia"]
 
 [lib]
 name = "ruckus"
 path = "src/lib.rs"
 
+[[bin]]
+name = "ruck"
+path = "src/ruck.rs"
+
 [dependencies]
-chuck-sys = { version = "0.1.0", path = "chuck-sys" } #low-level bindings to libchuck
-cpal = "0.8.2"    #replaces rtaudio
-midir = "0.5.0"   #replaces rtmidi
+chuck-sys = { version = "0.1.0", path = "chuck-sys" } #ffi
 osc_address = "0.2.2" #type-safe abstraction over serde_osc
-rosc = "0.1.6"    #replaces CNMAT OSC-KIT & liblo
-ruck = { version = "0.2.0", path = "ruck" } #simple wrapper around chuck CLI
-sdl2 = "0.32.2"   #SDL for HID handling
 serde_bytes = "0.11.1" #for wrapping OSC blobs
 serde_osc = "0.4.2" #serialize OSC data
-serial = "0.4.0"  #serial port communication
-sndfile-sys = "0.2.0" #libsndfile
+
+[dev-dependencies]
+changelog = "0.3.3"  #generate changelog
+just = "0.4.2" #run build tasks
