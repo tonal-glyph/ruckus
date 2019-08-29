@@ -1,5 +1,25 @@
-bt='0'
-export RUST_BACKTRACE=bt
+bt:='0'
+export RUST_BACKTRACE:=bt
+
+# build chuck for linux alsa
+alsa:
+	@cd chuck
+	@cd src
+	pwd
+	@compiledb make -- linux-alsa
+	@echo 'Now run `sudo make install` in chuck/src directory'
+# build chuck for linux pulseaudio
+pulse:
+  @cd chuck/src
+  pwd
+  @compiledb make -- linux-pulse
+  @echo 'Now run `sudo make install` in chuck/src directory'
+# build chuck for linux jack
+jack:
+  @cd chuck/src
+  pwd
+  @compiledb make -- linux-pulse
+  @echo 'Now run `sudo make install` in chuck/src directory'
 # run clippy
 clip:
 	@cargo clippy
@@ -39,7 +59,7 @@ check:
 # watch for changes
 watch COMMAND='test':
 	@cargo watch --clear --exec {{COMMAND}}
-version = `sed -En 's/version[[:space:]]*=[[:space:]]*"([^"]+)"/v\1/p' Cargo.toml`
+version := `sed -En 's/version[[:space:]]*=[[:space:]]*"([^"]+)"/v\1/p' Cargo.toml`
 # publish to crates.io
 # publish: lint clippy test
 # 	git branch | grep '* master'
@@ -116,27 +136,6 @@ lexwin:
 bison:
     @echo 'Building parser'
     YACC=bison bison -dv -b src/chuck src/chuck.y
-# build alsa version of chuck CLI
-alsa:
-    @echo 'Building ChucK with ALSA support'
-    @cd ../chuck-sys/src && pwd
-    @make -j$(nproc) linux-alsa
-    @cp -v chuck ~/bin/achuck
-    @cd ../../chuck_sys/src && pwd && @rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c
-# build pulseaudio version of chuck CLI
-pulse:
-    @echo 'Building ChucK with PulseAudio support'
-    @cd ../chuck-sys/src && pwd
-    @make -j$(nproc) linux-pulse
-    @cp -v chuck ~/bin/pchuck
-    @cd ../../chuck_sys/src && pwd && @rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c
-# build jack version of chuck CLI
-jack:
-    @echo 'Building ChucK with JACK support'
-    @cd ../chuck-sys/src && pwd
-    @make -j$(nproc) linux-jack
-    @cp -v chuck ~/bin/jchuck
-    @cd ../../chuck_sys/src && pwd && @rm -v *.h* *.c *.lex *.y chuck.output lo/*.h lo/*.c regex/*.h regex/*.c
 # clean build artifacts
 cl:
     @echo 'Cleaning artifacts'

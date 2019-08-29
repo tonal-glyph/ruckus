@@ -3,18 +3,11 @@
         {
             "name": "Linux",
             "includePath": [
-                "/usr/include",
-                "/usr/local/include",
-                "/home/dark/.local/share/llvmenv/llvm-mirror/lib/clang/8.0.0/include",
-                "/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"
+                "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/g++",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
-            "compileCommands": "chuck-sys/build/compile_commands.json",
-            "configurationProvider": "vector-of-bool.cmake-tools"
+            "configurationProvider": "Default",
+            "compileCommands": "${workspaceFolder}/target/rls/x86_64-unknown-linux-gnu/debug/build/chuck-sys-891d686e9878e34a/out/build/compile_commands.json"
         }
     ],
     "version": 4

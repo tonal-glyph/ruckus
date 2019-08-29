@@ -18,9 +18,7 @@
 // modified, or distributed except according to those terms.
 
 //! `ruckus` is a creative coding toolkit for the ChucK language. It includes:
-//! * **ruckus** - This library, for handling ChucK VMs
-//! * **ruck** - A simple command line wrapper for the chuck binary
-//! * **ocsidize** - An Open Sound Control module with serde
-
-/// Open Sound Control stuff
-pub mod ocsidize;
+//! * **ruckus** - lib - This library, for handling ChucK VMs
+//! * **ruck** - binary - A simple command line wrapper for the chuck binary
+extern crate chuck_sys;
+use chuck_sys::*;

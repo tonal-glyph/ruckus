@@ -4,11 +4,13 @@ extern crate bindgen;
 // extern crate cc;
 // #[macro_use]
 // extern crate cfg_if;
+
 use std::fs;
 use std::path::PathBuf;
 use std::process::Command;
 use std::io::Write;
 use cmake::Config;
+
 /// Generate ffi.rs from ChucK C wrapper API
 fn unixbind() {
     let bindings = bindgen::Builder::default()
@@ -34,7 +36,12 @@ fn unixbind() {
         .whitelist_type("Chuck_IO_Serial::.*")
         .whitelist_type("CHUCK_PARAM.*")
         .whitelist_type("Chuck_VM::.*")
-        .whitelist_type("ChucK::.*")
+        .whitelist_type("ChucK")
+        .whitelist_type("Chuck_Carrier")
+        .whitelist_type("Chuck_Compiler")
+        .whitelist_type("Chuck_VM")
+        .whitelist_type("Chuck_IO_Serial")
+        .whitelist_type("HidInManager")
         .whitelist_type("CK_LOG.*")
         .whitelist_type("ck_param_type")
         .whitelist_type("HidInManager::.*")
@@ -44,8 +51,11 @@ fn unixbind() {
         .whitelist_var("ChucK::.*")
         .whitelist_var("MAXPATHLEN")
         .whitelist_var("t_CK.*")
+        .whitelist_type("sz_.*")
+        .whitelist_type("kindof_.*")
+        .blacklist_type("_IO.*")
         .opaque_type("std::.*")
-        .header("./c_chuck.h")
+        .header("../chuck/src/core/c_chuck.h")
         .clang_arg("-B")
         .clang_arg("--sysroot")
         .clang_arg("-D__PLATFORM_LINUX__")
@@ -63,6 +73,8 @@ fn unixbind() {
         .clang_arg("-I../chuck/src/core/")
         .clang_arg("-I../chuck/src/host/")
         .clang_arg("-I../chuck/src/core/lo")
+        .clang_arg("-I/usr/include/c++/8.3.0")
+        .clang_arg("-I/usr/include/c++/8.3.0/bits")
         // .clang_arg("-I../chuck/src/core/regex") #windows only
         .clang_arg("-O3")
         .clang_arg("-mtune=generic")
@@ -82,6 +94,7 @@ fn unixbind() {
         Err(e) => panic!("Unable to sync: {}", e)
     };
 }
+
 /// Build libchuck as a static or dynamic library (default static)
 fn unixbuild() {
     // Compile C/C++ sources
@@ -99,9 +112,6 @@ fn unixbuild() {
         .args(&["-f", "../chuck/src/makefile", "linux-alsa"])
         .output()
         .expect("failed to run make");
-    // let _dst = Config::new("libchuck")
-    //     .generator("Ninja") // for speed
-    //     .build();
 }
 
 fn main() {
@@ -119,14 +129,18 @@ fn main() {
         .define("CMAKE_INSTALL_PREFIX", "/tmp")
         .cflag("-D__PLATFORM_LINUX__")
         .cflag("-D__CK_SNDFILE_NATIVE__")
+        .cflag("-D__CHUCK_NO_MAIN__")
+        .cxxflag("-D__PLATFORM_LINUX__")
+        .cxxflag("-D__CK_SNDFILE_NATIVE__")
+        .cxxflag("-D__CHUCK_NO_MAIN__")
         .no_build_target(true)
-        .generator("Ninja") // for speed
+        // .generator("Ninja") // for speed
         .build();
     dotenv::dotenv().ok();
     #[cfg(unix)]
-    unixbind();
-    #[cfg(unix)]
     unixbuild();
+    #[cfg(unix)]
+    unixbind();
     println!("cargo:rustc-link-search=native={}", dst.display());
     #[cfg(feature = "stat")]
     println!("cargo:rustc-link-lib=static=libchuck");

@@ -13,22 +13,26 @@ insert_final_newline = true
 [*.py]
 indent_size = 4
 max_line_length = 80
+charset = utf-8
 
 # C/C++
 [*.c]
 indent_size = 4
 max_line_length = 80
 indent_style = space
+charset = utf-8
 
 [*.cpp]
 indent_size = 4
 max_line_length = 80
 indent_style = space
+charset = utf-8
 
 [*.h]
 indent_size = 4
 max_line_length = 80
 indent_style = space
+charset = utf-8
 
 # The JSON files contain newlines inconsistently
 [*.json]
@@ -43,10 +47,12 @@ insert_final_newline = ignore
 [Makefile]
 indent_size = 4
 indent_style = tab
+charset = utf-8
 
 # Batch files use tabs for indentation
 [*.bat]
 indent_style = tab
+charset = utf-8
 
 [*.md]
 trim_trailing_whitespace = false
@@ -55,6 +61,6 @@ charset = utf-8
 [*.rs]
 indent_size = 4
 indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
+insert_final_newline = false
+trim_trailing_whitespace = false
 charset = utf-8

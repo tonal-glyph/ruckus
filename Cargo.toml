@@ -15,10 +15,16 @@ path = "src/ruck.rs"
 
 [dependencies]
 chuck-sys = { version = "0.1.0", path = "chuck-sys" } #ffi
-osc_address = "0.2.2" #type-safe abstraction over serde_osc
-serde_bytes = "0.11.1" #for wrapping OSC blobs
-serde_osc = "0.4.2" #serialize OSC data
+osc_address = "0.2.2"
+midir = "0.5.0"
+rsoundio = "0.1.6"
+serde_bytes = "0.11.2"
+serde_osc = "0.4.2"
+serial = "0.4.0"
+sndfile-sys = "0.2.0"
 
 [dev-dependencies]
-changelog = "0.3.3"  #generate changelog
-just = "0.4.2" #run build tasks
+assert_cmd = "0.11.1"
+changelog = "0.3.3"
+just = "0.4.4"
+

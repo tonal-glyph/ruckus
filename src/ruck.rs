@@ -11,7 +11,10 @@
 //! undocumented `--caution-to-the-wind` flag is always passed to allow interoperability
 //! with Rust, as this allows using the Std.system() function from ChucK's standard library
 //! which is used to run system commands.
-
+//!
+//! Disclaimer: This code has not been tested for security, and allows the ChucK language to
+//! run system commands and all that implies. It is a hackish tool for rapid prototyping
+#![allow(unused_imports)]
 use std::env;
 use std::process::Command;
 
@@ -29,13 +32,14 @@ pub fn main() {
 
 #[cfg(test)]
 mod tests {
+    use std::process::Command;
     #[test]
-    fn echo() {
-        Command::new("ruck")
-            .arg("./tests/echo.ck")
+    fn test_system_echo() {
+        Command::new("cargo")
+            .args(&["run", "--bin", "ruck", "--", "./tests/echo.ck"])
             .spawn()
             .expect("failed to run ruck")
             .wait()
-            .expect("failt to wait for subprocess");
+            .expect("failed to wait for subprocess");
     }
 }
