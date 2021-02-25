@@ -1,3 +1,6 @@
 [submodule "chuck"]
 	path = chuck
-	url = https://github.com/tonal-glyph/chuck.git
+	url = https://github.com/scalarwaves/chuck.git
+[submodule "lick"]
+	path = ck/lick
+	url = https://github.com/heuermh/lick.git
